@@ -134,6 +134,7 @@ async function handleLeadSubmission(req: NextRequest) {
       });
     } catch (fetchErr: any) {
       clearTimeout(timeoutId);
+      console.error('[CRM API Error] Fetch network failure to URL:', crmUrl, fetchErr);
       return NextResponse.json(
         {
           ok: false,
@@ -151,7 +152,8 @@ async function handleLeadSubmission(req: NextRequest) {
 
     try {
       crmResult = await crmResponse.json();
-    } catch {
+    } catch (parseErr) {
+      console.error('[CRM API Error] Failed to parse JSON response. Status:', crmStatus, parseErr);
       crmResult = null;
     }
 
@@ -163,6 +165,13 @@ async function handleLeadSubmission(req: NextRequest) {
         message: crmResult.message || 'Lead saved in CRM.',
       });
     }
+
+    // Log unexpected responses with their exact status and return values to aid debugging in production logs
+    console.error('[CRM API Rejection] CRM did not return success.', {
+      status: crmStatus,
+      payload_submitted: crmPayload,
+      crm_response_body: crmResult,
+    });
 
     if (crmStatus === 422) {
       return NextResponse.json(
@@ -196,6 +205,7 @@ async function handleLeadSubmission(req: NextRequest) {
       { status: 500 }
     );
   } catch (err: any) {
+    console.error('[CRM API Exception] Unhandled server error while processing lead:', err);
     return NextResponse.json(
       {
         ok: false,
