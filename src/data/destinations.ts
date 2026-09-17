@@ -32,7 +32,7 @@ export const DOMESTIC_DESTINATIONS: DestinationCardItem[] = [
     region: 'south',
     duration: '4N - 7N',
     price: 14999,
-    image: 'https://images.unsplash.com/photo-1600100397608-f010e423b971?auto=format&fit=crop&w=1200&q=90',
+    image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/zablanca_clicks-Y7UIBtbVywA-unsplash.jpg',
   },
 ];
 

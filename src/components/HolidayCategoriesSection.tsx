@@ -52,17 +52,17 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
     },
     {
       id: 'adventure',
-      title: 'Trekking & Nature Adventures',
-      subtitle: 'Wildlife trails, cascades & mountain passes',
+      title: 'Luxury Holidays',
+      subtitle: 'Where Every Journey Becomes an Extraordinary Experience.',
       icon: <Mountain className="w-5 h-5 text-white" />,
-      image: 'https://images.unsplash.com/photo-1546548970-71785318a17b?auto=format&fit=crop&w=1200&q=85',
+      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/hehe.png',
     },
     {
       id: 'educational',
-      title: 'Experiential Cultural Tours',
-      subtitle: 'Tea garden heritage, folklore & cuisine',
+      title: 'School & College Tours',
+      subtitle: 'Where Learning Meets Adventure.',
       icon: <Compass className="w-5 h-5 text-white" />,
-      image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=85',
+      image: 'https://ynmlhnp2pxszpbts.public.blob.vercel-storage.com/uuu.png',
     },
   ];
 

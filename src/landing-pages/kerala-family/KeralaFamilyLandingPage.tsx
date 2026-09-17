@@ -30,7 +30,7 @@ export const KeralaFamilyLandingPage: React.FC<KeralaFamilyLandingPageProps> = (
   const [selectedPackageForModal, setSelectedPackageForModal] = useState<PackageItem | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState<boolean>(false);
   const [quotePackageId, setQuotePackageId] = useState<string>('pkg-6n7d');
-  const [isInitialLoading, setIsInitialLoading] = useState<boolean>(true);
+  const [isInitialLoading, setIsInitialLoading] = useState<boolean>(false);
 
   // Initial page load smooth transition
   useEffect(() => {
