@@ -20,10 +20,6 @@ import { PackagesPage } from './components/PackagesPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { AboutUsPage } from './components/AboutUsPage';
 import { ContactUsPage } from './components/ContactUsPage';
-import { KeralaLandingPage } from './landing-pages/kerala/KeralaLandingPage';
-import { KeralaHoneymoonLandingPage } from './landing-pages/kerala-honeymoon/KeralaHoneymoonLandingPage';
-import { KeralaFamilyLandingPage } from './landing-pages/kerala-family/KeralaFamilyLandingPage';
-import { KeralaSeniorLandingPage } from './landing-pages/kerala-senior/KeralaSeniorLandingPage';
 import { WhatsAppModal } from './components/WhatsAppModal';
 
 interface RouteMetadata {
@@ -229,31 +225,7 @@ export default function App() {
         )}
 
         {/* 2. Route Switching */}
-        {currentPath === '/kerala-senior-citizen-tours' ? (
-          <main>
-            <KeralaSeniorLandingPage
-              onBackToHome={() => navigateTo('/')}
-            />
-          </main>
-        ) : currentPath === '/kerala-family-tours' ? (
-          <main>
-            <KeralaFamilyLandingPage
-              onBackToHome={() => navigateTo('/')}
-            />
-          </main>
-        ) : currentPath === '/kerala-honeymoon' ? (
-          <main>
-            <KeralaHoneymoonLandingPage
-              onBackToHome={() => navigateTo('/')}
-            />
-          </main>
-        ) : currentPath === '/kerala' ? (
-          <main>
-            <KeralaLandingPage
-              onBackToHome={() => navigateTo('/')}
-            />
-          </main>
-        ) : currentPath === '/contact-us' ? (
+        {currentPath === '/contact-us' ? (
           <main>
             <ContactUsPage
               onBackToHome={() => navigateTo('/')}

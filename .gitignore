@@ -7,3 +7,5 @@ coverage/
 .env*
 !.env.example
 bun.lock
+.next/
+next-env.d.ts
