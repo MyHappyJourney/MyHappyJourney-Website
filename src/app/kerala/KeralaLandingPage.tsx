@@ -20,6 +20,7 @@ import { StickyMobileCTA } from './components/StickyMobileCTA';
 import { Footer } from './components/Footer';
 import { PackageItem } from './types';
 import { Loader } from './components/Loader';
+import { WhatsAppModal } from '../../components/WhatsAppModal';
 
 interface KeralaLandingPageProps {
   onBackToHome?: () => void;
@@ -30,6 +31,23 @@ export const KeralaLandingPage: React.FC<KeralaLandingPageProps> = ({ onBackToHo
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState<boolean>(false);
   const [quotePackageId, setQuotePackageId] = useState<string>('pkg-6n7d');
   const [isInitialLoading, setIsInitialLoading] = useState<boolean>(false);
+
+  // Global WhatsApp Chat Modal state
+  const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState<boolean>(false);
+  const [whatsAppDestination, setWhatsAppDestination] = useState<string>('Kerala');
+  const [whatsAppDefaultMsg, setWhatsAppDefaultMsg] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    const handleOpenWhatsApp = (e: any) => {
+      const detail = e.detail || {};
+      setWhatsAppDestination(detail.destination || 'Kerala');
+      setWhatsAppDefaultMsg(detail.defaultMessage);
+      setIsWhatsAppModalOpen(true);
+    };
+
+    window.addEventListener('open-whatsapp-modal', handleOpenWhatsApp);
+    return () => window.removeEventListener('open-whatsapp-modal', handleOpenWhatsApp);
+  }, []);
 
   // Initial page load smooth transition
   useEffect(() => {
@@ -150,6 +168,14 @@ export const KeralaLandingPage: React.FC<KeralaLandingPageProps> = ({ onBackToHo
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
         preselectedPackageId={quotePackageId}
+      />
+
+      {/* WhatsApp Chat Modal Popup */}
+      <WhatsAppModal
+        isOpen={isWhatsAppModalOpen}
+        onClose={() => setIsWhatsAppModalOpen(false)}
+        destinationTitle={whatsAppDestination}
+        defaultMessage={whatsAppDefaultMsg}
       />
 
     </div>
