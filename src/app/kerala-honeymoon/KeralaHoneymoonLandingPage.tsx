@@ -14,7 +14,7 @@ import { InclusionsExclusions } from './components/InclusionsExclusions';
 import { WhyBook } from './components/WhyBook';
 import { ReadyToExploreBanner } from './components/ReadyToExploreBanner';
 import { Reviews } from './components/Reviews';
-import { ExperienceCarousel } from './components/ExperienceCarousel';
+import { VideoTestimonials } from '../../components/VideoTestimonials';
 import { FAQ } from './components/FAQ';
 import { StickyMobileCTA } from './components/StickyMobileCTA';
 import { Footer } from './components/Footer';
@@ -149,8 +149,8 @@ export const KeralaHoneymoonLandingPage: React.FC<KeralaHoneymoonLandingPageProp
           {/* Ready to Explore Kerala Flash Sale Parallax Banner */}
           <ReadyToExploreBanner onQuoteClick={() => openQuoteModal()} />
 
-          {/* 9. Real Travel Experiences Automatic Carousel */}
-          <ExperienceCarousel onQuoteClick={() => openQuoteModal()} />
+          {/* 9. Guest Diaries & Video Testimonials */}
+          <VideoTestimonials />
 
           {/* 10. Frequently Asked Questions (FAQs) */}
           <FAQ />
