@@ -27,7 +27,7 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
       title: 'Romantic & Honeymoon',
       subtitle: 'Secluded retreats & candlelit cruises',
       icon: <Heart className="w-5 h-5 text-white fill-white" />,
-      image: '/images/725f2b11-0681-454f-889c-a4f9966cc350.png',
+      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/picnu-N8HuJRTKUSA-unsplash.jpg',
     },
     {
       id: 'family',
@@ -41,28 +41,28 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
       title: 'Group Tours',
       subtitle: 'Seamless private coaches & group bonding',
       icon: <Briefcase className="w-5 h-5 text-white" />,
-      image: '/images/chatt.png',
+      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/chatt.png',
     },
     {
       id: 'senior',
       title: 'Senior Citizen Tours',
       subtitle: 'Comfortable paced itineraries & caring support',
       icon: <Crown className="w-5 h-5 text-white" />,
-      image: '/images/chat.png',
+      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/chat.png',
     },
     {
       id: 'adventure',
       title: 'Luxury Holidays',
       subtitle: 'Where Every Journey Becomes an Extraordinary Experience.',
       icon: <Mountain className="w-5 h-5 text-white" />,
-      image: '/images/hehe.png',
+      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/hehe.png',
     },
     {
       id: 'educational',
       title: 'School & College Tours',
       subtitle: 'Where Learning Meets Adventure.',
       icon: <Compass className="w-5 h-5 text-white" />,
-      image: '/images/uuu.png',
+      image: 'https://ynmlhnp2pxszpbts.public.blob.vercel-storage.com/uuu.png',
     },
   ];
 

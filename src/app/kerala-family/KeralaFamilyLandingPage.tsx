@@ -14,7 +14,7 @@ import { InclusionsExclusions } from './components/InclusionsExclusions';
 import { WhyBook } from './components/WhyBook';
 import { ReadyToExploreBanner } from './components/ReadyToExploreBanner';
 import { Reviews } from './components/Reviews';
-import { VideoTestimonials } from '../../components/VideoTestimonials';
+import { ExperienceCarousel } from './components/ExperienceCarousel';
 import { GroupDiscountBanner } from './components/GroupDiscountBanner';
 import { FAQ } from './components/FAQ';
 import { StickyMobileCTA } from './components/StickyMobileCTA';
@@ -141,9 +141,6 @@ export const KeralaFamilyLandingPage: React.FC<KeralaFamilyLandingPageProps> = (
           {/* 6. Loved By 5000+ Happy Travellers (Customer Reviews) */}
           <Reviews />
 
-          {/* Video Testimonials Section */}
-          <VideoTestimonials />
-
           {/* 7. Package Inclusions & Exclusions */}
           <InclusionsExclusions />
 
@@ -152,6 +149,9 @@ export const KeralaFamilyLandingPage: React.FC<KeralaFamilyLandingPageProps> = (
 
           {/* Ready to Explore Kerala Flash Sale Parallax Banner */}
           <ReadyToExploreBanner onQuoteClick={() => openQuoteModal()} />
+
+          {/* 9. Real Travel Experiences Automatic Carousel */}
+          <ExperienceCarousel onQuoteClick={() => openQuoteModal()} />
 
           {/* 10. Frequently Asked Questions (FAQs) */}
           <FAQ />

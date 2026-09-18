@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
       {/* Background Hero Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-munnar-tea.jpg"
+          src="https://hczb7fxersozfdoh.public.blob.vercel-storage.com/ravi-sangar-dfB4L6PfS4w-unsplash.jpg"
           alt="Romantic Kerala Honeymoon Backwaters"
           className="w-full h-full object-cover object-center opacity-100"
           referrerPolicy="no-referrer"
@@ -133,6 +133,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
 
               <CrmLeadForm
                 destination="Kerala Honeymoon"
+                instanceId="kerala-honeymoon-hero"
                 durations={KERALA_DURATION_OPTIONS}
                 selectedDuration={selectedDuration}
                 formTitle="Get Your Romantic Honeymoon Quote"

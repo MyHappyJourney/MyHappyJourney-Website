@@ -13,7 +13,7 @@ import { InclusionsExclusions } from './components/InclusionsExclusions';
 import { WhyBook } from './components/WhyBook';
 import { ReadyToExploreBanner } from './components/ReadyToExploreBanner';
 import { Reviews } from './components/Reviews';
-import { VideoTestimonials } from '../../components/VideoTestimonials';
+import { ExperienceCarousel } from './components/ExperienceCarousel';
 import { GroupDiscountBanner } from './components/GroupDiscountBanner';
 import { FAQ } from './components/FAQ';
 import { StickyMobileCTA } from './components/StickyMobileCTA';
@@ -131,9 +131,6 @@ export const KeralaLandingPage: React.FC<KeralaLandingPageProps> = ({ onBackToHo
         {/* 6. Reviews */}
         <Reviews />
 
-        {/* Video Testimonials Section */}
-        <VideoTestimonials />
-
         {/* 7. Package Inclusions & Exclusions */}
         <InclusionsExclusions />
 
@@ -142,6 +139,9 @@ export const KeralaLandingPage: React.FC<KeralaLandingPageProps> = ({ onBackToHo
 
         {/* 9. Flash Sale Parallax Banner */}
         <ReadyToExploreBanner onQuoteClick={() => openQuoteModal()} />
+
+        {/* 10. Real Travel Experiences Carousel */}
+        <ExperienceCarousel onQuoteClick={() => openQuoteModal()} />
 
         {/* 11. FAQs */}
         <FAQ />
