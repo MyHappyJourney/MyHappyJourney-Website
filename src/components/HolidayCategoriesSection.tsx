@@ -34,7 +34,7 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
       title: 'Family Holiday Escapes',
       subtitle: 'Spacious stays & multi-generational fun',
       icon: <Users className="w-5 h-5 text-white" />,
-      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/images%20%283%29.jpeg',
+      image: '/images/kk.png',
     },
     {
       id: 'group',
