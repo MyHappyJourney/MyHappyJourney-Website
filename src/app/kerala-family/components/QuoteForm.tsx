@@ -20,6 +20,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ preselectedPackageId }) =>
         <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-10 border border-indigo-200 relative overflow-hidden">
           <CrmLeadForm
             destination="Kerala Family Tours"
+            instanceId="kerala-family-footer"
             durations={KERALA_DURATION_OPTIONS}
             selectedDuration={selectedDuration}
             formTitle="Request Your Kerala Family Holiday Plan"
