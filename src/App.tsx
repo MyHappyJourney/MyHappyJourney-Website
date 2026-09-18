@@ -20,6 +20,10 @@ import { PackagesPage } from './components/PackagesPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { AboutUsPage } from './components/AboutUsPage';
 import { ContactUsPage } from './components/ContactUsPage';
+import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
+import { CookiePolicyPage } from './components/CookiePolicyPage';
+import { CancellationRefundPage } from './components/CancellationRefundPage';
+import { TermsConditionsPage } from './components/TermsConditionsPage';
 import { WhatsAppModal } from './components/WhatsAppModal';
 
 interface RouteMetadata {
@@ -28,6 +32,26 @@ interface RouteMetadata {
 }
 
 const ROUTE_METADATA: Record<string, RouteMetadata> = {
+  '/terms-conditions': {
+    title: 'Terms & Booking Conditions | MyHappyJourney',
+    description:
+      'Read the Terms & Booking Conditions of MyHappyJourney. Learn about terms applicable to enquiries, bookings, payment terms, and liability guidelines.',
+  },
+  '/cancellation-refund': {
+    title: 'Cancellation & Refund Policy | MyHappyJourney',
+    description:
+      'Read the Cancellation & Refund Policy of MyHappyJourney. Learn about terms applicable to cancellations, refunds, booking modifications, and timelines.',
+  },
+  '/cookie-policy': {
+    title: 'Cookie Policy | MyHappyJourney',
+    description:
+      'Read the Cookie Policy of MyHappyJourney. Learn how we use cookies and tracking technologies to improve, secure, and personalize your travel planning experience.',
+  },
+  '/privacy-policy': {
+    title: 'Privacy Policy | MyHappyJourney',
+    description:
+      'Read the privacy policy of MyHappyJourney. Learn how we collect, use, store, and protect your personal information when using our travel services.',
+  },
   '/': {
     title: 'MyHappyJourney — Handcrafted Kerala Tour Packages & Luxury Holidays',
     description:
@@ -91,6 +115,18 @@ export default function App() {
     }
     if (path === '/kerala' || path.startsWith('/kerala')) {
       return '/kerala';
+    }
+    if (path === '/terms-conditions' || path.startsWith('/terms-conditions')) {
+      return '/terms-conditions';
+    }
+    if (path === '/privacy-policy' || path.startsWith('/privacy-policy')) {
+      return '/privacy-policy';
+    }
+    if (path === '/cancellation-refund' || path.startsWith('/cancellation-refund')) {
+      return '/cancellation-refund';
+    }
+    if (path === '/cookie-policy' || path.startsWith('/cookie-policy')) {
+      return '/cookie-policy';
     }
     if (path === '/contact-us' || path.startsWith('/contact-us')) {
       return '/contact-us';
@@ -225,7 +261,32 @@ export default function App() {
         )}
 
         {/* 2. Route Switching */}
-        {currentPath === '/contact-us' ? (
+        {currentPath === '/terms-conditions' ? (
+          <main>
+            <TermsConditionsPage
+              onBackToHome={() => navigateTo('/')}
+              onNavigatePolicy={(path) => navigateTo(path)}
+            />
+          </main>
+        ) : currentPath === '/privacy-policy' ? (
+          <main>
+            <PrivacyPolicyPage
+              onBackToHome={() => navigateTo('/')}
+            />
+          </main>
+        ) : currentPath === '/cancellation-refund' ? (
+          <main>
+            <CancellationRefundPage
+              onBackToHome={() => navigateTo('/')}
+            />
+          </main>
+        ) : currentPath === '/cookie-policy' ? (
+          <main>
+            <CookiePolicyPage
+              onBackToHome={() => navigateTo('/')}
+            />
+          </main>
+        ) : currentPath === '/contact-us' ? (
           <main>
             <ContactUsPage
               onBackToHome={() => navigateTo('/')}

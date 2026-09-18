@@ -109,11 +109,13 @@ export const Footer: React.FC<FooterProps> = ({ onQuoteClick }) => {
             <span>by <strong className="text-gray-300 font-bold">MyHappyJourney</strong></span>
           </p>
           <div className="flex items-center gap-4 text-[11px]">
-            <a href="#" className="hover:underline">Privacy Policy</a>
+            <a href="/privacy-policy" className="hover:underline">Privacy Policy</a>
             <span>•</span>
-            <a href="#" className="hover:underline">Terms of Service</a>
+            <a href="/cookie-policy" className="hover:underline">Cookie Policy</a>
             <span>•</span>
-            <a href="#" className="hover:underline">Cancellation Rules</a>
+            <a href="/terms-conditions" className="hover:underline">Terms of Service</a>
+            <span>•</span>
+            <a href="/cancellation-refund" className="hover:underline">Cancellation Rules</a>
           </div>
         </div>
 
