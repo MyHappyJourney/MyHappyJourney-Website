@@ -27,7 +27,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
     price: 15999,
     originalPrice: 19999,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/gaurav-kumar-vAFqjkz0oPQ-unsplash.jpg",
+    image: "/images/package-4n5d-tea-plantations.jpg",
     highlights: [
       "2 Nights in scenic Munnar Hill Station",
       "Periyar Wildlife Sanctuary in Thekkady",
@@ -58,7 +58,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 20999,
     originalPrice: 26999,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/kunal-kalra-0vS3dp4mo9U-unsplash.jpg",
+    image: "/images/package-5n6d-houseboat.jpg",
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
       "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
@@ -91,7 +91,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22999,
     originalPrice: 28999,
     isPopular: true,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/abhishek-singh-t0MLNrCLsL4-unsplash.jpg",
+    image: "/images/package-6n7d-athirappilly-falls.jpg",
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
@@ -124,7 +124,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 24499,
     originalPrice: 30999,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/ravi-chembula-RCRxQOyPzaM-unsplash%20%281%29.jpg",
+    image: "/images/package-7n8d-kathakali.jpg",
     highlights: [
       "1 Night Cochin Heritage & Marine Drive",
       "2 Nights Munnar Tea Gardens & Waterfalls",
@@ -501,7 +501,7 @@ export const DESTINATIONS: DestinationItem[] = [
     id: "dest-munnar",
     name: "Munnar",
     tagline: "The Misty Tea Garden Capital of South India",
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/gaurav-kumar-vAFqjkz0oPQ-unsplash.jpg",
+    image: "/images/package-4n5d-tea-plantations.jpg",
     highlights: ["Eravikulam National Park (Nilgiri Tahr)", "Mattupetty Dam & Lake", "Echo Point & Tea Museum", "Cheeyappara Waterfalls"],
     idealFor: "Honeymooners, Nature Enthusiasts, Families",
     bestSeason: "September to May",
@@ -541,7 +541,7 @@ export const DESTINATIONS: DestinationItem[] = [
     id: "dest-cochin",
     name: "Kochi (Cochin)",
     tagline: "Queen of the Arabian Sea & Historic Heritage Harbor",
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/abhishek-singh-t0MLNrCLsL4-unsplash.jpg",
+    image: "/images/package-6n7d-athirappilly-falls.jpg",
     highlights: ["Iconic Chinese Fishing Nets", "Historic Fort Kochi & Jewish Synagogue", "Mattancherry Dutch Palace", "Marine Drive Sunset Promenade"],
     idealFor: "History Buffs, Shoppers, Art & Food Aficionados",
     bestSeason: "September to May",

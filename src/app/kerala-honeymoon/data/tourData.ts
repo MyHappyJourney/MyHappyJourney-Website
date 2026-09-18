@@ -27,7 +27,7 @@ export const PACKAGES: PackageItem[] = [
     price: 17749,
     priceForTwo: 35498,
     originalPrice: 22499,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/gaurav-kumar-vAFqjkz0oPQ-unsplash.jpg",
+    image: "/images/package-4n5d-tea-plantations.jpg",
     highlights: [
       "Flowerbed Decoration & Honeymoon Cake",
       "Romantic Candle Light Dinner & Badam Milk",
@@ -69,7 +69,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22750,
     priceForTwo: 45499,
     originalPrice: 27999,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/kunal-kalra-0vS3dp4mo9U-unsplash.jpg",
+    image: "/images/package-5n6d-houseboat.jpg",
     highlights: [
       "Flowerbed Decoration & Honeymoon Cake",
       "Romantic Candle Light Dinner & Badam Milk",
@@ -113,7 +113,7 @@ export const PACKAGES: PackageItem[] = [
     priceForTwo: 49499,
     originalPrice: 31499,
     isPopular: true,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/abhishek-singh-t0MLNrCLsL4-unsplash.jpg",
+    image: "/images/package-6n7d-athirappilly-falls.jpg",
     highlights: [
       "Flowerbed Decoration & Honeymoon Cake",
       "Romantic Candle Light Dinner & Badam Milk",
@@ -157,7 +157,7 @@ export const PACKAGES: PackageItem[] = [
     price: 28000,
     priceForTwo: 55999,
     originalPrice: 35499,
-    image: "https://hczb7fxersozfdoh.public.blob.vercel-storage.com/ravi-chembula-RCRxQOyPzaM-unsplash%20%281%29.jpg",
+    image: "/images/package-7n8d-kathakali.jpg",
     highlights: [
       "Flowerbed Decoration & Honeymoon Cake",
       "Romantic Candle Light Dinner & Badam Milk",

@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
       {/* Background Tropical Landscape with Atmospheric Vignette */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://hczb7fxersozfdoh.public.blob.vercel-storage.com/ravi-sangar-dfB4L6PfS4w-unsplash.jpg"
+          src="/images/hero-kerala-coastline.jpg"
           alt="Lush tropical coastline and tranquil beach destination"
           className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"
