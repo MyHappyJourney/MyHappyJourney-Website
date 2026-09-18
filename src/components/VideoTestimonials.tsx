@@ -31,7 +31,7 @@ export function VideoTestimonials() {
           <div className="lg:col-span-1 bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
             <div className="relative aspect-[9/16] bg-black w-full overflow-hidden">
               <iframe
-                src="https://www.youtube.com/embed/5a-43upeBfo"
+                src="https://www.youtube.com/embed/wZQtBAsCE8Y"
                 title="MyHappyJourney Kerala Tour Testimonial"
                 className="absolute inset-0 w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
