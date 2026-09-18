@@ -68,23 +68,45 @@ export function VideoTestimonials() {
             </div>
           </div>
 
-          {/* Placeholder Card 1 (Upcoming Video) */}
-          <div className="bg-slate-50/40 rounded-2xl border-2 border-dashed border-slate-200/80 p-8 flex flex-col items-center justify-center text-center relative overflow-hidden group min-h-[350px]">
-            <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/40 to-white/90 pointer-events-none" />
-            
-            <div className="w-14 h-14 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 mb-4 group-hover:scale-110 transition-transform">
-              <Compass className="w-6 h-6" />
+          {/* Second Active Testimonial Card */}
+          <div className="lg:col-span-1 bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+            <div className="relative aspect-[9/16] bg-black w-full overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/MRrEy4Wssp4"
+                title="MyHappyJourney Kerala Tour Testimonial - Video 2"
+                className="absolute inset-0 w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
             </div>
             
-            <h3 className="text-lg font-bold text-slate-700 mb-2 relative z-10">Munnar Misty Meadows</h3>
-            <p className="text-sm text-slate-500 max-w-xs mb-4 relative z-10">
-              Currently traveling! A gorgeous couple vlog capturing early morning fog and fresh spice plantation trails is in the edit queue.
-            </p>
-            
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-100 text-xs font-bold uppercase tracking-wider relative z-10">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
-              In Production
-            </span>
+            <div className="p-6 flex flex-col justify-between flex-1 bg-slate-50/30">
+              <div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="px-2.5 py-1 text-[11px] font-bold bg-blue-100 text-blue-700 rounded-full uppercase tracking-wider">
+                    Guest Story
+                  </span>
+                  <span className="flex items-center gap-1 text-slate-500 text-xs">
+                    <Clock className="w-3 h-3" />
+                    <span>Travel Reel</span>
+                  </span>
+                </div>
+                
+                <h3 className="text-lg font-bold text-slate-800 line-clamp-2 leading-snug mb-2">
+                  Unforgettable Kerala Highlights &amp; Tea Gardens
+                </h3>
+              </div>
+              
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div>
+                  <p className="font-semibold text-slate-900 text-sm">Kerala Explorer Diary</p>
+                  <p className="text-xs text-slate-500">Munnar &amp; Wayanad Escape</p>
+                </div>
+                <div className="p-2 rounded-full bg-blue-50 text-blue-600 group-hover:bg-blue-100 transition-colors">
+                  <Video className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Placeholder Card 2 (Upcoming Video) */}
