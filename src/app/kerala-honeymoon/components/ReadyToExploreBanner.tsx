@@ -57,7 +57,7 @@ export const ReadyToExploreBanner: React.FC<ReadyToExploreBannerProps> = ({ onQu
     <section
       className="relative py-16 sm:py-24 lg:py-28 bg-fixed bg-center bg-cover overflow-hidden"
       style={{
-        backgroundImage: `url('/images/banner-backwaters-sunset.jpg')`
+        backgroundImage: `url('/images/banner-explore-kerala.jpg')`
       }}
     >
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

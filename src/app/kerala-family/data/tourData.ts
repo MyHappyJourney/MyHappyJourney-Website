@@ -26,7 +26,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
     price: 15999,
     originalPrice: 19999,
-    image: "/images/package-4n5d-tea-plantations.jpg",
+    image: "/images/thisiskerala.jpg",
     highlights: [
       "2 Nights in scenic Munnar Hill Station",
       "Periyar Wildlife Sanctuary in Thekkady",
@@ -90,7 +90,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22999,
     originalPrice: 28999,
     isPopular: true,
-    image: "/images/package-6n7d-athirappilly-falls.jpg",
+    image: "/images/package-6n7d-backwaters-sunset.jpg",
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
@@ -123,7 +123,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 24499,
     originalPrice: 30999,
-    image: "/images/package-7n8d-kathakali.jpg",
+    image: "/images/package-7n8d-fishing-nets.jpg",
     highlights: [
       "1 Night Cochin Heritage & Marine Drive",
       "2 Nights Munnar Tea Gardens & Waterfalls",

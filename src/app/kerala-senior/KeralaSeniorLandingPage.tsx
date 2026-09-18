@@ -14,6 +14,7 @@ import { InclusionsExclusions } from './components/InclusionsExclusions';
 import { WhyBook } from './components/WhyBook';
 import { ReadyToExploreBanner } from './components/ReadyToExploreBanner';
 import { Reviews } from './components/Reviews';
+import { VideoTestimonials } from '../../components/VideoTestimonials';
 import { GroupDiscountBanner } from './components/GroupDiscountBanner';
 import { FAQ } from './components/FAQ';
 import { StickyMobileCTA } from './components/StickyMobileCTA';
@@ -138,6 +139,9 @@ export const KeralaSeniorLandingPage: React.FC<KeralaSeniorLandingPageProps> = (
 
           {/* 6. Loved By 5000+ Happy Travellers (Customer Reviews) */}
           <Reviews />
+
+          {/* Video Testimonials Section */}
+          <VideoTestimonials />
 
           {/* 7. Package Inclusions & Exclusions */}
           <InclusionsExclusions />

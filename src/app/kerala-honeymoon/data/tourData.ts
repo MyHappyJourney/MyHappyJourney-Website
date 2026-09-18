@@ -27,7 +27,7 @@ export const PACKAGES: PackageItem[] = [
     price: 17749,
     priceForTwo: 35498,
     originalPrice: 22499,
-    image: "/images/package-4n5d-tea-plantations.jpg",
+    image: "/images/thisiskerala.jpg",
     highlights: [
       "Flowerbed Decoration & Honeymoon Cake",
       "Romantic Candle Light Dinner & Badam Milk",
@@ -113,7 +113,7 @@ export const PACKAGES: PackageItem[] = [
     priceForTwo: 49499,
     originalPrice: 31499,
     isPopular: true,
-    image: "/images/package-6n7d-athirappilly-falls.jpg",
+    image: "/images/package-6n7d-backwaters-sunset.jpg",
     highlights: [
       "Flowerbed Decoration & Honeymoon Cake",
       "Romantic Candle Light Dinner & Badam Milk",
@@ -157,7 +157,7 @@ export const PACKAGES: PackageItem[] = [
     price: 28000,
     priceForTwo: 55999,
     originalPrice: 35499,
-    image: "/images/package-7n8d-kathakali.jpg",
+    image: "/images/package-7n8d-fishing-nets.jpg",
     highlights: [
       "Flowerbed Decoration & Honeymoon Cake",
       "Romantic Candle Light Dinner & Badam Milk",

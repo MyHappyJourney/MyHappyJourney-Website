@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
       {/* Background Hero Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-kerala-coastline.jpg"
+          src="/images/hero-munnar-tea.jpg"
           alt="Romantic Kerala Honeymoon Backwaters"
           className="w-full h-full object-cover object-center opacity-100"
           referrerPolicy="no-referrer"

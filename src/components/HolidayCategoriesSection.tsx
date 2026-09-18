@@ -41,28 +41,28 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
       title: 'Group Tours',
       subtitle: 'Seamless private coaches & group bonding',
       icon: <Briefcase className="w-5 h-5 text-white" />,
-      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/chatt.png',
+      image: '/images/chatt.png',
     },
     {
       id: 'senior',
       title: 'Senior Citizen Tours',
       subtitle: 'Comfortable paced itineraries & caring support',
       icon: <Crown className="w-5 h-5 text-white" />,
-      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/chat.png',
+      image: '/images/chat.png',
     },
     {
       id: 'adventure',
       title: 'Luxury Holidays',
       subtitle: 'Where Every Journey Becomes an Extraordinary Experience.',
       icon: <Mountain className="w-5 h-5 text-white" />,
-      image: 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/hehe.png',
+      image: '/images/hehe.png',
     },
     {
       id: 'educational',
       title: 'School & College Tours',
       subtitle: 'Where Learning Meets Adventure.',
       icon: <Compass className="w-5 h-5 text-white" />,
-      image: 'https://ynmlhnp2pxszpbts.public.blob.vercel-storage.com/uuu.png',
+      image: '/images/uuu.png',
     },
   ];
 
