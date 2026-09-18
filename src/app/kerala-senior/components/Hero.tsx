@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
     <section id="hero-section" className="relative bg-slate-900 text-white overflow-hidden font-sans">
       <div className="absolute inset-0 z-0">
         <img
-          src="https://hczb7fxersozfdoh.public.blob.vercel-storage.com/ravi-sangar-dfB4L6PfS4w-unsplash.jpg"
+          src="/images/hero-munnar-tea.jpg"
           alt="Kerala Senior Citizen Tour Backwaters"
           className="w-full h-full object-cover object-center opacity-100"
           referrerPolicy="no-referrer"
@@ -128,7 +128,6 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
 
               <CrmLeadForm
                 destination="Kerala Senior Citizen Tours"
-                instanceId="kerala-senior-hero"
                 durations={KERALA_DURATION_OPTIONS}
                 selectedDuration={selectedDuration}
                 formTitle="Get Your Senior Citizen Tour Quote"

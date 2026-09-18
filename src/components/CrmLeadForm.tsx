@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   User,
   Phone,
@@ -17,8 +16,8 @@ import {
   Shield,
   Clock,
   Compass,
-  ArrowLeft,
   ArrowRight,
+  ArrowLeft,
 } from 'lucide-react';
 import { submitLeadToCRM } from '../services/leadService';
 import {
@@ -29,26 +28,9 @@ import {
 } from '../constants/crm';
 import { WHATSAPP_NUMBER } from '../data/tourData';
 import { WhatsAppIcon } from './WhatsAppIcon';
-import { RootState } from '../store/store';
-import {
-  setName,
-  setEmail,
-  setPhone,
-  setCity,
-  setDestination,
-  setFromDate,
-  setDuration,
-  setAdults,
-  setChildren,
-  setBudget,
-  setCurrentStep,
-  resetForm,
-  defaultFields,
-} from '../store/leadFormSlice';
 
 export interface CrmLeadFormProps {
   destination: string;
-  instanceId: string;
   durations?: string[];
   durationOptions?: string[];
   selectedDuration?: string;
@@ -63,7 +45,6 @@ export interface CrmLeadFormProps {
 
 export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   destination: initialDestinationProp,
-  instanceId,
   durations,
   durationOptions,
   selectedDuration,
@@ -87,20 +68,19 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       ? selectedDuration
       : activeDurations[0] || '6 NIGHTS / 7 DAYS (6N / 7D)';
 
-  const dispatch = useDispatch();
-  const fields = useSelector((state: RootState) => state.leadForm.instances[instanceId]) || defaultFields(initialDuration, initialDestinationProp || 'Kerala');
-  
-  const name = fields.name;
-  const email = fields.email;
-  const phone = fields.phone;
-  const city = fields.city;
-  const destination = fields.destination;
-  const fromDate = fields.fromDate;
-  const duration = fields.duration;
-  const adults = fields.adults;
-  const children = fields.children;
-  const budget = fields.budget;
-  const currentStep = fields.currentStep;
+  // Multi-step state (Steps 1, 2, 3)
+  const [step, setStep] = useState<number>(1);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [city, setCity] = useState('');
+  const [destination, setDestination] = useState(initialDestinationProp || 'Kerala');
+  const [fromDate, setFromDate] = useState('');
+  const [duration, setDuration] = useState(initialDuration);
+  const [adults, setAdults] = useState<number>(2);
+  const [children, setChildren] = useState<number>(0);
+  const [budget, setBudget] = useState('');
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -110,38 +90,70 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   // Sync props if changed
   useEffect(() => {
     if (initialDestinationProp) {
-      dispatch(setDestination({ instanceId, value: initialDestinationProp }));
+      setDestination(initialDestinationProp);
     }
-  }, [initialDestinationProp, dispatch, instanceId]);
+  }, [initialDestinationProp]);
 
   useEffect(() => {
     if (selectedDuration && activeDurations.includes(selectedDuration)) {
-      dispatch(setDuration({ instanceId, value: selectedDuration }));
+      setDuration(selectedDuration);
     } else if (!activeDurations.includes(duration)) {
-      dispatch(setDuration({ instanceId, value: activeDurations[0] || '6 NIGHTS / 7 DAYS (6N / 7D)' }));
+      setDuration(activeDurations[0] || '6 NIGHTS / 7 DAYS (6N / 7D)');
     }
-  }, [selectedDuration, activeDurations, duration, dispatch, instanceId]);
+  }, [selectedDuration, activeDurations]);
 
   // Adults stepper handlers (Min 2, Max 20)
   const handleDecrementAdults = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setAdults({ instanceId, value: adults > 2 ? adults - 1 : 2 }));
+    setAdults((prev) => (prev > 2 ? prev - 1 : 2));
   };
 
   const handleIncrementAdults = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setAdults({ instanceId, value: adults < 20 ? adults + 1 : 20 }));
+    setAdults((prev) => (prev < 20 ? prev + 1 : 20));
   };
 
   // Children stepper handlers (Min 0, Max 10)
   const handleDecrementChildren = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setChildren({ instanceId, value: children > 0 ? children - 1 : 0 }));
+    setChildren((prev) => (prev > 0 ? prev - 1 : 0));
   };
 
   const handleIncrementChildren = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setChildren({ instanceId, value: children < 10 ? children + 1 : 10 }));
+    setChildren((prev) => (prev < 10 ? prev + 1 : 10));
+  };
+
+  // Step Navigations & Valuations
+  const handleNextToStep2 = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    if (!fromDate) {
+      setErrorMessage('Please select your preferred travel date.');
+      return;
+    }
+    const todayStr = new Date().toISOString().split('T')[0];
+    if (fromDate < todayStr) {
+      setErrorMessage('Travel date cannot be in the past.');
+      return;
+    }
+    setStep(2);
+  };
+
+  const handleNextToStep3 = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    if (adults < 2) {
+      setErrorMessage('Number of adults must be at least 2.');
+      return;
+    }
+    setStep(3);
+  };
+
+  const handlePrevStep = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setErrorMessage(null);
+    setStep((prev) => (prev > 1 ? prev - 1 : 1));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -149,33 +161,27 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     if (loading) return;
     setErrorMessage(null);
 
-    // Validation
+    // Final Validation of Step 3 & whole form
     const trimmedName = name.trim();
+    if (!trimmedName || trimmedName.length < 2) {
+      setErrorMessage('Please enter your full name (minimum 2 characters).');
+      return;
+    }
+
     const cleanPhone = phone.replace(/\D/g, '');
+    if (!cleanPhone || cleanPhone.length < 10) {
+      setErrorMessage('Please enter a valid 10-digit mobile phone number.');
+      return;
+    }
 
-    if (currentStep === 1) {
-      if (!trimmedName || trimmedName.length < 2) {
-        setErrorMessage('Please enter your full name (minimum 2 characters).');
-        return;
-      }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim() || !emailRegex.test(email.trim())) {
+      setErrorMessage('Please enter a valid email address.');
+      return;
+    }
 
-      if (!cleanPhone || cleanPhone.length < 10) {
-        setErrorMessage('Please enter a valid 10-digit mobile phone number.');
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email.trim() || !emailRegex.test(email.trim())) {
-        setErrorMessage('Please enter a valid email address.');
-        return;
-      }
-
-      if (!city.trim() || city.trim().length < 2) {
-        setErrorMessage('Please enter your departure city.');
-        return;
-      }
-
-      dispatch(setCurrentStep({ instanceId, value: 2 }));
+    if (!city.trim() || city.trim().length < 2) {
+      setErrorMessage('Please enter your departure city.');
       return;
     }
 
@@ -237,11 +243,21 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
         let redirectUrl = '';
         if (path === '/kerala' || path.startsWith('/kerala/')) {
           redirectUrl = '/kerala/thank-you';
-        } else if (path === '/kerala-family' || path.startsWith('/kerala-family/') || path === '/kerala-family-tours' || path.startsWith('/kerala-family-tours/')) {
+        } else if (
+          path === '/kerala-family' ||
+          path.startsWith('/kerala-family/') ||
+          path === '/kerala-family-tours' ||
+          path.startsWith('/kerala-family-tours/')
+        ) {
           redirectUrl = '/kerala-family/thank-you';
         } else if (path === '/kerala-honeymoon' || path.startsWith('/kerala-honeymoon/')) {
           redirectUrl = '/kerala-honeymoon/thank-you';
-        } else if (path === '/kerala-senior' || path.startsWith('/kerala-senior/') || path === '/kerala-senior-citizen-tours' || path.startsWith('/kerala-senior-citizen-tours/')) {
+        } else if (
+          path === '/kerala-senior' ||
+          path.startsWith('/kerala-senior/') ||
+          path === '/kerala-senior-citizen-tours' ||
+          path.startsWith('/kerala-senior-citizen-tours/')
+        ) {
           redirectUrl = '/kerala-senior/thank-you';
         }
 
@@ -261,7 +277,16 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     setSubmitted(false);
     setEnquiryId(null);
     setErrorMessage(null);
-    dispatch(resetForm({ instanceId, duration: initialDuration, destination: initialDestinationProp }));
+    setStep(1);
+    setName('');
+    setEmail('');
+    setPhone('');
+    setCity('');
+    setFromDate('');
+    setDuration(initialDuration);
+    setAdults(2);
+    setChildren(0);
+    setBudget('');
   };
 
   const whatsappMsg = encodeURIComponent(
@@ -326,7 +351,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     <div className="w-full font-sans">
       {/* Header if not in compact modal */}
       {(formTitle || badgeText) && (
-        <div className="mb-4 sm:mb-5">
+        <div className="mb-5">
           {badgeText && (
             <div className="inline-flex items-center gap-1.5 bg-[#EBF2FF] text-[#0B3996] px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider mb-1.5">
               <Compass className="w-3.5 h-3.5 text-[#0B3996]" />
@@ -350,18 +375,24 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
         </div>
       )}
 
-      {/* Step Indicator */}
-      <div className="mb-4">
-        <div className="flex items-center justify-between text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
-          <span>{currentStep === 1 ? 'Step 1: Contact Info' : 'Step 2: Travel Details'}</span>
-          <span className="text-[#0B3996]">Step {currentStep} of 2</span>
+      {/* Progress Indicator */}
+      <div className="mb-5 bg-slate-50 border border-slate-200/60 p-3 sm:p-4 rounded-2xl">
+        <div className="flex justify-between items-center text-[10px] font-black text-slate-500 uppercase tracking-wider mb-2">
+          <span>Step {step} of 3</span>
+          <span className="text-[#0B3996]">
+            {step === 1 ? '1. Your Preference' : step === 2 ? '2. Guest & Budget' : '3. Contact Details'}
+          </span>
         </div>
-        <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden flex">
+        <div className="w-full bg-slate-200/80 h-2 rounded-full overflow-hidden">
           <div
-            className={`h-full rounded-full transition-all duration-300 ${
-              currentStep === 1 ? 'w-1/2 bg-[#0B3996]' : 'w-full bg-[#FF4B00]'
-            }`}
+            className="bg-[#FF4B00] h-2 rounded-full transition-all duration-500 ease-out"
+            style={{ width: `${(step / 3) * 100}%` }}
           />
+        </div>
+        <div className="grid grid-cols-3 gap-1 mt-2 text-[10px] font-bold text-center text-slate-400">
+          <span className={step >= 1 ? 'text-[#FF4B00]' : ''}>Preference</span>
+          <span className={step >= 2 ? 'text-[#FF4B00]' : ''}>Guests</span>
+          <span className={step >= 3 ? 'text-[#FF4B00]' : ''}>Contact</span>
         </div>
       </div>
 
@@ -371,11 +402,204 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
-        {currentStep === 1 ? (
-          <>
-            {/* Row 1: Full Name & Mobile Number */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+      <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Step 1: Destination & Duration & Date */}
+        {step === 1 && (
+          <div className="space-y-4 animate-fade-in">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Destination <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  {isDestinationSelectable ? (
+                    <select
+                      value={destination}
+                      onChange={(e) => setDestination(e.target.value)}
+                      className="w-full px-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold cursor-pointer"
+                    >
+                      {DESTINATION_OPTIONS.map((dest) => (
+                        <option key={dest} value={dest}>
+                          {dest}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      type="text"
+                      readOnly
+                      value={destination}
+                      className="w-full px-3 h-11 bg-gray-100 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#0B3996] font-bold outline-none cursor-not-allowed"
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Duration <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <Clock className="w-3.5 h-3.5" />
+                  </div>
+                  <select
+                    value={duration}
+                    onChange={(e) => setDuration(e.target.value)}
+                    className="w-full pl-8 pr-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold cursor-pointer"
+                  >
+                    {activeDurations.map((dur) => (
+                      <option key={dur} value={dur}>
+                        {dur}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                Preferred Travel Date <span className="text-red-500">*</span>
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <Calendar className="w-3.5 h-3.5" />
+                </div>
+                <input
+                  type="date"
+                  required
+                  min={minDateString}
+                  value={fromDate}
+                  onChange={(e) => setFromDate(e.target.value)}
+                  className="w-full pl-8 pr-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold"
+                />
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleNextToStep2}
+              className="w-full h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-sm sm:text-base rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <span>Next: Guest &amp; Budget Details</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
+        {/* Step 2: Guest Steppers & Budget */}
+        {step === 2 && (
+          <div className="space-y-4 animate-fade-in">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Adults <span className="text-gray-400 font-normal">(Min 2)</span>
+                </label>
+                <div className="flex items-center justify-between h-11 bg-gray-50 border border-gray-300 rounded-xl px-2">
+                  <button
+                    type="button"
+                    onClick={handleDecrementAdults}
+                    disabled={adults <= 2}
+                    aria-label="Decrease Adults"
+                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Minus className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="font-extrabold text-sm text-gray-900 tracking-wide">
+                    {adults}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleIncrementAdults}
+                    disabled={adults >= 20}
+                    aria-label="Increase Adults"
+                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Children <span className="text-gray-400 font-normal">(0-10)</span>
+                </label>
+                <div className="flex items-center justify-between h-11 bg-gray-50 border border-gray-300 rounded-xl px-2">
+                  <button
+                    type="button"
+                    onClick={handleDecrementChildren}
+                    disabled={children <= 0}
+                    aria-label="Decrease Children"
+                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Minus className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="font-extrabold text-sm text-gray-900 tracking-wide">
+                    {children}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleIncrementChildren}
+                    disabled={children >= 10}
+                    aria-label="Increase Children"
+                    className="w-8 h-8 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                Budget (Per Person)
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <DollarSign className="w-3.5 h-3.5" />
+                </div>
+                <select
+                  value={budget}
+                  onChange={(e) => setBudget(e.target.value)}
+                  className="w-full pl-8 pr-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold cursor-pointer"
+                >
+                  <option value="">Select Budget (Optional)</option>
+                  {BUDGET_OPTIONS.map((b) => (
+                    <option key={b} value={b}>
+                      {b}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                type="button"
+                onClick={handlePrevStep}
+                className="h-12 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 font-extrabold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleNextToStep3}
+                className="h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              >
+                <span>Continue</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Step 3: Name & Phone & Email & City */}
+        {step === 3 && (
+          <div className="space-y-4 animate-fade-in">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
                   Full Name <span className="text-red-500">*</span>
@@ -388,9 +612,9 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     type="text"
                     required
                     value={name}
-                    onChange={(e) => dispatch(setName({ instanceId, value: e.target.value }))}
+                    onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Karthik"
-                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                    className="w-full pl-8 pr-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold"
                   />
                 </div>
               </div>
@@ -407,16 +631,15 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     type="tel"
                     required
                     value={phone}
-                    onChange={(e) => dispatch(setPhone({ instanceId, value: e.target.value }))}
+                    onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. 8217873708"
-                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                    className="w-full pl-8 pr-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold"
                   />
                 </div>
               </div>
             </div>
 
-            {/* Row 2: Email Address & Departure City */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
                   Email Address <span className="text-red-500">*</span>
@@ -429,9 +652,9 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     type="email"
                     required
                     value={email}
-                    onChange={(e) => dispatch(setEmail({ instanceId, value: e.target.value }))}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="e.g. brrealestates@gmail.com"
-                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                    className="w-full pl-8 pr-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold"
                   />
                 </div>
               </div>
@@ -449,9 +672,9 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     required
                     list="departure-cities-list"
                     value={city}
-                    onChange={(e) => dispatch(setCity({ instanceId, value: e.target.value }))}
+                    onChange={(e) => setCity(e.target.value)}
                     placeholder="e.g. Bangalore"
-                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                    className="w-full pl-8 pr-3 h-11 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-semibold"
                   />
                   <datalist id="departure-cities-list">
                     {TOP_DEPARTURE_CITIES.map((c) => (
@@ -462,203 +685,25 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
               </div>
             </div>
 
-            {/* Step 1 Continue Button */}
-            <div className="pt-1.5 sm:pt-2">
-              <button
-                type="submit"
-                className="w-full h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-sm sm:text-base rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <span>Continue</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </>
-        ) : (
-          <>
-            {/* Row 3: Destination & Duration */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-              <div>
-                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Destination <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  {isDestinationSelectable ? (
-                    <select
-                      value={destination}
-                      onChange={(e) => dispatch(setDestination({ instanceId, value: e.target.value }))}
-                      className="w-full px-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
-                    >
-                      {DESTINATION_OPTIONS.map((dest) => (
-                        <option key={dest} value={dest}>
-                          {dest}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <input
-                      type="text"
-                      readOnly
-                      value={destination}
-                      className="w-full px-3 h-10.5 bg-gray-100 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#0B3996] font-bold outline-none cursor-not-allowed"
-                    />
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Duration <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                    <Clock className="w-3.5 h-3.5" />
-                  </div>
-                  <select
-                    value={duration}
-                    onChange={(e) => dispatch(setDuration({ instanceId, value: e.target.value }))}
-                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
-                  >
-                    {activeDurations.map((dur) => (
-                      <option key={dur} value={dur}>
-                        {dur}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Row 4: Travel Date & Budget */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-              <div>
-                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Travel Date <span className="text-red-500">*</span>
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                    <Calendar className="w-3.5 h-3.5" />
-                  </div>
-                  <input
-                    type="date"
-                    required
-                    min={minDateString}
-                    value={fromDate}
-                    onChange={(e) => dispatch(setFromDate({ instanceId, value: e.target.value }))}
-                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Budget (Per Person)
-                </label>
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                    <DollarSign className="w-3.5 h-3.5" />
-                  </div>
-                  <select
-                    value={budget}
-                    onChange={(e) => dispatch(setBudget({ instanceId, value: e.target.value }))}
-                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
-                  >
-                    <option value="">Select Budget (Optional)</option>
-                    {BUDGET_OPTIONS.map((b) => (
-                      <option key={b} value={b}>
-                        {b}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Row 5: Adults Stepper [- 2 +] and Children Stepper [- 0 +] */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
-              {/* Adults Stepper */}
-              <div>
-                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Adults <span className="text-gray-400 font-normal">(Min 2)</span>
-                </label>
-                <div className="flex items-center justify-between h-10.5 bg-gray-50 border border-gray-300 rounded-xl px-2">
-                  <button
-                    type="button"
-                    onClick={handleDecrementAdults}
-                    disabled={adults <= 2}
-                    aria-label="Decrease Adults"
-                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
-                  >
-                    <Minus className="w-3.5 h-3.5" />
-                  </button>
-                  <span className="font-extrabold text-sm text-gray-900 tracking-wide">
-                    {adults}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleIncrementAdults}
-                    disabled={adults >= 20}
-                    aria-label="Increase Adults"
-                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
-                  >
-                    <Plus className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-
-              {/* Children Stepper */}
-              <div>
-                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  Children <span className="text-gray-400 font-normal">(0-10)</span>
-                </label>
-                <div className="flex items-center justify-between h-10.5 bg-gray-50 border border-gray-300 rounded-xl px-2">
-                  <button
-                    type="button"
-                    onClick={handleDecrementChildren}
-                    disabled={children <= 0}
-                    aria-label="Decrease Children"
-                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
-                  >
-                    <Minus className="w-3.5 h-3.5" />
-                  </button>
-                  <span className="font-extrabold text-sm text-gray-900 tracking-wide">
-                    {children}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleIncrementChildren}
-                    disabled={children >= 10}
-                    aria-label="Increase Children"
-                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
-                  >
-                    <Plus className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Back + Submit Buttons */}
-            <div className="grid grid-cols-3 gap-3 pt-1.5 sm:pt-2">
+            <div className="grid grid-cols-4 gap-3">
               <button
                 type="button"
-                onClick={() => {
-                  setErrorMessage(null);
-                  dispatch(setCurrentStep({ instanceId, value: 1 }));
-                }}
-                className="col-span-1 h-12 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 font-bold text-xs sm:text-sm rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                onClick={handlePrevStep}
+                className="col-span-1 h-12 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 font-extrabold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center cursor-pointer"
+                title="Go Back"
               >
-                <ArrowLeft className="w-3.5 h-3.5" />
-                <span>Back</span>
+                <ArrowLeft className="w-4 h-4" />
               </button>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="col-span-2 h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-sm sm:text-base rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+                className="col-span-3 h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-sm rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
                 {loading ? (
                   <span className="flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin" />
-                    <span className="text-xs sm:text-sm">Sending...</span>
+                    <span>Submitting Enquiry...</span>
                   </span>
                 ) : (
                   <>
@@ -668,11 +713,11 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                 )}
               </button>
             </div>
-          </>
+          </div>
         )}
 
         {/* Privacy Note */}
-        <div className="flex items-center justify-center gap-1.5 text-[11px] font-semibold text-gray-500 pt-0.5">
+        <div className="flex items-center justify-center gap-1.5 text-[10px] sm:text-[11px] font-semibold text-gray-500 pt-0.5">
           <Shield className="w-3.5 h-3.5 text-[#0B3996]" />
           <span>100% Privacy Protected • No Spam Guaranteed</span>
         </div>

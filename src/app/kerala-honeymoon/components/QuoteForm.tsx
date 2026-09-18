@@ -20,7 +20,6 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ preselectedPackageId }) =>
         <div className="bg-white rounded-3xl shadow-xl p-6 sm:p-10 border border-rose-200 relative overflow-hidden">
           <CrmLeadForm
             destination="Kerala Honeymoon"
-            instanceId="kerala-honeymoon-footer"
             durations={KERALA_DURATION_OPTIONS}
             selectedDuration={selectedDuration}
             formTitle="Request Your Romantic Kerala Honeymoon Quote"

@@ -34,7 +34,6 @@ export const PlanTripFormSection: React.FC = () => {
         <div className="max-w-2xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-white/15 bg-white text-[#1D1D1F] p-6 sm:p-10">
           <CrmLeadForm
             destination="Kerala"
-            instanceId="generic-footer"
             durations={KERALA_DURATION_OPTIONS}
             formTitle="Request Your Custom Quote"
             formSubtitle="100% Tailor-Made · Transparent Rates · Zero Obligation"

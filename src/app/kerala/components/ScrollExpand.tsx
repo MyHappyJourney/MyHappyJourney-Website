@@ -257,7 +257,7 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
         onError={(e) => {
           const target = e.currentTarget;
           if (!target.src.includes('unsplash') && !target.src.includes('vercel-storage')) {
-            target.src = 'https://hczb7fxersozfdoh.public.blob.vercel-storage.com/gaurav-kumar-vAFqjkz0oPQ-unsplash.jpg';
+            target.src = '/images/thisiskerala.jpg';
           }
         }}
       />

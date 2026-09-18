@@ -58,7 +58,6 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
         <div className="p-5 sm:p-7 max-h-[85vh] overflow-y-auto">
           <CrmLeadForm
             destination="Kerala Senior Citizen Tours"
-            instanceId="kerala-senior-modal"
             durations={KERALA_DURATION_OPTIONS}
             selectedDuration={selectedDuration}
             formTitle="Plan Your Kerala Senior Tour"

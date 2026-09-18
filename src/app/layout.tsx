@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
-import { ReduxProvider } from '../store/ReduxProvider';
 
 export const metadata: Metadata = {
   title: 'My Happy Journey Website - Handcrafted Kerala Tour Packages',
@@ -40,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <ReduxProvider>{children}</ReduxProvider>
+        {children}
       </body>
     </html>
   );
