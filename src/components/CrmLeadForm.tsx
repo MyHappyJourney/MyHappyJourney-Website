@@ -199,6 +199,25 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       if (onSuccess) {
         onSuccess(result.enquiry_id || null);
       }
+
+      // Automatically redirect for specialized landing pages
+      if (typeof window !== 'undefined') {
+        const path = window.location.pathname;
+        let redirectUrl = '';
+        if (path === '/kerala' || path.startsWith('/kerala/')) {
+          redirectUrl = '/kerala/thank-you';
+        } else if (path === '/kerala-family' || path.startsWith('/kerala-family/') || path === '/kerala-family-tours' || path.startsWith('/kerala-family-tours/')) {
+          redirectUrl = '/kerala-family/thank-you';
+        } else if (path === '/kerala-honeymoon' || path.startsWith('/kerala-honeymoon/')) {
+          redirectUrl = '/kerala-honeymoon/thank-you';
+        } else if (path === '/kerala-senior' || path.startsWith('/kerala-senior/') || path === '/kerala-senior-citizen-tours' || path.startsWith('/kerala-senior-citizen-tours/')) {
+          redirectUrl = '/kerala-senior/thank-you';
+        }
+
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
+        }
+      }
     } else {
       setErrorMessage(
         result.message ||
