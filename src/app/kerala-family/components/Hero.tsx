@@ -128,6 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
 
               <CrmLeadForm
                 destination="Kerala Family Tours"
+                instanceId="kerala-family-hero"
                 durations={KERALA_DURATION_OPTIONS}
                 selectedDuration={selectedDuration}
                 formTitle="Get Your Kerala Family Tour Quote"

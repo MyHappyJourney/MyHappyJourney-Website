@@ -133,6 +133,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
 
               <CrmLeadForm
                 destination="Kerala Honeymoon"
+                instanceId="kerala-honeymoon-hero"
                 durations={KERALA_DURATION_OPTIONS}
                 selectedDuration={selectedDuration}
                 formTitle="Get Your Romantic Honeymoon Quote"

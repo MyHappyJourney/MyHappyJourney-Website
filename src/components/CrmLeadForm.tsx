@@ -43,10 +43,12 @@ import {
   setBudget,
   setCurrentStep,
   resetForm,
+  defaultFields,
 } from '../store/leadFormSlice';
 
 export interface CrmLeadFormProps {
   destination: string;
+  instanceId: string;
   durations?: string[];
   durationOptions?: string[];
   selectedDuration?: string;
@@ -61,6 +63,7 @@ export interface CrmLeadFormProps {
 
 export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   destination: initialDestinationProp,
+  instanceId,
   durations,
   durationOptions,
   selectedDuration,
@@ -85,17 +88,19 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       : activeDurations[0] || '6 NIGHTS / 7 DAYS (6N / 7D)';
 
   const dispatch = useDispatch();
-  const name = useSelector((state: RootState) => state.leadForm.name);
-  const email = useSelector((state: RootState) => state.leadForm.email);
-  const phone = useSelector((state: RootState) => state.leadForm.phone);
-  const city = useSelector((state: RootState) => state.leadForm.city);
-  const destination = useSelector((state: RootState) => state.leadForm.destination);
-  const fromDate = useSelector((state: RootState) => state.leadForm.fromDate);
-  const duration = useSelector((state: RootState) => state.leadForm.duration);
-  const adults = useSelector((state: RootState) => state.leadForm.adults);
-  const children = useSelector((state: RootState) => state.leadForm.children);
-  const budget = useSelector((state: RootState) => state.leadForm.budget);
-  const currentStep = useSelector((state: RootState) => state.leadForm.currentStep);
+  const fields = useSelector((state: RootState) => state.leadForm.instances[instanceId]) || defaultFields(initialDuration, initialDestinationProp || 'Kerala');
+  
+  const name = fields.name;
+  const email = fields.email;
+  const phone = fields.phone;
+  const city = fields.city;
+  const destination = fields.destination;
+  const fromDate = fields.fromDate;
+  const duration = fields.duration;
+  const adults = fields.adults;
+  const children = fields.children;
+  const budget = fields.budget;
+  const currentStep = fields.currentStep;
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -105,38 +110,38 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   // Sync props if changed
   useEffect(() => {
     if (initialDestinationProp) {
-      dispatch(setDestination(initialDestinationProp));
+      dispatch(setDestination({ instanceId, value: initialDestinationProp }));
     }
-  }, [initialDestinationProp, dispatch]);
+  }, [initialDestinationProp, dispatch, instanceId]);
 
   useEffect(() => {
     if (selectedDuration && activeDurations.includes(selectedDuration)) {
-      dispatch(setDuration(selectedDuration));
+      dispatch(setDuration({ instanceId, value: selectedDuration }));
     } else if (!activeDurations.includes(duration)) {
-      dispatch(setDuration(activeDurations[0] || '6 NIGHTS / 7 DAYS (6N / 7D)'));
+      dispatch(setDuration({ instanceId, value: activeDurations[0] || '6 NIGHTS / 7 DAYS (6N / 7D)' }));
     }
-  }, [selectedDuration, activeDurations, duration, dispatch]);
+  }, [selectedDuration, activeDurations, duration, dispatch, instanceId]);
 
   // Adults stepper handlers (Min 2, Max 20)
   const handleDecrementAdults = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setAdults(adults > 2 ? adults - 1 : 2));
+    dispatch(setAdults({ instanceId, value: adults > 2 ? adults - 1 : 2 }));
   };
 
   const handleIncrementAdults = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setAdults(adults < 20 ? adults + 1 : 20));
+    dispatch(setAdults({ instanceId, value: adults < 20 ? adults + 1 : 20 }));
   };
 
   // Children stepper handlers (Min 0, Max 10)
   const handleDecrementChildren = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setChildren(children > 0 ? children - 1 : 0));
+    dispatch(setChildren({ instanceId, value: children > 0 ? children - 1 : 0 }));
   };
 
   const handleIncrementChildren = (e: React.MouseEvent) => {
     e.preventDefault();
-    dispatch(setChildren(children < 10 ? children + 1 : 10));
+    dispatch(setChildren({ instanceId, value: children < 10 ? children + 1 : 10 }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -170,7 +175,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
         return;
       }
 
-      dispatch(setCurrentStep(2));
+      dispatch(setCurrentStep({ instanceId, value: 2 }));
       return;
     }
 
@@ -256,7 +261,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     setSubmitted(false);
     setEnquiryId(null);
     setErrorMessage(null);
-    dispatch(resetForm(initialDuration));
+    dispatch(resetForm({ instanceId, duration: initialDuration, destination: initialDestinationProp }));
   };
 
   const whatsappMsg = encodeURIComponent(
@@ -383,7 +388,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     type="text"
                     required
                     value={name}
-                    onChange={(e) => dispatch(setName(e.target.value))}
+                    onChange={(e) => dispatch(setName({ instanceId, value: e.target.value }))}
                     placeholder="e.g. Karthik"
                     className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
                   />
@@ -402,7 +407,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     type="tel"
                     required
                     value={phone}
-                    onChange={(e) => dispatch(setPhone(e.target.value))}
+                    onChange={(e) => dispatch(setPhone({ instanceId, value: e.target.value }))}
                     placeholder="e.g. 8217873708"
                     className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
                   />
@@ -424,7 +429,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     type="email"
                     required
                     value={email}
-                    onChange={(e) => dispatch(setEmail(e.target.value))}
+                    onChange={(e) => dispatch(setEmail({ instanceId, value: e.target.value }))}
                     placeholder="e.g. brrealestates@gmail.com"
                     className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
                   />
@@ -444,7 +449,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     required
                     list="departure-cities-list"
                     value={city}
-                    onChange={(e) => dispatch(setCity(e.target.value))}
+                    onChange={(e) => dispatch(setCity({ instanceId, value: e.target.value }))}
                     placeholder="e.g. Bangalore"
                     className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
                   />
@@ -480,7 +485,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                   {isDestinationSelectable ? (
                     <select
                       value={destination}
-                      onChange={(e) => dispatch(setDestination(e.target.value))}
+                      onChange={(e) => dispatch(setDestination({ instanceId, value: e.target.value }))}
                       className="w-full px-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
                     >
                       {DESTINATION_OPTIONS.map((dest) => (
@@ -510,7 +515,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                   </div>
                   <select
                     value={duration}
-                    onChange={(e) => dispatch(setDuration(e.target.value))}
+                    onChange={(e) => dispatch(setDuration({ instanceId, value: e.target.value }))}
                     className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
                   >
                     {activeDurations.map((dur) => (
@@ -538,7 +543,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                     required
                     min={minDateString}
                     value={fromDate}
-                    onChange={(e) => dispatch(setFromDate(e.target.value))}
+                    onChange={(e) => dispatch(setFromDate({ instanceId, value: e.target.value }))}
                     className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
                   />
                 </div>
@@ -554,7 +559,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                   </div>
                   <select
                     value={budget}
-                    onChange={(e) => dispatch(setBudget(e.target.value))}
+                    onChange={(e) => dispatch(setBudget({ instanceId, value: e.target.value }))}
                     className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
                   >
                     <option value="">Select Budget (Optional)</option>
@@ -637,7 +642,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                 type="button"
                 onClick={() => {
                   setErrorMessage(null);
-                  dispatch(setCurrentStep(1));
+                  dispatch(setCurrentStep({ instanceId, value: 1 }));
                 }}
                 className="col-span-1 h-12 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 font-bold text-xs sm:text-sm rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >

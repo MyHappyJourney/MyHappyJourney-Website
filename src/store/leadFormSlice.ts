@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface LeadFormState {
+export interface LeadFormFields {
   name: string;
   email: string;
   phone: string;
@@ -14,68 +14,98 @@ export interface LeadFormState {
   currentStep: number;
 }
 
-const initialState: LeadFormState = {
+export interface LeadFormState {
+  instances: {
+    [instanceId: string]: LeadFormFields;
+  };
+}
+
+export const defaultFields = (initialDuration = '6 NIGHTS / 7 DAYS (6N / 7D)', initialDestination = 'Kerala'): LeadFormFields => ({
   name: '',
   email: '',
   phone: '',
   city: '',
-  destination: 'Kerala',
+  destination: initialDestination,
   fromDate: '',
-  duration: '6 NIGHTS / 7 DAYS (6N / 7D)',
+  duration: initialDuration,
   adults: 2,
   children: 0,
   budget: '',
   currentStep: 1,
+});
+
+const initialState: LeadFormState = {
+  instances: {},
+};
+
+const ensureInstance = (state: LeadFormState, instanceId: string) => {
+  if (!state.instances[instanceId]) {
+    state.instances[instanceId] = defaultFields();
+  }
 };
 
 const leadFormSlice = createSlice({
   name: 'leadForm',
   initialState,
   reducers: {
-    setName: (state, action: PayloadAction<string>) => {
-      state.name = action.payload;
+    setName: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].name = value;
     },
-    setEmail: (state, action: PayloadAction<string>) => {
-      state.email = action.payload;
+    setEmail: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].email = value;
     },
-    setPhone: (state, action: PayloadAction<string>) => {
-      state.phone = action.payload;
+    setPhone: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].phone = value;
     },
-    setCity: (state, action: PayloadAction<string>) => {
-      state.city = action.payload;
+    setCity: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].city = value;
     },
-    setDestination: (state, action: PayloadAction<string>) => {
-      state.destination = action.payload;
+    setDestination: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].destination = value;
     },
-    setFromDate: (state, action: PayloadAction<string>) => {
-      state.fromDate = action.payload;
+    setFromDate: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].fromDate = value;
     },
-    setDuration: (state, action: PayloadAction<string>) => {
-      state.duration = action.payload;
+    setDuration: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].duration = value;
     },
-    setAdults: (state, action: PayloadAction<number>) => {
-      state.adults = action.payload;
+    setAdults: (state, action: PayloadAction<{ instanceId: string; value: number }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].adults = value;
     },
-    setChildren: (state, action: PayloadAction<number>) => {
-      state.children = action.payload;
+    setChildren: (state, action: PayloadAction<{ instanceId: string; value: number }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].children = value;
     },
-    setBudget: (state, action: PayloadAction<string>) => {
-      state.budget = action.payload;
+    setBudget: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].budget = value;
     },
-    setCurrentStep: (state, action: PayloadAction<number>) => {
-      state.currentStep = action.payload;
+    setCurrentStep: (state, action: PayloadAction<{ instanceId: string; value: number }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].currentStep = value;
     },
-    resetForm: (state, action: PayloadAction<string | undefined>) => {
-      state.name = '';
-      state.email = '';
-      state.phone = '';
-      state.city = '';
-      state.fromDate = '';
-      state.duration = action.payload || '6 NIGHTS / 7 DAYS (6N / 7D)';
-      state.adults = 2;
-      state.children = 0;
-      state.budget = '';
-      state.currentStep = 1;
+    resetForm: (state, action: PayloadAction<{ instanceId: string; duration?: string; destination?: string }>) => {
+      const { instanceId, duration, destination } = action.payload;
+      state.instances[instanceId] = defaultFields(duration, destination);
     },
   },
 });
