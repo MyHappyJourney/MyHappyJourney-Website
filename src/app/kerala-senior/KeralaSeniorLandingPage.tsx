@@ -14,7 +14,6 @@ import { InclusionsExclusions } from './components/InclusionsExclusions';
 import { WhyBook } from './components/WhyBook';
 import { ReadyToExploreBanner } from './components/ReadyToExploreBanner';
 import { Reviews } from './components/Reviews';
-import { ExperienceCarousel } from './components/ExperienceCarousel';
 import { GroupDiscountBanner } from './components/GroupDiscountBanner';
 import { FAQ } from './components/FAQ';
 import { StickyMobileCTA } from './components/StickyMobileCTA';
@@ -148,9 +147,6 @@ export const KeralaSeniorLandingPage: React.FC<KeralaSeniorLandingPageProps> = (
 
           {/* Ready to Explore Kerala Flash Sale Parallax Banner */}
           <ReadyToExploreBanner onQuoteClick={() => openQuoteModal()} />
-
-          {/* 9. Real Travel Experiences Automatic Carousel */}
-          <ExperienceCarousel onQuoteClick={() => openQuoteModal()} />
 
           {/* 10. Frequently Asked Questions (FAQs) */}
           <FAQ />
