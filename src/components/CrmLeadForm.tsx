@@ -16,6 +16,8 @@ import {
   Shield,
   Clock,
   Compass,
+  ArrowLeft,
+  ArrowRight,
 } from 'lucide-react';
 import { submitLeadToCRM } from '../services/leadService';
 import {
@@ -81,6 +83,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   const [submitted, setSubmitted] = useState(false);
   const [enquiryId, setEnquiryId] = useState<string | number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
   // Sync props if changed
   useEffect(() => {
@@ -126,25 +129,31 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
 
     // Validation
     const trimmedName = name.trim();
-    if (!trimmedName || trimmedName.length < 2) {
-      setErrorMessage('Please enter your full name (minimum 2 characters).');
-      return;
-    }
-
     const cleanPhone = phone.replace(/\D/g, '');
-    if (!cleanPhone || cleanPhone.length < 10) {
-      setErrorMessage('Please enter a valid 10-digit mobile phone number.');
-      return;
-    }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.trim() || !emailRegex.test(email.trim())) {
-      setErrorMessage('Please enter a valid email address.');
-      return;
-    }
+    if (currentStep === 1) {
+      if (!trimmedName || trimmedName.length < 2) {
+        setErrorMessage('Please enter your full name (minimum 2 characters).');
+        return;
+      }
 
-    if (!city.trim() || city.trim().length < 2) {
-      setErrorMessage('Please enter your departure city.');
+      if (!cleanPhone || cleanPhone.length < 10) {
+        setErrorMessage('Please enter a valid 10-digit mobile phone number.');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.trim() || !emailRegex.test(email.trim())) {
+        setErrorMessage('Please enter a valid email address.');
+        return;
+      }
+
+      if (!city.trim() || city.trim().length < 2) {
+        setErrorMessage('Please enter your departure city.');
+        return;
+      }
+
+      setCurrentStep(2);
       return;
     }
 
@@ -239,6 +248,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     setAdults(2);
     setChildren(0);
     setBudget('');
+    setCurrentStep(1);
   };
 
   const whatsappMsg = encodeURIComponent(
@@ -327,6 +337,21 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
         </div>
       )}
 
+      {/* Step Indicator */}
+      <div className="mb-4">
+        <div className="flex items-center justify-between text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">
+          <span>{currentStep === 1 ? 'Step 1: Contact Info' : 'Step 2: Travel Details'}</span>
+          <span className="text-[#0B3996]">Step {currentStep} of 2</span>
+        </div>
+        <div className="h-1.5 w-full bg-gray-100 rounded-full overflow-hidden flex">
+          <div
+            className={`h-full rounded-full transition-all duration-300 ${
+              currentStep === 1 ? 'w-1/2 bg-[#0B3996]' : 'w-full bg-[#FF4B00]'
+            }`}
+          />
+        </div>
+      </div>
+
       {errorMessage && (
         <div className="mb-4 p-3 bg-red-50 text-red-700 text-xs font-bold rounded-xl border border-red-200">
           ⚠️ {errorMessage}
@@ -334,275 +359,304 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       )}
 
       <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
-        {/* Row 1: Full Name & Mobile Number */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Full Name <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                <User className="w-3.5 h-3.5" />
+        {currentStep === 1 ? (
+          <>
+            {/* Row 1: Full Name & Mobile Number */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Full Name <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <User className="w-3.5 h-3.5" />
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="e.g. Karthik"
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                  />
+                </div>
               </div>
-              <input
-                type="text"
-                required
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="e.g. Karthik"
-                className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
-              />
-            </div>
-          </div>
 
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Mobile Number <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                <Phone className="w-3.5 h-3.5" />
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Mobile Number <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <Phone className="w-3.5 h-3.5" />
+                  </div>
+                  <input
+                    type="tel"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="e.g. 8217873708"
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                  />
+                </div>
               </div>
-              <input
-                type="tel"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="e.g. 8217873708"
-                className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
-              />
             </div>
-          </div>
-        </div>
 
-        {/* Row 2: Email Address & Departure City */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Email Address <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                <Mail className="w-3.5 h-3.5" />
+            {/* Row 2: Email Address & Departure City */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Email Address <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <Mail className="w-3.5 h-3.5" />
+                  </div>
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="e.g. brrealestates@gmail.com"
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                  />
+                </div>
               </div>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="e.g. brrealestates@gmail.com"
-                className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
-              />
-            </div>
-          </div>
 
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Departure City <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                <MapPin className="w-3.5 h-3.5" />
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Departure City <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <MapPin className="w-3.5 h-3.5" />
+                  </div>
+                  <input
+                    type="text"
+                    required
+                    list="departure-cities-list"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="e.g. Bangalore"
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                  />
+                  <datalist id="departure-cities-list">
+                    {TOP_DEPARTURE_CITIES.map((c) => (
+                      <option key={c} value={c} />
+                    ))}
+                  </datalist>
+                </div>
               </div>
-              <input
-                type="text"
-                required
-                list="departure-cities-list"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                placeholder="e.g. Bangalore"
-                className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
-              />
-              <datalist id="departure-cities-list">
-                {TOP_DEPARTURE_CITIES.map((c) => (
-                  <option key={c} value={c} />
-                ))}
-              </datalist>
             </div>
-          </div>
-        </div>
 
-        {/* Row 3: Destination & Duration */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Destination <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              {isDestinationSelectable ? (
-                <select
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                  className="w-full px-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
-                >
-                  {DESTINATION_OPTIONS.map((dest) => (
-                    <option key={dest} value={dest}>
-                      {dest}
-                    </option>
-                  ))}
-                </select>
-              ) : (
-                <input
-                  type="text"
-                  readOnly
-                  value={destination}
-                  className="w-full px-3 h-10.5 bg-gray-100 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#0B3996] font-bold outline-none cursor-not-allowed"
-                />
-              )}
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Duration <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                <Clock className="w-3.5 h-3.5" />
-              </div>
-              <select
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
-                className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
-              >
-                {activeDurations.map((dur) => (
-                  <option key={dur} value={dur}>
-                    {dur}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Row 4: Travel Date & Budget */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Travel Date <span className="text-red-500">*</span>
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                <Calendar className="w-3.5 h-3.5" />
-              </div>
-              <input
-                type="date"
-                required
-                min={minDateString}
-                value={fromDate}
-                onChange={(e) => setFromDate(e.target.value)}
-                className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Budget (Per Person)
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                <DollarSign className="w-3.5 h-3.5" />
-              </div>
-              <select
-                value={budget}
-                onChange={(e) => setBudget(e.target.value)}
-                className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
-              >
-                <option value="">Select Budget (Optional)</option>
-                {BUDGET_OPTIONS.map((b) => (
-                  <option key={b} value={b}>
-                    {b}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        {/* Row 5: Adults Stepper [- 2 +] and Children Stepper [- 0 +] */}
-        <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
-          {/* Adults Stepper */}
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Adults <span className="text-gray-400 font-normal">(Min 2)</span>
-            </label>
-            <div className="flex items-center justify-between h-10.5 bg-gray-50 border border-gray-300 rounded-xl px-2">
+            {/* Step 1 Continue Button */}
+            <div className="pt-1.5 sm:pt-2">
               <button
-                type="button"
-                onClick={handleDecrementAdults}
-                disabled={adults <= 2}
-                aria-label="Decrease Adults"
-                className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                type="submit"
+                className="w-full h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-sm sm:text-base rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <Minus className="w-3.5 h-3.5" />
-              </button>
-              <span className="font-extrabold text-sm text-gray-900 tracking-wide">
-                {adults}
-              </span>
-              <button
-                type="button"
-                onClick={handleIncrementAdults}
-                disabled={adults >= 20}
-                aria-label="Increase Adults"
-                className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
-              >
-                <Plus className="w-3.5 h-3.5" />
+                <span>Continue</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-          </div>
+          </>
+        ) : (
+          <>
+            {/* Row 3: Destination & Duration */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Destination <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  {isDestinationSelectable ? (
+                    <select
+                      value={destination}
+                      onChange={(e) => setDestination(e.target.value)}
+                      className="w-full px-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
+                    >
+                      {DESTINATION_OPTIONS.map((dest) => (
+                        <option key={dest} value={dest}>
+                          {dest}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <input
+                      type="text"
+                      readOnly
+                      value={destination}
+                      className="w-full px-3 h-10.5 bg-gray-100 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#0B3996] font-bold outline-none cursor-not-allowed"
+                    />
+                  )}
+                </div>
+              </div>
 
-          {/* Children Stepper */}
-          <div>
-            <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
-              Children <span className="text-gray-400 font-normal">(0-10)</span>
-            </label>
-            <div className="flex items-center justify-between h-10.5 bg-gray-50 border border-gray-300 rounded-xl px-2">
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Duration <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <Clock className="w-3.5 h-3.5" />
+                  </div>
+                  <select
+                    value={duration}
+                    onChange={(e) => setDuration(e.target.value)}
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
+                  >
+                    {activeDurations.map((dur) => (
+                      <option key={dur} value={dur}>
+                        {dur}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Row 4: Travel Date & Budget */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Travel Date <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <Calendar className="w-3.5 h-3.5" />
+                  </div>
+                  <input
+                    type="date"
+                    required
+                    min={minDateString}
+                    value={fromDate}
+                    onChange={(e) => setFromDate(e.target.value)}
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Budget (Per Person)
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <DollarSign className="w-3.5 h-3.5" />
+                  </div>
+                  <select
+                    value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
+                  >
+                    <option value="">Select Budget (Optional)</option>
+                    {BUDGET_OPTIONS.map((b) => (
+                      <option key={b} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* Row 5: Adults Stepper [- 2 +] and Children Stepper [- 0 +] */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
+              {/* Adults Stepper */}
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Adults <span className="text-gray-400 font-normal">(Min 2)</span>
+                </label>
+                <div className="flex items-center justify-between h-10.5 bg-gray-50 border border-gray-300 rounded-xl px-2">
+                  <button
+                    type="button"
+                    onClick={handleDecrementAdults}
+                    disabled={adults <= 2}
+                    aria-label="Decrease Adults"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Minus className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="font-extrabold text-sm text-gray-900 tracking-wide">
+                    {adults}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleIncrementAdults}
+                    disabled={adults >= 20}
+                    aria-label="Increase Adults"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Children Stepper */}
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Children <span className="text-gray-400 font-normal">(0-10)</span>
+                </label>
+                <div className="flex items-center justify-between h-10.5 bg-gray-50 border border-gray-300 rounded-xl px-2">
+                  <button
+                    type="button"
+                    onClick={handleDecrementChildren}
+                    disabled={children <= 0}
+                    aria-label="Decrease Children"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Minus className="w-3.5 h-3.5" />
+                  </button>
+                  <span className="font-extrabold text-sm text-gray-900 tracking-wide">
+                    {children}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleIncrementChildren}
+                    disabled={children >= 10}
+                    aria-label="Increase Children"
+                    className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Back + Submit Buttons */}
+            <div className="grid grid-cols-3 gap-3 pt-1.5 sm:pt-2">
               <button
                 type="button"
-                onClick={handleDecrementChildren}
-                disabled={children <= 0}
-                aria-label="Decrease Children"
-                className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                onClick={() => {
+                  setErrorMessage(null);
+                  setCurrentStep(1);
+                }}
+                className="col-span-1 h-12 bg-white hover:bg-gray-50 border border-gray-300 text-gray-700 font-bold text-xs sm:text-sm rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer"
               >
-                <Minus className="w-3.5 h-3.5" />
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Back</span>
               </button>
-              <span className="font-extrabold text-sm text-gray-900 tracking-wide">
-                {children}
-              </span>
+
               <button
-                type="button"
-                onClick={handleIncrementChildren}
-                disabled={children >= 10}
-                aria-label="Increase Children"
-                className="w-7 h-7 flex items-center justify-center rounded-lg bg-white border border-gray-200 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-xs"
+                type="submit"
+                disabled={loading}
+                className="col-span-2 h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-sm sm:text-base rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
               >
-                <Plus className="w-3.5 h-3.5" />
+                {loading ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span className="text-xs sm:text-sm">Sending...</span>
+                  </span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>{submitButtonText}</span>
+                  </>
+                )}
               </button>
             </div>
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <div className="pt-1.5 sm:pt-2">
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full h-12 bg-[#FF4B00] hover:bg-[#e04200] text-white font-extrabold text-sm sm:text-base rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
-          >
-            {loading ? (
-              <span className="flex items-center gap-2">
-                <Loader2 className="w-4 h-4 animate-spin" />
-                <span>Sending Enquiry to CRM...</span>
-              </span>
-            ) : (
-              <>
-                <Send className="w-4 h-4" />
-                <span>{submitButtonText}</span>
-              </>
-            )}
-          </button>
-        </div>
+          </>
+        )}
 
         {/* Privacy Note */}
         <div className="flex items-center justify-center gap-1.5 text-[11px] font-semibold text-gray-500 pt-0.5">
