@@ -235,7 +235,19 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       if (typeof window !== 'undefined') {
         const path = window.location.pathname;
         let redirectUrl = '';
-        if (path === '/kerala' || path.startsWith('/kerala/')) {
+        if (path.startsWith('/kerala/kerala-honeymoon-packages')) {
+          redirectUrl = '/kerala-honeymoon/thank-you';
+        } else if (path.startsWith('/kerala/kerala-family-holiday-packages')) {
+          redirectUrl = '/kerala-family/thank-you';
+        } else if (path.startsWith('/kerala/kerala-senior-citizen-tours')) {
+          redirectUrl = '/kerala-senior/thank-you';
+        } else if (
+          path.startsWith('/kerala/kerala-group-tour-packages') ||
+          path.startsWith('/kerala/kerala-luxury-holiday-packages') ||
+          path.startsWith('/kerala/kerala-school-college-tour-packages')
+        ) {
+          redirectUrl = '/kerala/thank-you';
+        } else if (path === '/kerala' || path.startsWith('/kerala/')) {
           redirectUrl = '/kerala/thank-you';
         } else if (path === '/kerala-family' || path.startsWith('/kerala-family/') || path === '/kerala-family-tours' || path.startsWith('/kerala-family-tours/')) {
           redirectUrl = '/kerala-family/thank-you';
