@@ -235,26 +235,31 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       if (typeof window !== 'undefined') {
         const path = window.location.pathname;
         let redirectUrl = '';
-        if (path.startsWith('/kerala/kerala-honeymoon-packages')) {
-          redirectUrl = '/kerala-honeymoon/thank-you';
-        } else if (path.startsWith('/kerala/kerala-family-holiday-packages')) {
-          redirectUrl = '/kerala-family/thank-you';
-        } else if (path.startsWith('/kerala/kerala-senior-citizen-tours')) {
-          redirectUrl = '/kerala-senior/thank-you';
-        } else if (
-          path.startsWith('/kerala/kerala-group-tour-packages') ||
-          path.startsWith('/kerala/kerala-luxury-holiday-packages') ||
-          path.startsWith('/kerala/kerala-school-college-tour-packages')
-        ) {
-          redirectUrl = '/kerala/thank-you';
-        } else if (path === '/kerala' || path.startsWith('/kerala/')) {
-          redirectUrl = '/kerala/thank-you';
-        } else if (path === '/kerala-family' || path.startsWith('/kerala-family/') || path === '/kerala-family-tours' || path.startsWith('/kerala-family-tours/')) {
-          redirectUrl = '/kerala-family/thank-you';
-        } else if (path === '/kerala-honeymoon' || path.startsWith('/kerala-honeymoon/')) {
-          redirectUrl = '/kerala-honeymoon/thank-you';
-        } else if (path === '/kerala-senior' || path.startsWith('/kerala-senior/') || path === '/kerala-senior-citizen-tours' || path.startsWith('/kerala-senior-citizen-tours/')) {
-          redirectUrl = '/kerala-senior/thank-you';
+        let packageName = "";
+        if (path.startsWith("/kerala/kerala-honeymoon-packages")) {
+          packageName = "Kerala Honeymoon Package";
+        } else if (path.startsWith("/kerala/kerala-family-holiday-packages")) {
+          packageName = "Kerala Family Holiday Package";
+        } else if (path.startsWith("/kerala/kerala-senior-citizen-tours")) {
+          packageName = "Kerala Senior Citizen Tour";
+        } else if (path.startsWith("/kerala/kerala-group-tour-packages")) {
+          packageName = "Kerala Group Tour Package";
+        } else if (path.startsWith("/kerala/kerala-luxury-holiday-packages")) {
+          packageName = "Kerala Luxury Holiday Package";
+        } else if (path.startsWith("/kerala/kerala-school-college-tour-packages")) {
+          packageName = "Kerala School & College Tour Package";
+        } else if (path === "/kerala-family" || path === "/kerala-family-tours" || path.startsWith("/kerala-family/") || path.startsWith("/kerala-family-tours/")) {
+          packageName = "Kerala Family Holiday Package";
+        } else if (path === "/kerala-honeymoon" || path.startsWith("/kerala-honeymoon/")) {
+          packageName = "Kerala Honeymoon Package";
+        } else if (path === "/kerala-senior" || path === "/kerala-senior-citizen-tours" || path.startsWith("/kerala-senior/") || path.startsWith("/kerala-senior-citizen-tours/")) {
+          packageName = "Kerala Senior Citizen Tour";
+        } else if (path === "/kerala" || path.startsWith("/kerala/")) {
+          packageName = "Kerala Tour Package";
+        }
+
+        if (packageName) {
+          redirectUrl = `/kerala/thank-you?package=${encodeURIComponent(packageName)}`;
         }
 
         if (redirectUrl) {

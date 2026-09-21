@@ -12,6 +12,8 @@ interface ThankYouTemplateProps {
   continueBrowsingUrl: string;
   themeColor: 'blue' | 'emerald' | 'rose' | 'amber';
   destinationName: string;
+  customHeading?: string;
+  customMessage?: string;
   whatsAppNumber: string;
   phoneCallNumber: string;
 }
@@ -22,6 +24,8 @@ export const ThankYouTemplate: React.FC<ThankYouTemplateProps> = ({
   continueBrowsingUrl,
   themeColor,
   destinationName,
+  customHeading,
+  customMessage,
   whatsAppNumber,
   phoneCallNumber,
 }) => {
@@ -108,7 +112,7 @@ export const ThankYouTemplate: React.FC<ThankYouTemplateProps> = ({
                 transition={{ delay: 0.15 }}
                 className="text-2xl sm:text-4xl font-black tracking-tight"
               >
-                Thank You!
+                {customHeading || "Thank You!"}
               </motion.h1>
               
               <motion.p
@@ -117,7 +121,7 @@ export const ThankYouTemplate: React.FC<ThankYouTemplateProps> = ({
                 transition={{ delay: 0.25 }}
                 className="text-slate-300 text-sm sm:text-base mt-2 max-w-lg mx-auto font-medium"
               >
-                We've received your enquiry and our travel experts are already customizing your perfect {destinationName} package!
+                {customMessage || `We've received your enquiry and our travel experts are already customizing your perfect ${destinationName} package!`}
               </motion.p>
             </div>
 
