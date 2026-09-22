@@ -17,6 +17,7 @@ export interface PackageItem {
   reviewsCount?: number;
   nightSplit?: { name: string; nights: number }[];
   image: string;
+  imagePosition?: string;
   highlights: string[];
   inclusions?: { icon: string; label: string }[];
 }

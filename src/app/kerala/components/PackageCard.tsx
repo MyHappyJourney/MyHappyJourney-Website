@@ -32,6 +32,7 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
           src={pkg.image}
           alt={pkg.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          style={pkg.imagePosition ? { objectPosition: pkg.imagePosition } : undefined}
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.currentTarget.src =

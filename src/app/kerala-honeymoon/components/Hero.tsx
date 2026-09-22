@@ -27,21 +27,21 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
     : KERALA_DURATION_OPTIONS[2];
 
   return (
-    <section id="hero-section" className="relative bg-slate-950 text-white overflow-hidden font-sans">
+    <section id="hero-section" className="relative bg-neutral-950 text-white overflow-hidden font-sans">
       {/* Background Hero Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-munnar-tea.jpg"
-          alt="Romantic Kerala Honeymoon Backwaters"
-          className="w-full h-full object-cover object-center opacity-100"
+          src="/images/honeymoon%20hero%20image.png"
+          alt="Romantic Kerala Honeymoon Tour Packages"
+          className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.currentTarget.src =
               'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2000&q=80';
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-rose-950/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+        {/* Clean neutral gradient scrim for left-side text legibility - zero blue haze */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 lg:py-18">
