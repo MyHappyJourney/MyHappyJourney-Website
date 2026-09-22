@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustStrip } from './components/TrustStrip';
 import { PackageSection } from './components/PackageSection';
-import ScrollExpand from './components/ScrollExpand';
 import ClickSpark from './components/ClickSpark';
 import { PackageModal } from './components/PackageModal';
 import { QuoteModal } from './components/QuoteModal';
@@ -21,6 +20,7 @@ import { Footer } from './components/Footer';
 import { PackageItem } from './types';
 import { Loader } from './components/Loader';
 import { WhatsAppModal } from '../../components/WhatsAppModal';
+import { FloatingWhatsApp } from '../../components/FloatingWhatsApp';
 
 interface KeralaHoneymoonLandingPageProps {
   onBackToHome?: () => void;
@@ -104,31 +104,7 @@ export const KeralaHoneymoonLandingPage: React.FC<KeralaHoneymoonLandingPageProp
           {/* 3. Trust Strip */}
           <TrustStrip />
 
-          {/* ScrollExpand Section (Window Scroll) */}
-          <section className="relative w-full bg-[#05070f] border-y border-white/10">
-            <ScrollExpand
-              src="/hero.jpg"
-              alt="Experience Kerala"
-              title="Experience Kerala"
-              scrollHint="Scroll down to expand"
-              mediaZoom={1.35}
-              startWidth={42}
-              startHeight={58}
-              startRadius={24}
-              endRadius={0}
-              scrollDistance={1.2}
-              holdDistance={0.35}
-              smoothing={0.1}
-              overlayScrim={0.45}
-              useWindowScroll={true}
-              enabled={true}
-            >
-              <h2>Experience Kerala, exactly your way</h2>
-              <p>Select your dates to build a custom itinerary and book trusted local stays instantly.</p>
-            </ScrollExpand>
-          </section>
-
-          {/* 4. Choose Your Kerala Tour (Package Cards & Carousel) */}
+          {/* 4. Choose Your Kerala Tour (Package Cards Grid) */}
           <PackageSection
             onViewDetails={(pkg) => setSelectedPackageForModal(pkg)}
             onGetQuote={(pkg) => openQuoteModal(pkg.id)}
@@ -175,6 +151,9 @@ export const KeralaHoneymoonLandingPage: React.FC<KeralaHoneymoonLandingPageProp
           onClose={() => setIsQuoteModalOpen(false)}
           preselectedPackageId={quotePackageId}
         />
+
+        {/* Floating WhatsApp Button */}
+        <FloatingWhatsApp />
 
         {/* WhatsApp Chat Modal Popup */}
         <WhatsAppModal

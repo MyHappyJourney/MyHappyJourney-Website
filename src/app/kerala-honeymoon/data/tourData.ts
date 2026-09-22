@@ -10,139 +10,192 @@ export const WHATSAPP_GROUP_MSG = encodeURIComponent("Hi MyHappyJourney, I am pl
 export const PACKAGES: PackageItem[] = [
   {
     id: "pkg-4n5d",
-    title: "4N / 5D Romantic Kerala Honeymoon",
+    title: "4N / 5D Kerala Delight",
     durationBadge: "4 NIGHTS / 5 DAYS",
     nights: 4,
     days: 5,
-    tag: "HONEYMOON SPECIAL",
+    tag: "BEST VALUE",
+    categoryBadge: "Best Value",
+    urgencyBadge: "Only 8 left!",
+    subtitle: "Tea Hills Meet Backwaters",
     rating: 4.9,
     reviewsCount: 840,
-    route: "2N Munnar • 1N Thekkady • 1N Alleppey Houseboat",
+    route: "2N Munnar • 1N Thekkady • 1N Alleppey",
     nightSplit: [
       { name: "Munnar", nights: 2 },
       { name: "Thekkady", nights: 1 },
-      { name: "Alleppey Houseboat", nights: 1 }
+      { name: "Alleppey", nights: 1 }
     ],
-    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)"],
-    price: 17749,
-    priceForTwo: 35498,
-    originalPrice: 22499,
+    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
+    price: 15999,
+    originalPrice: 19999,
     image: "/images/thisiskerala.jpg",
     highlights: [
-      "Flowerbed Decoration & Honeymoon Cake",
-      "Romantic Candle Light Dinner & Badam Milk",
-      "Fresh Fruit Basket & Private Houseboat Stay",
-      "2 Nights in scenic Munnar Tea Hills & Waterfalls"
+      "2 Nights in scenic Munnar Hill Station",
+      "Periyar Wildlife Sanctuary in Thekkady",
+      "Overnight Houseboat Cruise in Alleppey with all meals",
+      "Spice Garden Guided Walking Tour"
     ],
     inclusions: [
-      { icon: "Heart", label: "Flowerbed Decoration" },
-      { icon: "Utensils", label: "Candle Light Dinner" },
-      { icon: "Sparkles", label: "Honeymoon Cake" },
-      { icon: "Gift", label: "Fruit Basket & Honeymoon Milk" },
-      { icon: "Hotel", label: "Romantic 3★/4★ Stays" },
-      { icon: "Car", label: "Private AC Cab & Driver" }
-    ],
-    honeymoonInclusions: [
-      "Flowerbed Decoration",
-      "Candle Light Dinner",
-      "Honeymoon Cake",
-      "Fruit Basket",
-      "Honeymoon Milk"
+      { icon: "Hotel", label: "3★ / 4★ Hotels" },
+      { icon: "Car", label: "Private AC Cab" },
+      { icon: "Ship", label: "Deluxe Houseboat" },
+      { icon: "Utensils", label: "Meals Included" }
     ]
   },
   {
     id: "pkg-5n6d",
-    title: "5N / 6D Exotic Kerala Honeymoon Escape",
+    title: "5N / 6D Kerala Explorer",
     durationBadge: "5 NIGHTS / 6 DAYS",
     nights: 5,
     days: 6,
-    tag: "HONEYMOON BESTSELLER",
+    tag: "POPULAR",
+    categoryBadge: "Popular",
+    urgencyBadge: "Only 6 left!",
+    subtitle: "Sun, Sand & Serene Waters",
     rating: 4.9,
     reviewsCount: 1120,
-    route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam Beach",
+    route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam",
     nightSplit: [
       { name: "Munnar", nights: 2 },
       { name: "Alleppey Houseboat", nights: 1 },
-      { name: "Kovalam Beach", nights: 2 }
+      { name: "Kovalam", nights: 2 }
     ],
-    locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam Beach (2N)"],
-    price: 22750,
-    priceForTwo: 45499,
-    originalPrice: 27999,
+    locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
+    price: 20999,
+    originalPrice: 26999,
     image: "/images/package-5n6d-houseboat.jpg",
     highlights: [
-      "Flowerbed Decoration & Honeymoon Cake",
-      "Romantic Candle Light Dinner & Badam Milk",
-      "Fresh Fruit Basket & Private Deluxe Houseboat",
-      "2 Nights Beachside Romance at Kovalam & Poovar Island"
+      "2 Nights in lush Munnar Tea Gardens & Waterfalls",
+      "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
+      "2 Nights Beachside relaxation at Kovalam & Poovar Island",
+      "Private AC Cab with local driver throughout"
     ],
     inclusions: [
-      { icon: "Heart", label: "Flowerbed Decoration" },
-      { icon: "Utensils", label: "Candle Light Dinner" },
-      { icon: "Sparkles", label: "Honeymoon Cake" },
-      { icon: "Gift", label: "Fruit Basket & Honeymoon Milk" },
-      { icon: "Hotel", label: "Romantic 3★/4★ Stays" },
-      { icon: "Car", label: "Private AC Cab & Driver" }
-    ],
-    honeymoonInclusions: [
-      "Flowerbed Decoration",
-      "Candle Light Dinner",
-      "Honeymoon Cake",
-      "Fruit Basket",
-      "Honeymoon Milk"
+      { icon: "Hotel", label: "3★ / 4★ Hotels" },
+      { icon: "Car", label: "Private AC Cab" },
+      { icon: "Ship", label: "Houseboat Stay" },
+      { icon: "Utensils", label: "Breakfast & Meals" }
     ]
   },
   {
     id: "pkg-6n7d",
-    title: "6N / 7D Complete Kerala Honeymoon Experience",
+    title: "6N / 7D Complete Kerala Package",
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
-    tag: "MOST POPULAR HONEYMOON",
+    tag: "MOST POPULAR",
+    categoryBadge: "Popular",
+    urgencyBadge: "Only 4 left!",
+    subtitle: "The Ultimate Kerala Circuit",
     rating: 5.0,
     reviewsCount: 2350,
-    route: "2N Munnar • 1N Thekkady • 1N Alleppey Houseboat • 2N Kovalam",
+    route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam",
     nightSplit: [
       { name: "Munnar", nights: 2 },
       { name: "Thekkady", nights: 1 },
-      { name: "Alleppey Houseboat", nights: 1 },
+      { name: "Alleppey", nights: 1 },
       { name: "Kovalam", nights: 2 }
     ],
-    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 24750,
-    priceForTwo: 49499,
-    originalPrice: 31499,
+    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
+    price: 22999,
+    originalPrice: 28999,
     isPopular: true,
     image: "/images/package-6n7d-backwaters-sunset.jpg",
     highlights: [
-      "Flowerbed Decoration & Honeymoon Cake",
-      "Romantic Candle Light Dinner & Badam Milk",
-      "Fresh Fruit Basket & Deluxe Backwater Houseboat",
-      "Misty Munnar Hills, Thekkady Wildlife & Kovalam Sunsets"
+      "Comprehensive God's Own Country tour",
+      "2 Nights Munnar Hill station & Tea Museum",
+      "1 Night Thekkady Spice Garden & Lake Cruise",
+      "Alleppey Deluxe Houseboat & Kovalam Beach"
     ],
     inclusions: [
-      { icon: "Heart", label: "Flowerbed Decoration" },
-      { icon: "Utensils", label: "Candle Light Dinner" },
-      { icon: "Sparkles", label: "Honeymoon Cake" },
-      { icon: "Gift", label: "Fruit Basket & Honeymoon Milk" },
-      { icon: "Hotel", label: "Romantic 4★ Stays" },
-      { icon: "Car", label: "Private AC Cab & Driver" }
+      { icon: "Hotel", label: "Premium 3★/4★ Stays" },
+      { icon: "Car", label: "Private AC Cab" },
+      { icon: "Ship", label: "Deluxe Houseboat" },
+      { icon: "Utensils", label: "All Meals Onboard" }
+    ]
+  },
+  {
+    id: "pkg-honeymoon-special",
+    title: "Kerala Honeymoon Special",
+    durationBadge: "5 NIGHTS / 6 DAYS",
+    nights: 5,
+    days: 6,
+    tag: "ROMANTIC",
+    categoryBadge: "Romantic",
+    urgencyBadge: "Only 5 left!",
+    subtitle: "Romance in Paradise",
+    rating: 4.9,
+    reviewsCount: 680,
+    route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam",
+    nightSplit: [
+      { name: "Munnar", nights: 2 },
+      { name: "Alleppey Houseboat", nights: 1 },
+      { name: "Kovalam", nights: 2 }
     ],
-    honeymoonInclusions: [
-      "Flowerbed Decoration",
-      "Candle Light Dinner",
-      "Honeymoon Cake",
-      "Fruit Basket",
-      "Honeymoon Milk"
+    locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
+    price: 21499,
+    originalPrice: 27499,
+    image: "/images/package-5n6d-alleppey-munnar.jpg",
+    highlights: [
+      "Private Deluxe Houseboat Cruise with Candlelight Dinner",
+      "Luxury Treehouse / Valley Resort Stay in Munnar",
+      "Couples Ayurvedic Spa & Flower Bed Decoration",
+      "Romantic Sunset Beach Walk at Kovalam"
+    ],
+    inclusions: [
+      { icon: "Hotel", label: "Luxury 4★ Stays" },
+      { icon: "Car", label: "Private AC Sedan" },
+      { icon: "Ship", label: "Private Houseboat" },
+      { icon: "Utensils", label: "Special Dinners" }
+    ]
+  },
+  {
+    id: "pkg-family-special",
+    title: "Kerala Family Special",
+    durationBadge: "6 NIGHTS / 7 DAYS",
+    nights: 6,
+    days: 7,
+    tag: "FAMILY SPECIAL",
+    categoryBadge: "Family Special",
+    urgencyBadge: "Only 10 left!",
+    subtitle: "Fun for All Ages",
+    rating: 4.9,
+    reviewsCount: 1420,
+    route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam",
+    nightSplit: [
+      { name: "Munnar", nights: 2 },
+      { name: "Thekkady", nights: 1 },
+      { name: "Alleppey", nights: 1 },
+      { name: "Kovalam", nights: 2 }
+    ],
+    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
+    price: 23499,
+    originalPrice: 29999,
+    image: "/images/banner-explore-kerala.jpg",
+    highlights: [
+      "Dedicated Private AC Innova Cab for Whole Family",
+      "Periyar Bamboo Rafting & Wildlife Boating",
+      "Full Family Houseboat Cruise with Authentic Meals",
+      "Munnar Tea Museum, Echo Point & Mattupetty Boating"
+    ],
+    inclusions: [
+      { icon: "Hotel", label: "Family Resorts" },
+      { icon: "Car", label: "Dedicated Innova" },
+      { icon: "Ship", label: "Private Houseboat" },
+      { icon: "Utensils", label: "All Meals Included" }
     ]
   },
   {
     id: "pkg-7n8d",
-    title: "7N / 8D Grand Kerala Luxury Honeymoon",
+    title: "7N / 8D Grand Kerala Odyssey",
     durationBadge: "7 NIGHTS / 8 DAYS",
     nights: 7,
     days: 8,
-    tag: "GRAND LUXURY HONEYMOON",
+    tag: "PREMIUM",
+    categoryBadge: "Premium",
+    urgencyBadge: "Only 3 left!",
+    subtitle: "Rejuvenate Body & Soul",
     rating: 4.9,
     reviewsCount: 970,
     route: "1N Cochin • 2N Munnar • 1N Thekkady • 1N Alleppey Houseboat • 2N Kovalam",
@@ -154,30 +207,20 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 28000,
-    priceForTwo: 55999,
-    originalPrice: 35499,
+    price: 24499,
+    originalPrice: 30999,
     image: "/images/package-7n8d-fishing-nets.jpg",
     highlights: [
-      "Flowerbed Decoration & Honeymoon Cake",
-      "Romantic Candle Light Dinner & Badam Milk",
-      "Fresh Fruit Basket & Luxury Houseboat Cruise",
-      "Full Kerala Circuit: Cochin, Munnar, Thekkady, Alleppey & Kovalam"
+      "1 Night Cochin Heritage & Marine Drive",
+      "2 Nights Munnar Tea Gardens & Waterfalls",
+      "1 Night Thekkady Wildlife Sanctuary & Spices",
+      "1 Night Alleppey Houseboat & 2 Nights Kovalam Beach"
     ],
     inclusions: [
-      { icon: "Heart", label: "Flowerbed Decoration" },
-      { icon: "Utensils", label: "Candle Light Dinner" },
-      { icon: "Sparkles", label: "Honeymoon Cake" },
-      { icon: "Gift", label: "Fruit Basket & Honeymoon Milk" },
       { icon: "Hotel", label: "Luxury 4★ Stays" },
-      { icon: "Car", label: "Private AC Sedan/SUV" }
-    ],
-    honeymoonInclusions: [
-      "Flowerbed Decoration",
-      "Candle Light Dinner",
-      "Honeymoon Cake",
-      "Fruit Basket",
-      "Honeymoon Milk"
+      { icon: "Car", label: "Private AC Sedan/SUV" },
+      { icon: "Ship", label: "Deluxe Houseboat" },
+      { icon: "Utensils", label: "Breakfast & Meals" }
     ]
   }
 ];

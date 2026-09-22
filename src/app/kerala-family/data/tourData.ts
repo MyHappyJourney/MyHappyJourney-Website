@@ -15,6 +15,9 @@ export const PACKAGES: PackageItem[] = [
     nights: 4,
     days: 5,
     tag: "BEST VALUE",
+    categoryBadge: "Best Value",
+    urgencyBadge: "Only 8 left!",
+    subtitle: "Tea Hills Meet Backwaters",
     rating: 4.9,
     reviewsCount: 840,
     route: "2N Munnar • 1N Thekkady • 1N Alleppey",
@@ -30,7 +33,8 @@ export const PACKAGES: PackageItem[] = [
     highlights: [
       "2 Nights in scenic Munnar Hill Station",
       "Periyar Wildlife Sanctuary in Thekkady",
-      "Overnight Houseboat Cruise in Alleppey with all meals"
+      "Overnight Houseboat Cruise in Alleppey with all meals",
+      "Spice Garden Guided Walking Tour"
     ],
     inclusions: [
       { icon: "Hotel", label: "3★ / 4★ Hotels" },
@@ -45,7 +49,10 @@ export const PACKAGES: PackageItem[] = [
     durationBadge: "5 NIGHTS / 6 DAYS",
     nights: 5,
     days: 6,
-    tag: "HONEYMOON PICK",
+    tag: "POPULAR",
+    categoryBadge: "Popular",
+    urgencyBadge: "Only 6 left!",
+    subtitle: "Sun, Sand & Serene Waters",
     rating: 4.9,
     reviewsCount: 1120,
     route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam",
@@ -61,7 +68,8 @@ export const PACKAGES: PackageItem[] = [
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
       "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
-      "2 Nights Beachside relaxation at Kovalam & Poovar Island"
+      "2 Nights Beachside relaxation at Kovalam & Poovar Island",
+      "Private AC Cab with local driver throughout"
     ],
     inclusions: [
       { icon: "Hotel", label: "3★ / 4★ Hotels" },
@@ -77,6 +85,9 @@ export const PACKAGES: PackageItem[] = [
     nights: 6,
     days: 7,
     tag: "MOST POPULAR",
+    categoryBadge: "Popular",
+    urgencyBadge: "Only 4 left!",
+    subtitle: "The Ultimate Kerala Circuit",
     rating: 5.0,
     reviewsCount: 2350,
     route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam",
@@ -94,7 +105,8 @@ export const PACKAGES: PackageItem[] = [
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
-      "1 Night Thekkady Spice Garden & Lake Cruise"
+      "1 Night Thekkady Spice Garden & Lake Cruise",
+      "Alleppey Deluxe Houseboat & Kovalam Beach"
     ],
     inclusions: [
       { icon: "Hotel", label: "Premium 3★/4★ Stays" },
@@ -104,12 +116,86 @@ export const PACKAGES: PackageItem[] = [
     ]
   },
   {
+    id: "pkg-honeymoon-special",
+    title: "Kerala Honeymoon Special",
+    durationBadge: "5 NIGHTS / 6 DAYS",
+    nights: 5,
+    days: 6,
+    tag: "ROMANTIC",
+    categoryBadge: "Romantic",
+    urgencyBadge: "Only 5 left!",
+    subtitle: "Romance in Paradise",
+    rating: 4.9,
+    reviewsCount: 680,
+    route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam",
+    nightSplit: [
+      { name: "Munnar", nights: 2 },
+      { name: "Alleppey Houseboat", nights: 1 },
+      { name: "Kovalam", nights: 2 }
+    ],
+    locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
+    price: 21499,
+    originalPrice: 27499,
+    image: "/images/package-5n6d-alleppey-munnar.jpg",
+    highlights: [
+      "Private Deluxe Houseboat Cruise with Candlelight Dinner",
+      "Luxury Treehouse / Valley Resort Stay in Munnar",
+      "Couples Ayurvedic Spa & Flower Bed Decoration",
+      "Romantic Sunset Beach Walk at Kovalam"
+    ],
+    inclusions: [
+      { icon: "Hotel", label: "Luxury 4★ Stays" },
+      { icon: "Car", label: "Private AC Sedan" },
+      { icon: "Ship", label: "Private Houseboat" },
+      { icon: "Utensils", label: "Special Dinners" }
+    ]
+  },
+  {
+    id: "pkg-family-special",
+    title: "Kerala Family Special",
+    durationBadge: "6 NIGHTS / 7 DAYS",
+    nights: 6,
+    days: 7,
+    tag: "FAMILY SPECIAL",
+    categoryBadge: "Family Special",
+    urgencyBadge: "Only 10 left!",
+    subtitle: "Fun for All Ages",
+    rating: 4.9,
+    reviewsCount: 1420,
+    route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam",
+    nightSplit: [
+      { name: "Munnar", nights: 2 },
+      { name: "Thekkady", nights: 1 },
+      { name: "Alleppey", nights: 1 },
+      { name: "Kovalam", nights: 2 }
+    ],
+    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
+    price: 23499,
+    originalPrice: 29999,
+    image: "/images/banner-explore-kerala.jpg",
+    highlights: [
+      "Dedicated Private AC Innova Cab for Whole Family",
+      "Periyar Bamboo Rafting & Wildlife Boating",
+      "Full Family Houseboat Cruise with Authentic Meals",
+      "Munnar Tea Museum, Echo Point & Mattupetty Boating"
+    ],
+    inclusions: [
+      { icon: "Hotel", label: "Family Resorts" },
+      { icon: "Car", label: "Dedicated Innova" },
+      { icon: "Ship", label: "Private Houseboat" },
+      { icon: "Utensils", label: "All Meals Included" }
+    ]
+  },
+  {
     id: "pkg-7n8d",
     title: "7N / 8D Grand Kerala Odyssey",
     durationBadge: "7 NIGHTS / 8 DAYS",
     nights: 7,
     days: 8,
-    tag: "GRAND LUXURY",
+    tag: "PREMIUM",
+    categoryBadge: "Premium",
+    urgencyBadge: "Only 3 left!",
+    subtitle: "Rejuvenate Body & Soul",
     rating: 4.9,
     reviewsCount: 970,
     route: "1N Cochin • 2N Munnar • 1N Thekkady • 1N Alleppey Houseboat • 2N Kovalam",

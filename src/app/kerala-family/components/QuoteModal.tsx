@@ -39,8 +39,8 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm overflow-y-auto animate-fade-in font-sans">
       <div className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl overflow-hidden border border-indigo-100 my-auto text-left">
         <div className="bg-gradient-to-r from-indigo-900 to-[#0B3996] px-5 py-4 text-white flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Logo className="h-6 w-auto brightness-0 invert" />
+          <div className="flex items-center gap-2.5">
+            <Logo variant="light" size="sm" />
             <div className="h-4 w-px bg-white/20" />
             <span className="text-xs font-bold uppercase tracking-wider text-yellow-300">
               Family Tour Quote
