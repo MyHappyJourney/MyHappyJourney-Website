@@ -236,15 +236,27 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
         const path = window.location.pathname;
         let redirectUrl = '';
         let packageName = "";
-        if (path.startsWith("/kerala/kerala-honeymoon-packages")) {
+        if (
+          path.startsWith("/kerala/kerala-honeymoon-tour-packages") ||
+          path.startsWith("/kerala/kerala-honeymoon-packages")
+        ) {
           packageName = "Kerala Honeymoon Package";
-        } else if (path.startsWith("/kerala/kerala-family-holiday-packages")) {
+        } else if (
+          path.startsWith("/kerala/kerala-family-holiday-tour-packages") ||
+          path.startsWith("/kerala/kerala-family-holiday-packages")
+        ) {
           packageName = "Kerala Family Holiday Package";
-        } else if (path.startsWith("/kerala/kerala-senior-citizen-tours")) {
+        } else if (
+          path.startsWith("/kerala/kerala-senior-citizen-tour-packages") ||
+          path.startsWith("/kerala/kerala-senior-citizen-tours")
+        ) {
           packageName = "Kerala Senior Citizen Tour";
         } else if (path.startsWith("/kerala/kerala-group-tour-packages")) {
           packageName = "Kerala Group Tour Package";
-        } else if (path.startsWith("/kerala/kerala-luxury-holiday-packages")) {
+        } else if (
+          path.startsWith("/kerala/kerala-luxury-holiday-tour-packages") ||
+          path.startsWith("/kerala/kerala-luxury-holiday-packages")
+        ) {
           packageName = "Kerala Luxury Holiday Package";
         } else if (path.startsWith("/kerala/kerala-school-college-tour-packages")) {
           packageName = "Kerala School & College Tour Package";
@@ -259,7 +271,22 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
         }
 
         if (packageName) {
-          redirectUrl = `/kerala/thank-you?package=${encodeURIComponent(packageName)}`;
+          const queryParams: string[] = [
+            `package=${encodeURIComponent(packageName)}`,
+            `name=${encodeURIComponent(name || '')}`,
+            `email=${encodeURIComponent(email || '')}`,
+            `phone=${encodeURIComponent(phone || '')}`,
+            `city=${encodeURIComponent(city || '')}`,
+            `destination=${encodeURIComponent(destination || '')}`,
+            `from_date=${encodeURIComponent(fromDate || '')}`,
+            `duration=${encodeURIComponent(duration || '')}`,
+            `adults=${encodeURIComponent(adults ?? 2)}`,
+            `children=${encodeURIComponent(children ?? 0)}`,
+          ];
+          if (budget && budget.trim()) {
+            queryParams.push(`budget=${encodeURIComponent(budget.trim())}`);
+          }
+          redirectUrl = `/kerala/thank-you?${queryParams.join('&')}`;
         }
 
         if (redirectUrl) {

@@ -10,7 +10,6 @@ import { HolidayCategoriesSection } from './components/HolidayCategoriesSection'
 import { InternationalHolidaysSection } from './components/InternationalHolidaysSection';
 import { AboutSection } from './components/AboutSection';
 import { WhyChooseSection } from './components/WhyChooseSection';
-import ClickSpark from './components/ClickSpark';
 import { Reviews } from './components/Reviews';
 import { PlanTripFormSection } from './components/PlanTripFormSection';
 import { StickyMobileCTA } from './components/StickyMobileCTA';
@@ -242,14 +241,7 @@ export default function App() {
     currentPath === '/kerala-senior-citizen-tours';
 
   return (
-    <ClickSpark
-      sparkColor="#FF4B00"
-      sparkSize={10}
-      sparkRadius={15}
-      sparkCount={8}
-      duration={400}
-    >
-      <div className="min-h-screen bg-white text-gray-900 font-sans antialiased selection:bg-[#EBF2FF] selection:text-[#0B3996] pb-[70px] md:pb-0 tracking-tight">
+    <div className="min-h-screen bg-white text-gray-900 font-sans antialiased selection:bg-[#EBF2FF] selection:text-[#0B3996] pb-[70px] md:pb-0 tracking-tight">
         
         {/* 1. Website Header Navigation (Dedicated landing pages have their own specialized header) */}
         {!isDedicatedLandingPage && (
@@ -388,6 +380,5 @@ export default function App() {
         />
 
       </div>
-    </ClickSpark>
   );
 }

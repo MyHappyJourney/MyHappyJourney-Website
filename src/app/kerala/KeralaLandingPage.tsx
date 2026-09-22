@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustStrip } from './components/TrustStrip';
+import { KeralaTravelStyleSection } from './components/KeralaTravelStyleSection';
 import { PackageSection } from './components/PackageSection';
 import { PackageModal } from './components/PackageModal';
 import { QuoteModal } from './components/QuoteModal';
@@ -94,6 +95,9 @@ export const KeralaLandingPage: React.FC<KeralaLandingPageProps> = ({ onBackToHo
 
         {/* 2. Trust Strip */}
         <TrustStrip />
+
+        {/* 2.5 Explore Kerala By Travel Style (Category Navigation Cards) */}
+        <KeralaTravelStyleSection />
 
         {/* 3. Choose Your Kerala Tour (Package Cards Grid) */}
         <PackageSection

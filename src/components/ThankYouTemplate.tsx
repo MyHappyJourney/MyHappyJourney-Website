@@ -16,6 +16,7 @@ interface ThankYouTemplateProps {
   customMessage?: string;
   whatsAppNumber: string;
   phoneCallNumber: string;
+  children?: React.ReactNode;
 }
 
 export const ThankYouTemplate: React.FC<ThankYouTemplateProps> = ({
@@ -28,6 +29,7 @@ export const ThankYouTemplate: React.FC<ThankYouTemplateProps> = ({
   customMessage,
   whatsAppNumber,
   phoneCallNumber,
+  children,
 }) => {
   const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
   const [whatsAppDefaultMsg, setWhatsAppDefaultMsg] = useState<string | undefined>(undefined);
@@ -128,6 +130,9 @@ export const ThankYouTemplate: React.FC<ThankYouTemplateProps> = ({
             {/* Inner Content */}
             <div className="p-6 sm:p-10 space-y-8 sm:space-y-10">
               
+              {/* Optional Children (e.g. Enquiry Details Summary Card) */}
+              {children}
+
               {/* Next Steps Grid */}
               <div>
                 <h3 className="text-sm font-black text-slate-800 uppercase tracking-widest mb-6 text-center sm:text-left">

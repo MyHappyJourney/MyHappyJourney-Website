@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustStrip } from './components/TrustStrip';
 import { PackageSection } from './components/PackageSection';
-import ClickSpark from './components/ClickSpark';
 import { PackageModal } from './components/PackageModal';
 import { QuoteModal } from './components/QuoteModal';
 import { Itinerary } from './components/Itinerary';
@@ -68,14 +67,7 @@ export const KeralaHoneymoonLandingPage: React.FC<KeralaHoneymoonLandingPageProp
   };
 
   return (
-    <ClickSpark
-      sparkColor="#FF4B00"
-      sparkSize={10}
-      sparkRadius={15}
-      sparkCount={8}
-      duration={400}
-    >
-      <div className="min-h-screen bg-white text-gray-900 font-sans antialiased selection:bg-[#EBF2FF] selection:text-[#0B3996] pb-[72px] md:pb-0">
+    <div className="min-h-screen bg-white text-gray-900 font-sans antialiased selection:bg-[#EBF2FF] selection:text-[#0B3996] pb-[72px] md:pb-0 relative">
         
         {/* Initial Page Preloader with Uiverse Loader */}
         {isInitialLoading && (
@@ -164,7 +156,6 @@ export const KeralaHoneymoonLandingPage: React.FC<KeralaHoneymoonLandingPageProp
         />
 
       </div>
-    </ClickSpark>
   );
 }
 

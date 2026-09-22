@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
 
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-                Comfortable <span className="text-teal-300">Kerala Senior Citizen</span> Tours
+                Comfortable <span className="text-teal-300">Kerala Senior Citizen</span> Tour Packages
               </h1>
               <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed max-w-xl">
                 Ground-floor resort rooms with elevators, relaxed itineraries without tiring journeys, courteous drivers, and 24/7 care.

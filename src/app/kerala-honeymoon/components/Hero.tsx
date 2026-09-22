@@ -55,7 +55,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
 
             <div className="space-y-2">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-                Magical <span className="text-rose-400">Kerala Honeymoon</span> Packages
+                Magical <span className="text-rose-400">Kerala Honeymoon</span> Tour Packages
               </h1>
               <p className="text-base sm:text-lg text-gray-200 font-medium leading-relaxed max-w-xl">
                 Candlelight dinner, flowerbed decoration, private luxury houseboat cruises, and misty tea estate stays. Tailored for your unforgettable romantic beginning.

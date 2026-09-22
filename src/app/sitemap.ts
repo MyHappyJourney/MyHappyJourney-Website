@@ -93,19 +93,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Nested category URLs (priority 0.8)
   const nestedCategoryPages: MetadataRoute.Sitemap = [
     {
-      url: `${baseUrl}/kerala/kerala-honeymoon-packages`,
+      url: `${baseUrl}/kerala/kerala-honeymoon-tour-packages`,
       lastModified,
       changeFrequency: 'daily',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/kerala/kerala-family-holiday-packages`,
+      url: `${baseUrl}/kerala/kerala-family-holiday-tour-packages`,
       lastModified,
       changeFrequency: 'daily',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/kerala/kerala-senior-citizen-tours`,
+      url: `${baseUrl}/kerala/kerala-senior-citizen-tour-packages`,
       lastModified,
       changeFrequency: 'daily',
       priority: 0.8,
@@ -117,7 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/kerala/kerala-luxury-holiday-packages`,
+      url: `${baseUrl}/kerala/kerala-luxury-holiday-tour-packages`,
       lastModified,
       changeFrequency: 'daily',
       priority: 0.8,
