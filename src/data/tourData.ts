@@ -11,7 +11,7 @@ export const WHATSAPP_GROUP_MSG = encodeURIComponent("Hi MyHappyJourney, I am pl
 export const PACKAGES: PackageItem[] = [
   {
     id: "pkg-4n5d",
-    title: "4N / 5D Kerala Delight",
+    title: "4N / 5D Munnar, Thekkady & Alleppey Tour Package",
     durationBadge: "4 NIGHTS / 5 DAYS",
     nights: 4,
     days: 5,
@@ -46,7 +46,7 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-5n6d",
-    title: "5N / 6D Kerala Explorer",
+    title: "5N / 6D Munnar, Alleppey & Kovalam Tour Package",
     durationBadge: "5 NIGHTS / 6 DAYS",
     nights: 5,
     days: 6,
@@ -81,7 +81,7 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-6n7d",
-    title: "6N / 7D Complete Kerala Package",
+    title: "6N / 7D Complete Kerala Tour Package",
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
@@ -174,7 +174,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
     price: 23499,
     originalPrice: 29999,
-    image: "/images/family%20package%20image.png",
+    image: "/images/family%20immage%20crdd.png",
     imagePosition: "center 12%",
     highlights: [
       "Dedicated Private AC Innova Cab for Whole Family",
@@ -191,7 +191,7 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-7n8d",
-    title: "7N / 8D Grand Kerala Odyssey",
+    title: "7N / 8D Grand Kerala Tour Package",
     durationBadge: "7 NIGHTS / 8 DAYS",
     nights: 7,
     days: 8,

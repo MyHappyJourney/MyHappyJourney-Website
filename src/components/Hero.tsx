@@ -21,18 +21,21 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
   };
 
   return (
-    <section id="hero-section" className="relative min-h-[640px] sm:min-h-[720px] lg:min-h-[780px] flex items-center justify-center overflow-hidden text-center select-none font-sans">
+    <section id="hero-section" className="relative min-h-[640px] sm:min-h-[720px] lg:min-h-[780px] flex items-center justify-center overflow-hidden text-center select-none font-sans bg-neutral-950">
       
-      {/* Background Tropical Landscape with Atmospheric Vignette */}
+      {/* Background Tropical Landscape with Clear Neutral Scrim */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero-munnar-tea.jpg"
-          alt="Lush tropical coastline and tranquil beach destination"
+          src="/images/HeroImgwebsite.jpg"
+          alt="Bespoke Kerala Tour Packages & Luxury Holidays"
           className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"
+          onError={(e) => {
+            e.currentTarget.src = '/images/hero-munnar-tea.jpg';
+          }}
         />
-        {/* Soft cinematic Navy blue gradient overlay matching #0B2545 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#071F3D]/80 via-[#0B2545]/65 to-[#071F3D]/90 pointer-events-none" />
+        {/* Clean, subtle neutral gradient for legibility - completely clear, zero blue haze */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/30 to-black/65 pointer-events-none" />
       </div>
 
       {/* Main Centered Content */}
