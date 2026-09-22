@@ -10,9 +10,9 @@ export interface PackageItem {
   originalPrice?: number;
   isPopular?: boolean;
   tag?: string;
-  categoryBadge?: string;
-  urgencyBadge?: string;
-  subtitle?: string;
+  categoryBadge: string;
+  urgencyBadge: string;
+  subtitle: string;
   rating?: number;
   reviewsCount?: number;
   nightSplit?: { name: string; nights: number }[];
