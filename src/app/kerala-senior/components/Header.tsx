@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Phone, Menu, X, Star, ShieldCheck, ChevronRight } from 'lucide-react';
 import { PHONE_NUMBER, DISPLAY_PHONE } from '../data/tourData';
 import { Logo } from './Logo';
@@ -27,9 +28,13 @@ export const Header: React.FC<HeaderProps> = ({ onQuoteClick, onPackageSelect })
     <header className="sticky top-0 z-40 bg-white shadow-xs border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 h-[64px] sm:h-[72px] flex items-center justify-between">
         {/* Brand Logo */}
-        <a href="/" className="flex items-center group focus:outline-none" id="brand-logo-link" onClick={(e) => { e.preventDefault(); if (window.location.pathname !== "/") { window.history.pushState({}, "", "/"); window.dispatchEvent(new PopStateEvent("popstate")); } }}>
+        <Link 
+          href="/" 
+          className="flex items-center group focus:outline-none" 
+          id="brand-logo-link"
+        >
           <Logo size="md" />
-        </a>
+        </Link>
 
         {/* Desktop Trust & Stats (Hidden on Mobile) */}
         <div className="hidden lg:flex items-center gap-6 text-xs font-medium text-gray-700">
