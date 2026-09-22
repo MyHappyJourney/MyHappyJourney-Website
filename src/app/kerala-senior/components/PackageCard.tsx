@@ -93,45 +93,17 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
           </div>
         </div>
 
-        {/* Bottom Section: Custom Quote Strip & CTAs */}
-        <div className="space-y-3 pt-2">
-          {/* Custom Pricing Banner with View Itinerary */}
-          <div className="bg-[#F8FAFC] p-3.5 sm:p-4 rounded-xl sm:rounded-2xl border border-gray-200/80 flex items-center justify-between gap-3">
-            <div className="flex flex-col">
-              <span className="text-[10px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded w-fit border border-emerald-200/60 mb-1">
-                BEST PRICE GUARANTEED
-              </span>
-              <span className="text-sm sm:text-base font-extrabold text-gray-900 tracking-tight">
-                Get Custom Quote
-              </span>
-              <span className="text-[11px] font-medium text-gray-500">
-                Tailored to your dates & hotel tier
-              </span>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => onViewDetails(pkg)}
-              className="text-[#0B3996] hover:text-[#082a74] font-bold text-xs sm:text-sm hover:underline cursor-pointer flex items-center gap-1 shrink-0 bg-white px-3 py-2 rounded-lg border border-blue-100 shadow-2xs transition-all hover:shadow-xs"
-              id={`view-itinerary-${pkg.id}`}
-            >
-              <span>View Itinerary</span>
-              <span>→</span>
-            </button>
-          </div>
-
-          {/* Action CTA: Get Quote in 10 Min */}
-          <div className="pt-1">
-            <button
-              type="button"
-              onClick={() => onGetQuote(pkg)}
-              className="w-full h-11.5 sm:h-12 px-4 bg-[#FF4B00] hover:bg-[#e04200] active:scale-98 text-white font-black text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer select-none"
-              id={`get-quote-btn-${pkg.id}`}
-            >
-              <Zap className="w-4 h-4 fill-white text-white shrink-0" />
-              <span className="whitespace-nowrap uppercase tracking-wide">GET QUOTE IN 10 MIN</span>
-            </button>
-          </div>
+        {/* Bottom Section: Action CTA */}
+        <div className="pt-2">
+          <button
+            type="button"
+            onClick={() => onGetQuote(pkg)}
+            className="w-full h-11.5 sm:h-12 px-4 bg-[#FF4B00] hover:bg-[#e04200] active:scale-98 text-white font-black text-xs sm:text-sm rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer select-none"
+            id={`get-quote-btn-${pkg.id}`}
+          >
+            <Zap className="w-4 h-4 fill-white text-white shrink-0" />
+            <span className="whitespace-nowrap uppercase tracking-wide">GET QUOTE IN 10 MIN</span>
+          </button>
         </div>
       </div>
     </div>
