@@ -101,7 +101,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22999,
     originalPrice: 28999,
     isPopular: true,
-    image: "/images/6n7d%20package%20card.png",
+    image: "/images/6n7d%20card%20image%20senior.png",
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
