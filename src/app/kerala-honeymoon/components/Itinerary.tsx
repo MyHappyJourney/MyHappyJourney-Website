@@ -10,39 +10,39 @@ interface ReasonItem {
 const REASONS: ReasonItem[] = [
   {
     icon: Compass,
-    title: "Alleppey Backwaters",
+    title: "Private Houseboat Cruises",
     description:
-      "Cruise through Kerala's iconic palm-fringed canals on a traditional houseboat. Wake up to misty mornings, spot kingfishers, and dine on freshly cooked Kerala cuisine — all on water."
+      "Drift along serene palm-fringed backwaters aboard your private luxury houseboat. Enjoy intimate sunset deck views, candlelit dinners on the water, and freshly prepared Kerala delicacies."
   },
   {
     icon: Mountain,
-    title: "Munnar Tea Hills",
+    title: "Misty Munnar Hill Stays",
     description:
-      "Endless carpets of emerald tea plantations, cool misty mornings, and panoramic mountain views. Munnar at 1,600m is Kerala's most romantic hill station and a photographer's paradise."
+      "Wake up to rolling emerald tea plantations, crisp mountain mist, and breathtaking valley sunrises. Secluded treehouses and luxury resorts make Munnar the ultimate romantic haven."
   },
   {
     icon: Leaf,
-    title: "Periyar Wildlife",
+    title: "Periyar Nature & Spice Walks",
     description:
-      "Thekkady's Periyar Wildlife Sanctuary is home to wild elephants, tigers, and bison. Bamboo rafting on Periyar Lake and spice plantation walks make it an unforgettable adventure."
+      "Share peaceful hand-in-hand strolls through fragrant cardamom and cinnamon plantations, serene lake boat safaris in Thekkady, and tranquil wilderness escapes."
   },
   {
     icon: Camera,
-    title: "Kovalam & Varkala Beaches",
+    title: "Sunset Beaches & Clifftops",
     description:
-      "Golden crescents of sand, dramatic cliff-top views, and Ayurvedic massage huts by the sea. Kovalam's lighthouse beach and Varkala's red cliffs are Kerala's coastal jewels."
+      "Unwind on the golden crescent beaches of Kovalam and the dramatic red laterite cliffs of Varkala. Stroll the shoreline at dusk and enjoy intimate candlelit beachside dinners."
   },
   {
     icon: Shield,
-    title: "Ayurveda Heritage",
+    title: "Rejuvenating Couple's Ayurveda",
     description:
-      "Kerala is the birthplace of Ayurveda. From rejuvenating massages to multi-day Panchakarma programs, authentic Ayurvedic treatments here are a 5,000-year-old tradition."
+      "Indulge in authentic couple's Ayurvedic spa therapies and herbal oil massages designed to relax your senses and rejuvenate body and soul together."
   },
   {
     icon: Landmark,
-    title: "Fort Kochi Culture",
+    title: "Charming Heritage & Culture",
     description:
-      "Walk through centuries of history — Chinese fishing nets, Dutch palaces, Jewish synagogues, and Portuguese churches. Fort Kochi is a living museum of Kerala's cosmopolitan past."
+      "Wander through Fort Kochi's quaint colonial lanes, historic cafes, and dramatic Chinese fishing net silhouettes at twilight — a timeless backdrop for romantic memories."
   }
 ];
 
@@ -54,10 +54,10 @@ export const WhyKerala: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <span className="text-[#0B3996] font-bold text-xs sm:text-sm uppercase tracking-[0.2em] inline-block">
-            WHY KERALA
+            HONEYMOON SPECIAL
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 mt-2 tracking-tight">
-            6 Reasons Kerala Will Enchant You
+            6 Reasons Kerala Is Perfect For Your Honeymoon
           </h2>
           {/* Orange Accent Pill Bar */}
           <div className="w-14 h-1.5 bg-[#FF7A00] rounded-full mx-auto mt-3.5" />

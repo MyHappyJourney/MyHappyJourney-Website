@@ -21,7 +21,7 @@ export const PackageSection: React.FC<PackageSectionProps> = ({ onViewDetails, o
             </span>
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight">
-            CHOOSE YOUR KERALA TOUR 🌴
+            CHOOSE YOUR KERALA HONEYMOON TOUR PACKAGES
           </h2>
           <p className="text-xs sm:text-base text-gray-600 mt-2">
             Handcrafted tour packages with private AC vehicle, handpicked hotels, and 24x7 local support.
