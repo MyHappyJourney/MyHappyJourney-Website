@@ -10,7 +10,7 @@ export const WHATSAPP_GROUP_MSG = encodeURIComponent("Hi MyHappyJourney, I am pl
 export const PACKAGES: PackageItem[] = [
   {
     id: "pkg-4n5d",
-    title: "4N / 5D Munnar, Thekkady & Alleppey Tour Package",
+    title: "4N/5D Kerala Senior Citizen Tour Package – Munnar, Thekkady & Alleppey",
     durationBadge: "4 NIGHTS / 5 DAYS",
     nights: 4,
     days: 5,
@@ -29,7 +29,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
     price: 15999,
     originalPrice: 19999,
-    image: "/images/thisiskerala.jpg",
+    image: "/images/4n5d%20senior%20card.png",
     highlights: [
       "2 Nights in scenic Munnar Hill Station",
       "Periyar Wildlife Sanctuary in Thekkady",
@@ -45,7 +45,7 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-5n6d",
-    title: "5N / 6D Munnar, Alleppey & Kovalam Tour Package",
+    title: "5N/6D Kerala Senior Citizen Tour Package – Munnar, Alleppey & Kovalam",
     durationBadge: "5 NIGHTS / 6 DAYS",
     nights: 5,
     days: 6,
@@ -64,7 +64,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 20999,
     originalPrice: 26999,
-    image: "/images/package-5n6d-houseboat.jpg",
+    image: "/images/5n6d%20senior%20card.png",
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
       "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
@@ -80,7 +80,7 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-6n7d",
-    title: "6N / 7D Complete Kerala Tour Package",
+    title: "6N/7D Kerala Senior Citizen Tour Package – Complete Kerala Comfort Tour",
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
@@ -101,7 +101,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22999,
     originalPrice: 28999,
     isPopular: true,
-    image: "/images/package-6n7d-backwaters-sunset.jpg",
+    image: "/images/6n7d%20package%20card.png",
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
@@ -117,14 +117,14 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-honeymoon-special",
-    title: "Kerala Honeymoon Special",
+    title: "Kerala Senior Citizen Tour Package – Relaxed Wellness & Ayurveda Escape",
     durationBadge: "5 NIGHTS / 6 DAYS",
     nights: 5,
     days: 6,
-    tag: "ROMANTIC",
-    categoryBadge: "Romantic",
+    tag: "WELLNESS & AYURVEDA",
+    categoryBadge: "Wellness & Leisure",
     urgencyBadge: "Only 5 left!",
-    subtitle: "Romance in Paradise",
+    subtitle: "Peace, Wellness & Serenity",
     rating: 4.9,
     reviewsCount: 680,
     route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam",
@@ -136,13 +136,12 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 21499,
     originalPrice: 27499,
-    image: "/images/honeymoon%20card%20image.png",
-    imagePosition: "center 25%",
+    image: "/images/senor%20couple%20jatayu.png",
     highlights: [
-      "Private Deluxe Houseboat Cruise with Candlelight Dinner",
-      "Luxury Treehouse / Valley Resort Stay in Munnar",
-      "Couples Ayurvedic Spa & Flower Bed Decoration",
-      "Romantic Sunset Beach Walk at Kovalam"
+      "Private Deluxe Houseboat Cruise with Authentic Meals",
+      "Peaceful Valley Resort Stay in Munnar",
+      "Authentic Gentle Ayurvedic Spa & Wellness Session",
+      "Sunset Beach Stroll at Kovalam & Jatayu Earth Center"
     ],
     inclusions: [
       { icon: "Hotel", label: "Luxury 4★ Stays" },
@@ -153,14 +152,14 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-family-special",
-    title: "Kerala Family Special",
+    title: "Kerala Senior Citizen Tour Package – Customizable Comfortable Holidays",
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
-    tag: "FAMILY SPECIAL",
-    categoryBadge: "Family Special",
+    tag: "CUSTOMIZABLE",
+    categoryBadge: "Senior Group Special",
     urgencyBadge: "Only 10 left!",
-    subtitle: "Fun for All Ages",
+    subtitle: "Custom Comfort for Groups & Friends",
     rating: 4.9,
     reviewsCount: 1420,
     route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam",
@@ -173,16 +172,15 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
     price: 23499,
     originalPrice: 29999,
-    image: "/images/family%20immage%20crdd.png",
-    imagePosition: "center 12%",
+    image: "/images/senior%20group%20card.png",
     highlights: [
-      "Dedicated Private AC Innova Cab for Whole Family",
-      "Periyar Bamboo Rafting & Wildlife Boating",
-      "Full Family Houseboat Cruise with Authentic Meals",
-      "Munnar Tea Museum, Echo Point & Mattupetty Boating"
+      "Dedicated Private AC Innova Cab for Comfort & Group Travel",
+      "Periyar Lake Wildlife Boating with Seated Views",
+      "Full Deluxe Houseboat Cruise with Authentic Meals",
+      "Munnar Tea Museum, Echo Point & Mattupetty Dam"
     ],
     inclusions: [
-      { icon: "Hotel", label: "Family Resorts" },
+      { icon: "Hotel", label: "Senior-Friendly Resorts" },
       { icon: "Car", label: "Dedicated Innova" },
       { icon: "Ship", label: "Private Houseboat" },
       { icon: "Utensils", label: "All Meals Included" }
@@ -190,7 +188,7 @@ export const PACKAGES: PackageItem[] = [
   },
   {
     id: "pkg-7n8d",
-    title: "7N / 8D Grand Kerala Tour Package",
+    title: "7N/8D Kerala Senior Citizen Tour Package – Grand Kerala Comfort Tour",
     durationBadge: "7 NIGHTS / 8 DAYS",
     nights: 7,
     days: 8,
@@ -211,7 +209,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 24499,
     originalPrice: 30999,
-    image: "/images/package-7n8d-fishing-nets.jpg",
+    image: "/images/7n8d%20senior%20card.png",
     highlights: [
       "1 Night Cochin Heritage & Marine Drive",
       "2 Nights Munnar Tea Gardens & Waterfalls",
