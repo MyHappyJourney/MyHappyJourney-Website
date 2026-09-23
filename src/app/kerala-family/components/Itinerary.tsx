@@ -10,39 +10,39 @@ interface ReasonItem {
 const REASONS: ReasonItem[] = [
   {
     icon: Compass,
-    title: "Alleppey Backwaters",
+    title: "Alleppey Family Houseboat Stay",
     description:
-      "Cruise through Kerala's iconic palm-fringed canals on a traditional houseboat. Wake up to misty mornings, spot kingfishers, and dine on freshly cooked Kerala cuisine — all on water."
+      "Cruise scenic palm-fringed backwaters together on your 100% private deluxe houseboat. Enjoy child-safe sundecks, fresh family-style meals prepared by your private chef, and unforgettable sunset views."
   },
   {
     icon: Mountain,
-    title: "Munnar Tea Hills",
+    title: "Munnar Misty Tea Hills & Boating",
     description:
-      "Endless carpets of emerald tea plantations, cool misty mornings, and panoramic mountain views. Munnar at 1,600m is Kerala's most romantic hill station and a photographer's paradise."
+      "Cool mountain breezes, gentle tea garden strolls, and pedal boating on Mattupetty Lake. Kids will love the Echo Point shouts and wildlife spotting at Eravikulam National Park."
   },
   {
     icon: Leaf,
-    title: "Periyar Wildlife",
+    title: "Periyar Wildlife & Elephant Encounters",
     description:
-      "Thekkady's Periyar Wildlife Sanctuary is home to wild elephants, tigers, and bison. Bamboo rafting on Periyar Lake and spice plantation walks make it an unforgettable adventure."
+      "Thrilling boat safaris on Periyar Lake to spot wild elephants, gaur, and colorful birds. Families enjoy interactive spice garden walks and feeding gentle elephants in Thekkady."
   },
   {
     icon: Camera,
-    title: "Kovalam & Varkala Beaches",
+    title: "Kovalam & Poovar Island Beaches",
     description:
-      "Golden crescents of sand, dramatic cliff-top views, and Ayurvedic massage huts by the sea. Kovalam's lighthouse beach and Varkala's red cliffs are Kerala's coastal jewels."
+      "Safe, calm shallow waters at Lighthouse Beach and thrilling mangrove motorboat rides to Poovar Golden Sand Beach. Perfect for kids to build sandcastles while parents relax."
   },
   {
     icon: Shield,
-    title: "Ayurveda Heritage",
+    title: "Gentle Pacing & Dedicated Private Cab",
     description:
-      "Kerala is the birthplace of Ayurveda. From rejuvenating massages to multi-day Panchakarma programs, authentic Ayurvedic treatments here are a 5,000-year-old tradition."
+      "Travel comfortably with your own dedicated private AC vehicle and experienced family chauffeur. Custom breaks, flexible timings, and zero rush for kids and elderly parents."
   },
   {
     icon: Landmark,
-    title: "Fort Kochi Culture",
+    title: "Living Culture & Heritage Experiences",
     description:
-      "Walk through centuries of history — Chinese fishing nets, Dutch palaces, Jewish synagogues, and Portuguese churches. Fort Kochi is a living museum of Kerala's cosmopolitan past."
+      "Introduce your children to centuries of culture with colorful Kathakali performances, Kalaripayattu martial arts shows, and historic Chinese fishing nets in Fort Kochi."
   }
 ];
 
@@ -57,7 +57,7 @@ export const WhyKerala: React.FC = () => {
             WHY KERALA
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 mt-2 tracking-tight">
-            6 Reasons Kerala Will Enchant You
+            6 Reasons Kerala Is Perfect For Family Holidays
           </h2>
           {/* Orange Accent Pill Bar */}
           <div className="w-14 h-1.5 bg-[#FF7A00] rounded-full mx-auto mt-3.5" />

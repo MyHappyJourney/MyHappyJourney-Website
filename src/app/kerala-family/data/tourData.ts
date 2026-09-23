@@ -9,78 +9,45 @@ export const WHATSAPP_GROUP_MSG = encodeURIComponent("Hi MyHappyJourney, I am pl
 
 export const PACKAGES: PackageItem[] = [
   {
-    id: "pkg-4n5d",
-    title: "4N / 5D Munnar, Thekkady & Alleppey Tour Package",
-    durationBadge: "4 NIGHTS / 5 DAYS",
-    nights: 4,
-    days: 5,
-    tag: "BEST VALUE",
-    categoryBadge: "Best Value",
-    urgencyBadge: "Only 8 left!",
-    subtitle: "Tea Hills Meet Backwaters",
+    id: "pkg-7n8d",
+    title: "7N / 8D Kerala Family Tour – Munnar, Thekkady, Alleppey, Kovalam & Kanyakumari",
+    durationBadge: "7 NIGHTS / 8 DAYS",
+    nights: 7,
+    days: 8,
+    tag: "PREMIUM",
+    categoryBadge: "Premium",
+    urgencyBadge: "Only 3 left!",
+    subtitle: "Grand Multi-City Family Tour",
     rating: 4.9,
-    reviewsCount: 840,
-    route: "2N Munnar • 1N Thekkady • 1N Alleppey",
+    reviewsCount: 970,
+    route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam • 1N Kanyakumari",
     nightSplit: [
       { name: "Munnar", nights: 2 },
       { name: "Thekkady", nights: 1 },
-      { name: "Alleppey", nights: 1 }
-    ],
-    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
-    price: 15999,
-    originalPrice: 19999,
-    image: "/images/thisiskerala.jpg",
-    highlights: [
-      "2 Nights in scenic Munnar Hill Station",
-      "Periyar Wildlife Sanctuary in Thekkady",
-      "Overnight Houseboat Cruise in Alleppey with all meals",
-      "Spice Garden Guided Walking Tour"
-    ],
-    inclusions: [
-      { icon: "Hotel", label: "3★ / 4★ Hotels" },
-      { icon: "Car", label: "Private AC Cab" },
-      { icon: "Ship", label: "Deluxe Houseboat" },
-      { icon: "Utensils", label: "Meals Included" }
-    ]
-  },
-  {
-    id: "pkg-5n6d",
-    title: "5N / 6D Munnar, Alleppey & Kovalam Tour Package",
-    durationBadge: "5 NIGHTS / 6 DAYS",
-    nights: 5,
-    days: 6,
-    tag: "POPULAR",
-    categoryBadge: "Popular",
-    urgencyBadge: "Only 6 left!",
-    subtitle: "Sun, Sand & Serene Waters",
-    rating: 4.9,
-    reviewsCount: 1120,
-    route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam",
-    nightSplit: [
-      { name: "Munnar", nights: 2 },
       { name: "Alleppey Houseboat", nights: 1 },
-      { name: "Kovalam", nights: 2 }
+      { name: "Kovalam", nights: 2 },
+      { name: "Kanyakumari", nights: 1 }
     ],
-    locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 20999,
-    originalPrice: 26999,
-    image: "/images/package-5n6d-houseboat.jpg",
+    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)", "Kanyakumari (1N)"],
+    price: 24499,
+    originalPrice: 30999,
+    image: "/images/7n8d%20family%20card.png",
     highlights: [
-      "2 Nights in lush Munnar Tea Gardens & Waterfalls",
-      "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
-      "2 Nights Beachside relaxation at Kovalam & Poovar Island",
-      "Private AC Cab with local driver throughout"
+      "2 Nights Munnar Tea Gardens & Waterfalls",
+      "1 Night Thekkady Wildlife Sanctuary & Spices",
+      "1 Night Alleppey Houseboat & 2 Nights Kovalam Beach",
+      "1 Night Kanyakumari Sunset & Vivekananda Memorial"
     ],
     inclusions: [
-      { icon: "Hotel", label: "3★ / 4★ Hotels" },
-      { icon: "Car", label: "Private AC Cab" },
-      { icon: "Ship", label: "Houseboat Stay" },
+      { icon: "Hotel", label: "Luxury 4★ Stays" },
+      { icon: "Car", label: "Private AC Sedan/SUV" },
+      { icon: "Ship", label: "Deluxe Houseboat" },
       { icon: "Utensils", label: "Breakfast & Meals" }
     ]
   },
   {
     id: "pkg-6n7d",
-    title: "6N / 7D Complete Kerala Tour Package",
+    title: "6N / 7D Kerala Family Holiday Package – Complete Kerala",
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
@@ -101,7 +68,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22999,
     originalPrice: 28999,
     isPopular: true,
-    image: "/images/package-6n7d-backwaters-sunset.jpg",
+    image: "/images/6n7d%20beach%20card%20pic.png",
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
@@ -116,17 +83,53 @@ export const PACKAGES: PackageItem[] = [
     ]
   },
   {
-    id: "pkg-honeymoon-special",
-    title: "Kerala Honeymoon Special",
+    id: "pkg-6n7d-varkala",
+    title: "6N / 7D Kerala Family Tour Package – Munnar, Alleppey, Varkala & Kovalam",
+    durationBadge: "6 NIGHTS / 7 DAYS",
+    nights: 6,
+    days: 7,
+    tag: "FAMILY SPECIAL",
+    categoryBadge: "Family Special",
+    urgencyBadge: "Only 5 left!",
+    subtitle: "Hills, Backwaters & Cliff Beaches",
+    rating: 4.9,
+    reviewsCount: 1280,
+    route: "2N Munnar • 1N Alleppey Houseboat • 1N Varkala • 2N Kovalam",
+    nightSplit: [
+      { name: "Munnar", nights: 2 },
+      { name: "Alleppey Houseboat", nights: 1 },
+      { name: "Varkala", nights: 1 },
+      { name: "Kovalam", nights: 2 }
+    ],
+    locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Varkala (1N)", "Kovalam (2N)"],
+    price: 23499,
+    originalPrice: 29999,
+    image: "/images/6n7d%20varkala%20family%20pic.png",
+    highlights: [
+      "2 Nights in scenic Munnar Tea Hills & Waterfalls",
+      "1 Night Alleppey Deluxe Private Houseboat with All Meals",
+      "1 Night Varkala Cliff & Papanasam Beach Views",
+      "2 Nights Kovalam Beach & Poovar Island Mangrove Boating"
+    ],
+    inclusions: [
+      { icon: "Hotel", label: "Family Resorts" },
+      { icon: "Car", label: "Private AC Cab" },
+      { icon: "Ship", label: "Deluxe Houseboat" },
+      { icon: "Utensils", label: "Breakfast & Meals" }
+    ]
+  },
+  {
+    id: "pkg-5n6d",
+    title: "5N / 6D Kerala Family Tour Package – Munnar, Alleppey & Kovalam",
     durationBadge: "5 NIGHTS / 6 DAYS",
     nights: 5,
     days: 6,
-    tag: "ROMANTIC",
-    categoryBadge: "Romantic",
-    urgencyBadge: "Only 5 left!",
-    subtitle: "Romance in Paradise",
+    tag: "POPULAR",
+    categoryBadge: "Popular",
+    urgencyBadge: "Only 6 left!",
+    subtitle: "Sun, Sand & Serene Waters",
     rating: 4.9,
-    reviewsCount: 680,
+    reviewsCount: 1120,
     route: "2N Munnar • 1N Alleppey Houseboat • 2N Kovalam",
     nightSplit: [
       { name: "Munnar", nights: 2 },
@@ -134,26 +137,60 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 21499,
-    originalPrice: 27499,
-    image: "/images/honeymoon%20card%20image.png",
-    imagePosition: "center 25%",
+    price: 20999,
+    originalPrice: 26999,
+    image: "/images/5n6d%20family%20package%20card.png",
     highlights: [
-      "Private Deluxe Houseboat Cruise with Candlelight Dinner",
-      "Luxury Treehouse / Valley Resort Stay in Munnar",
-      "Couples Ayurvedic Spa & Flower Bed Decoration",
-      "Romantic Sunset Beach Walk at Kovalam"
+      "2 Nights in lush Munnar Tea Gardens & Waterfalls",
+      "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
+      "2 Nights Beachside relaxation at Kovalam & Poovar Island",
+      "Private AC Cab with local driver throughout"
     ],
     inclusions: [
-      { icon: "Hotel", label: "Luxury 4★ Stays" },
-      { icon: "Car", label: "Private AC Sedan" },
-      { icon: "Ship", label: "Private Houseboat" },
-      { icon: "Utensils", label: "Special Dinners" }
+      { icon: "Hotel", label: "3★ / 4★ Hotels" },
+      { icon: "Car", label: "Private AC Cab" },
+      { icon: "Ship", label: "Houseboat Stay" },
+      { icon: "Utensils", label: "Breakfast & Meals" }
+    ]
+  },
+  {
+    id: "pkg-4n5d",
+    title: "4N / 5D Kerala Family Tour – Munnar, Thekkady & Alleppey",
+    durationBadge: "4 NIGHTS / 5 DAYS",
+    nights: 4,
+    days: 5,
+    tag: "BEST VALUE",
+    categoryBadge: "Best Value",
+    urgencyBadge: "Only 8 left!",
+    subtitle: "Tea Hills Meet Backwaters",
+    rating: 4.9,
+    reviewsCount: 840,
+    route: "2N Munnar • 1N Thekkady • 1N Alleppey",
+    nightSplit: [
+      { name: "Munnar", nights: 2 },
+      { name: "Thekkady", nights: 1 },
+      { name: "Alleppey", nights: 1 }
+    ],
+    locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
+    price: 15999,
+    originalPrice: 19999,
+    image: "/images/4n5d%20family%20card.png",
+    highlights: [
+      "2 Nights in scenic Munnar Hill Station",
+      "Periyar Wildlife Sanctuary in Thekkady",
+      "Overnight Houseboat Cruise in Alleppey with all meals",
+      "Spice Garden Guided Walking Tour"
+    ],
+    inclusions: [
+      { icon: "Hotel", label: "3★ / 4★ Hotels" },
+      { icon: "Car", label: "Private AC Cab" },
+      { icon: "Ship", label: "Deluxe Houseboat" },
+      { icon: "Utensils", label: "Meals Included" }
     ]
   },
   {
     id: "pkg-family-special",
-    title: "Kerala Family Special",
+    title: "Kerala Family Tour Package – Customizable Kerala Holidays",
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
@@ -186,43 +223,6 @@ export const PACKAGES: PackageItem[] = [
       { icon: "Car", label: "Dedicated Innova" },
       { icon: "Ship", label: "Private Houseboat" },
       { icon: "Utensils", label: "All Meals Included" }
-    ]
-  },
-  {
-    id: "pkg-7n8d",
-    title: "7N / 8D Grand Kerala Tour Package",
-    durationBadge: "7 NIGHTS / 8 DAYS",
-    nights: 7,
-    days: 8,
-    tag: "PREMIUM",
-    categoryBadge: "Premium",
-    urgencyBadge: "Only 3 left!",
-    subtitle: "Rejuvenate Body & Soul",
-    rating: 4.9,
-    reviewsCount: 970,
-    route: "1N Cochin • 2N Munnar • 1N Thekkady • 1N Alleppey Houseboat • 2N Kovalam",
-    nightSplit: [
-      { name: "Cochin", nights: 1 },
-      { name: "Munnar", nights: 2 },
-      { name: "Thekkady", nights: 1 },
-      { name: "Alleppey Houseboat", nights: 1 },
-      { name: "Kovalam", nights: 2 }
-    ],
-    locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 24499,
-    originalPrice: 30999,
-    image: "/images/package-7n8d-fishing-nets.jpg",
-    highlights: [
-      "1 Night Cochin Heritage & Marine Drive",
-      "2 Nights Munnar Tea Gardens & Waterfalls",
-      "1 Night Thekkady Wildlife Sanctuary & Spices",
-      "1 Night Alleppey Houseboat & 2 Nights Kovalam Beach"
-    ],
-    inclusions: [
-      { icon: "Hotel", label: "Luxury 4★ Stays" },
-      { icon: "Car", label: "Private AC Sedan/SUV" },
-      { icon: "Ship", label: "Deluxe Houseboat" },
-      { icon: "Utensils", label: "Breakfast & Meals" }
     ]
   }
 ];
