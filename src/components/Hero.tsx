@@ -29,6 +29,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           src="/images/HeroImgwebsite.jpg"
           alt="Bespoke Kerala Tour Packages & Luxury Holidays"
           className="w-full h-full object-cover object-center"
+          fetchPriority="high"
+          loading="eager"
+          width={1400}
+          height={788}
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.currentTarget.src = '/images/hero-munnar-tea.jpg';
@@ -92,16 +96,25 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
               src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80"
               alt="Traveler avatar"
               className="w-7 h-7 rounded-full border-2 border-white object-cover"
+              width={80}
+              height={80}
+              decoding="async"
             />
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&h=80&q=80"
               alt="Traveler avatar"
               className="w-7 h-7 rounded-full border-2 border-white object-cover"
+              width={80}
+              height={80}
+              decoding="async"
             />
             <img
               src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=80&h=80&q=80"
               alt="Traveler avatar"
               className="w-7 h-7 rounded-full border-2 border-white object-cover"
+              width={80}
+              height={80}
+              decoding="async"
             />
           </div>
           <div className="flex items-center gap-1.5 font-medium">

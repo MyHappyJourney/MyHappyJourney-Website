@@ -253,6 +253,8 @@ const ScrollExpand: React.FC<ScrollExpandProps> = ({
         src={src}
         alt={alt}
         draggable={false}
+        loading="lazy"
+        decoding="async"
         referrerPolicy="no-referrer"
         onError={(e) => {
           const target = e.currentTarget;

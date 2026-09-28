@@ -33,6 +33,10 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
           src="/images/family%20hero.jpg"
           alt="Kerala Family Tour Packages"
           className="w-full h-full object-cover object-center"
+          fetchPriority="high"
+          loading="eager"
+          width={1254}
+          height={1254}
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.currentTarget.src =

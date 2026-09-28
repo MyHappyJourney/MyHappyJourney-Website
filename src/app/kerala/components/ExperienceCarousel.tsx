@@ -111,6 +111,7 @@ export const ExperienceCarousel: React.FC<ExperienceCarouselProps> = ({ onQuoteC
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center transform transition-transform duration-1000 ease-out group-hover:scale-105"
                   loading={idx === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
                 />
               </div>
             ))}
@@ -190,6 +191,8 @@ export const ExperienceCarousel: React.FC<ExperienceCarouselProps> = ({ onQuoteC
                   alt={exp.title}
                   referrerPolicy="no-referrer"
                   className="w-14 h-10 sm:w-20 sm:h-12 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </button>
             ))}

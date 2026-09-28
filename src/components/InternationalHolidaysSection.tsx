@@ -56,6 +56,8 @@ export const InternationalHolidaysSection: React.FC<InternationalHolidaysSection
                 alt={dest.name}
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+                decoding="async"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent transition-opacity duration-300 group-hover:from-slate-950/95" />

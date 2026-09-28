@@ -34,6 +34,7 @@ export function VideoTestimonials() {
                 src="https://www.youtube.com/embed/wZQtBAsCE8Y"
                 title="MyHappyJourney Kerala Tour Testimonial"
                 className="absolute inset-0 w-full h-full border-0"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
@@ -75,6 +76,7 @@ export function VideoTestimonials() {
                 src="https://www.youtube.com/embed/MRrEy4Wssp4"
                 title="MyHappyJourney Kerala Tour Testimonial - Video 2"
                 className="absolute inset-0 w-full h-full border-0"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />

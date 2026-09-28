@@ -69,6 +69,8 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, onGetQ
             alt={pkg.title}
             className="w-full h-full object-cover opacity-85"
             style={pkg.imagePosition ? { objectPosition: pkg.imagePosition } : undefined}
+            loading="lazy"
+            decoding="async"
             referrerPolicy="no-referrer"
             onError={(e) => {
               e.currentTarget.src =

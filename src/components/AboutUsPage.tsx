@@ -182,6 +182,9 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({
                 alt="Snow-capped mountain road and landscape"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+                width={1200}
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />

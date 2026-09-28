@@ -130,6 +130,8 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
                 alt={cat.title}
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent transition-opacity duration-300 group-hover:from-slate-950/95" />
 
@@ -190,6 +192,8 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
                     src={dest.image}
                     alt={dest.name}
                     className="w-16 h-16 rounded-xl object-cover shrink-0"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div className="text-left flex-1 min-w-0">
                     <h4 className="font-bold text-gray-900 group-hover:text-[#0B389D] truncate">

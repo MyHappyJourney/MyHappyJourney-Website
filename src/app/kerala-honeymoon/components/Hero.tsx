@@ -34,6 +34,10 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
           src="/images/honeymoon%20hero%20image.jpg"
           alt="Romantic Kerala Honeymoon Tour Packages"
           className="w-full h-full object-cover object-center"
+          fetchPriority="high"
+          loading="eager"
+          width={1600}
+          height={900}
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.currentTarget.src =

@@ -72,6 +72,8 @@ export const Reviews: React.FC<ReviewsProps> = ({ onViewAllReviews }) => {
                       alt={rev.name}
                       referrerPolicy="no-referrer"
                       className="w-10 h-10 rounded-full object-cover border border-gray-200"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <div className="w-10 h-10 rounded-full bg-[#0B389D] text-white flex items-center justify-center font-bold text-xs">

@@ -76,6 +76,9 @@ export const PackagesPage: React.FC<PackagesPageProps> = ({
             src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2000&q=85"
             alt="Scenic backwaters of Kerala with luxury boat"
             className="w-full h-full object-cover object-center opacity-30"
+            fetchPriority="high"
+            loading="eager"
+            width={2000}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#071F3D]/90 via-[#0B2545]/80 to-[#071F3D]/95" />
         </div>
@@ -170,6 +173,8 @@ export const PackagesPage: React.FC<PackagesPageProps> = ({
                 alt={card.name}
                 referrerPolicy="no-referrer"
                 className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                loading="lazy"
+                decoding="async"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent transition-opacity duration-300 group-hover:from-slate-950/95" />

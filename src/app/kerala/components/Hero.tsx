@@ -33,6 +33,10 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
           src="/images/HeroImgwebsite.jpg"
           alt="Authentic Kerala Tour Packages"
           className="w-full h-full object-cover object-center"
+          fetchPriority="high"
+          loading="eager"
+          width={1400}
+          height={788}
           referrerPolicy="no-referrer"
           onError={(e) => {
             e.currentTarget.src = '/images/hero-munnar-tea.jpg';

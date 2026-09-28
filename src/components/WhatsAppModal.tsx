@@ -165,6 +165,9 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
             src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=85"
             alt="Kerala backwaters and holiday destinations"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-60 scale-105"
+            loading="lazy"
+            decoding="async"
+            width={1000}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/90" />
 
