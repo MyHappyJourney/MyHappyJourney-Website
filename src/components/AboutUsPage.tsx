@@ -178,7 +178,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_-20px_rgba(0,0,0,0.15)] aspect-[4/3] bg-slate-900 border border-gray-100">
               <img
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=85"
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=70"
                 alt="Snow-capped mountain road and landscape"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center"

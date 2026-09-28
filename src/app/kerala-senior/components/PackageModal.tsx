@@ -63,7 +63,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({ pkg, onClose, onGetQ
             referrerPolicy="no-referrer"
             onError={(e) => {
               e.currentTarget.src =
-                'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80';
+                'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=70';
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />

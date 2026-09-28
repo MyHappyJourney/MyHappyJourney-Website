@@ -73,7 +73,7 @@ export const PackagesPage: React.FC<PackagesPageProps> = ({
       <section className="relative bg-[#071F3D] text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2000&q=85"
+            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1600&q=75"
             alt="Scenic backwaters of Kerala with luxury boat"
             className="w-full h-full object-cover object-center opacity-30"
             fetchPriority="high"

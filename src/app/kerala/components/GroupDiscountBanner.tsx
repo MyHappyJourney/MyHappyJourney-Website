@@ -9,7 +9,7 @@ export const GroupDiscountBanner: React.FC = () => {
     <section 
       className="relative py-16 sm:py-24 lg:py-28 bg-fixed bg-center bg-cover overflow-hidden"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2560&q=95')`
+        backgroundImage: `url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=70')`
       }}
     >
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

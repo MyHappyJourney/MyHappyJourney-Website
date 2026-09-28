@@ -162,7 +162,7 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
         {/* Top Scenic Banner with WhatsApp Header */}
         <div className="relative h-28 sm:h-32 bg-slate-900 overflow-hidden flex flex-col justify-between p-4">
           <img
-            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=85"
+            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1000&q=70"
             alt="Kerala backwaters and holiday destinations"
             className="absolute inset-0 w-full h-full object-cover object-center opacity-60 scale-105"
             loading="lazy"

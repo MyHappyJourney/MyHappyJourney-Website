@@ -230,7 +230,7 @@ export const ITINERARY_DAYS: ItineraryDay[] = [
     dayNumber: 1,
     title: "Cochin → Munnar",
     route: "Arrival, Warm Welcome & Scenic Mountain Drive",
-    image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=800&q=70",
     stayLocation: "Munnar",
     highlights: [
       "Airport/Station Welcome & Luggage Handling",
@@ -243,7 +243,7 @@ export const ITINERARY_DAYS: ItineraryDay[] = [
     dayNumber: 2,
     title: "Munnar Leisure Sightseeing",
     route: "Relaxed Tea Country & Scenic Vistas",
-    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=70",
     stayLocation: "Munnar",
     highlights: [
       "Mattupetty Dam & Serene Lake Promenade",
@@ -256,7 +256,7 @@ export const ITINERARY_DAYS: ItineraryDay[] = [
     dayNumber: 3,
     title: "Munnar → Thekkady",
     route: "Cardamom Hills & Wildlife Lake Sanctuary",
-    image: "https://images.unsplash.com/photo-1581852017103-68accd5509b6?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1581852017103-68accd5509b6?auto=format&fit=crop&w=800&q=70",
     stayLocation: "Thekkady",
     highlights: [
       "Periyar Lake Wildlife Cruise with Seated Views",
@@ -269,7 +269,7 @@ export const ITINERARY_DAYS: ItineraryDay[] = [
     dayNumber: 4,
     title: "Thekkady → Alleppey",
     route: "Tranquil Backwater Houseboat Cruise",
-    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=70",
     stayLocation: "Alleppey Houseboat",
     highlights: [
       "Private Deluxe Houseboat with Dedicated Staff",
@@ -283,7 +283,7 @@ export const ITINERARY_DAYS: ItineraryDay[] = [
     dayNumber: 5,
     title: "Alleppey → Kovalam",
     route: "Serene Backwaters to Gentle Coastal Haven",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=70",
     stayLocation: "Kovalam",
     highlights: [
       "Smooth Disembarkation & Coastal Highway Drive",
@@ -296,7 +296,7 @@ export const ITINERARY_DAYS: ItineraryDay[] = [
     dayNumber: 6,
     title: "Kovalam, Poovar & Trivandrum",
     route: "Coastal Charms & Sacred Temple Blessings",
-    image: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=70",
     stayLocation: "Kovalam",
     highlights: [
       "Gentle Motorboating through Poovar Mangrove Estuary",
@@ -309,7 +309,7 @@ export const ITINERARY_DAYS: ItineraryDay[] = [
     dayNumber: 7,
     title: "Trivandrum Departure",
     route: "Souvenirs, Warm Farewell & Airport Drop",
-    image: "https://images.unsplash.com/photo-1600100397608-f020f7e43950?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1600100397608-f020f7e43950?auto=format&fit=crop&w=800&q=70",
     stayLocation: "Homebound",
     highlights: [
       "Leisurely Breakfast at Resort",
