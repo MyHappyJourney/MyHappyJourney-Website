@@ -31,7 +31,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)", "Kanyakumari (1N)"],
     price: 24499,
     originalPrice: 30999,
-    image: "/images/7n8d%20family%20card.png",
+    image: "/images/7n8d%20family%20card.jpg",
     highlights: [
       "2 Nights Munnar Tea Gardens & Waterfalls",
       "1 Night Thekkady Wildlife Sanctuary & Spices",
@@ -68,7 +68,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22999,
     originalPrice: 28999,
     isPopular: true,
-    image: "/images/6n7d%20beach%20card%20pic.png",
+    image: "/images/6n7d%20beach%20card%20pic.jpg",
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
@@ -104,7 +104,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Varkala (1N)", "Kovalam (2N)"],
     price: 23499,
     originalPrice: 29999,
-    image: "/images/6n7d%20varkala%20family%20pic.png",
+    image: "/images/6n7d%20varkala%20family%20pic.jpg",
     highlights: [
       "2 Nights in scenic Munnar Tea Hills & Waterfalls",
       "1 Night Alleppey Deluxe Private Houseboat with All Meals",
@@ -139,7 +139,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 20999,
     originalPrice: 26999,
-    image: "/images/5n6d%20family%20package%20card.png",
+    image: "/images/5n6d%20family%20package%20card.jpg",
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
       "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
@@ -174,7 +174,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
     price: 15999,
     originalPrice: 19999,
-    image: "/images/4n5d%20family%20card.png",
+    image: "/images/4n5d%20family%20card.jpg",
     highlights: [
       "2 Nights in scenic Munnar Hill Station",
       "Periyar Wildlife Sanctuary in Thekkady",
@@ -210,7 +210,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
     price: 23499,
     originalPrice: 29999,
-    image: "/images/family%20immage%20crdd.png",
+    image: "/images/family%20immage%20crdd.jpg",
     imagePosition: "center 12%",
     highlights: [
       "Dedicated Private AC Innova Cab for Whole Family",

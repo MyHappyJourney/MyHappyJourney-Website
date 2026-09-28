@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onQuoteClick, preselectedPackageId }
     <section id="hero-section" className="relative bg-neutral-950 text-white overflow-hidden font-sans">
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/senior%20citizen%20tour%20hero%20image.png"
+          src="/images/senior%20citizen%20tour%20hero%20image.jpg"
           alt="Comfortable Kerala Senior Citizen Tour Packages"
           className="w-full h-full object-cover object-center"
           referrerPolicy="no-referrer"

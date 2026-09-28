@@ -29,7 +29,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
     price: 15999,
     originalPrice: 19999,
-    image: "/images/4n5d%20senior%20card.png",
+    image: "/images/4n5d%20senior%20card.jpg",
     highlights: [
       "2 Nights in scenic Munnar Hill Station",
       "Periyar Wildlife Sanctuary in Thekkady",
@@ -64,7 +64,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 20999,
     originalPrice: 26999,
-    image: "/images/5n6d%20senior%20card.png",
+    image: "/images/5n6d%20senior%20card.jpg",
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
       "1 Night Traditional Alleppey Deluxe Houseboat Stay with meals",
@@ -101,7 +101,7 @@ export const PACKAGES: PackageItem[] = [
     price: 22999,
     originalPrice: 28999,
     isPopular: true,
-    image: "/images/6n7d%20card%20image%20senior.png",
+    image: "/images/6n7d%20card%20image%20senior.jpg",
     highlights: [
       "Comprehensive God's Own Country tour",
       "2 Nights Munnar Hill station & Tea Museum",
@@ -136,7 +136,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 21499,
     originalPrice: 27499,
-    image: "/images/senor%20couple%20jatayu.png",
+    image: "/images/senor%20couple%20jatayu.jpg",
     highlights: [
       "Private Deluxe Houseboat Cruise with Authentic Meals",
       "Peaceful Valley Resort Stay in Munnar",
@@ -172,7 +172,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
     price: 23499,
     originalPrice: 29999,
-    image: "/images/senior%20group%20card.png",
+    image: "/images/senior%20group%20card.jpg",
     highlights: [
       "Dedicated Private AC Innova Cab for Comfort & Group Travel",
       "Periyar Lake Wildlife Boating with Seated Views",
@@ -209,7 +209,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 24499,
     originalPrice: 30999,
-    image: "/images/7n8d%20senior%20card.png",
+    image: "/images/7n8d%20senior%20card.jpg",
     highlights: [
       "1 Night Cochin Heritage & Marine Drive",
       "2 Nights Munnar Tea Gardens & Waterfalls",

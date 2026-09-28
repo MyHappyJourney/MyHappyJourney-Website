@@ -137,7 +137,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 21499,
     originalPrice: 27499,
-    image: "/images/honeymoon%20card%20image.png",
+    image: "/images/honeymoon%20card%20image.jpg",
     imagePosition: "center 25%",
     highlights: [
       "Private Deluxe Houseboat Cruise with Candlelight Dinner",
@@ -174,7 +174,7 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
     price: 23499,
     originalPrice: 29999,
-    image: "/images/family%20immage%20crdd.png",
+    image: "/images/family%20immage%20crdd.jpg",
     imagePosition: "center 12%",
     highlights: [
       "Dedicated Private AC Innova Cab for Whole Family",

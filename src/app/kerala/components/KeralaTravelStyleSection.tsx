@@ -19,7 +19,7 @@ export const KeralaTravelStyleSection: React.FC = () => {
       subtitle: 'Romantic candlelit cruises & secluded hill station retreats',
       href: '/kerala/kerala-honeymoon-tour-packages',
       icon: <Heart className="w-5 h-5 text-white fill-white" />,
-      image: '/images/725f2b11-0681-454f-889c-a4f9966cc350.png',
+      image: '/images/725f2b11-0681-454f-889c-a4f9966cc350.jpg',
     },
     {
       id: 'family',
@@ -27,7 +27,7 @@ export const KeralaTravelStyleSection: React.FC = () => {
       subtitle: 'Spacious stays, private houseboats & multi-generational fun',
       href: '/kerala/kerala-family-holiday-tour-packages',
       icon: <Users className="w-5 h-5 text-white" />,
-      image: '/images/kk.png',
+      image: '/images/kk.jpg',
     },
     {
       id: 'senior',
@@ -35,7 +35,7 @@ export const KeralaTravelStyleSection: React.FC = () => {
       subtitle: 'Comfortable gentle-paced itineraries & caring ground support',
       href: '/kerala/kerala-senior-citizen-tour-packages',
       icon: <Crown className="w-5 h-5 text-white" />,
-      image: '/images/chat.png',
+      image: '/images/chat.jpg',
     },
     {
       id: 'group',
@@ -43,7 +43,7 @@ export const KeralaTravelStyleSection: React.FC = () => {
       subtitle: 'Seamless private coaches, bonding activities & group discounts',
       href: '/kerala/kerala-group-tour-packages',
       icon: <Briefcase className="w-5 h-5 text-white" />,
-      image: '/images/chatt.png',
+      image: '/images/chatt.jpg',
     },
     {
       id: 'luxury',
@@ -51,7 +51,7 @@ export const KeralaTravelStyleSection: React.FC = () => {
       subtitle: 'Where every journey becomes an extraordinary 5-star experience',
       href: '/kerala/kerala-luxury-holiday-tour-packages',
       icon: <Mountain className="w-5 h-5 text-white" />,
-      image: '/images/hehe.png',
+      image: '/images/hehe.jpg',
     },
     {
       id: 'educational',
@@ -59,7 +59,7 @@ export const KeralaTravelStyleSection: React.FC = () => {
       subtitle: 'Where learning meets adventure with safety and expert guides',
       href: '/kerala/kerala-school-college-tour-packages',
       icon: <Compass className="w-5 h-5 text-white" />,
-      image: '/images/uuu.png',
+      image: '/images/uuu.jpg',
     },
   ];
 
