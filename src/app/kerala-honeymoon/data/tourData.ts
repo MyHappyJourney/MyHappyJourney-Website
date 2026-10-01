@@ -27,10 +27,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Alleppey", nights: 1 }
     ],
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
-    price: 15500,
-    originalPrice: 19999,
-    pricePerPerson: 15500,
-    totalCouplePrice: 31000,
+    price: 35499,
+    originalPrice: 41499,
+    pricePerPerson: 17750,
+    totalCouplePrice: 35499,
+    strikePricePerPerson: 20750,
+    strikePriceCouple: 41499,
     priceNote: "This price is lower than the average price in November",
     image: "/images/4n5d%20honeymoon%20pic.jpg",
     highlights: [
@@ -65,8 +67,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 20999,
-    originalPrice: 26999,
+    price: 46499,
+    originalPrice: 52999,
+    pricePerPerson: 23250,
+    totalCouplePrice: 46499,
+    strikePricePerPerson: 26500,
+    strikePriceCouple: 52999,
     image: "/images/5n6d%20honeymoon%20card.jpg",
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
@@ -101,8 +107,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
-    price: 22999,
-    originalPrice: 28999,
+    price: 50999,
+    originalPrice: 57999,
+    pricePerPerson: 25500,
+    totalCouplePrice: 50999,
+    strikePricePerPerson: 29000,
+    strikePriceCouple: 57999,
     isPopular: true,
     image: "/images/6n7d%20honeymoon%20card.jpg",
     highlights: [
@@ -160,10 +170,10 @@ export const PACKAGES: PackageItem[] = [
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
-    tag: "FAMILY SPECIAL",
-    categoryBadge: "Family Special",
+    tag: "COUPLE'S SPECIAL",
+    categoryBadge: "Couple's Special",
     urgencyBadge: "Only 10 left!",
-    subtitle: "Fun for All Ages",
+    subtitle: "Crafted Exclusively for Two",
     rating: 4.9,
     reviewsCount: 1420,
     route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam",
@@ -179,14 +189,14 @@ export const PACKAGES: PackageItem[] = [
     image: "/images/hhneymon%20clad.jpg",
     imagePosition: "center 12%",
     highlights: [
-      "Dedicated Private AC Innova Cab for Whole Family",
+      "Dedicated Private AC Cab for Couple",
       "Periyar Bamboo Rafting & Wildlife Boating",
-      "Full Family Houseboat Cruise with Authentic Meals",
+      "Deluxe Private Houseboat Cruise with Candlelight Dinner",
       "Munnar Tea Museum, Echo Point & Mattupetty Boating"
     ],
     inclusions: [
-      { icon: "Hotel", label: "Family Resorts" },
-      { icon: "Car", label: "Dedicated Innova" },
+      { icon: "Hotel", label: "Romantic Resorts" },
+      { icon: "Car", label: "Private AC Cab" },
       { icon: "Ship", label: "Private Houseboat" },
       { icon: "Utensils", label: "All Meals Included" }
     ]
@@ -212,8 +222,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 24499,
-    originalPrice: 30999,
+    price: 56499,
+    originalPrice: 62999,
+    pricePerPerson: 28250,
+    totalCouplePrice: 56499,
+    strikePricePerPerson: 31500,
+    strikePriceCouple: 62999,
     image: "/images/7n8d%20honeymoon%20card.jpg",
     highlights: [
       "1 Night Cochin Heritage & Marine Drive",

@@ -11,6 +11,8 @@ export interface PackageItem {
   originalPrice?: number;
   pricePerPerson?: number;
   totalCouplePrice?: number;
+  strikePricePerPerson?: number;
+  strikePriceCouple?: number;
   priceNote?: string;
   isPopular?: boolean;
   tag?: string;
