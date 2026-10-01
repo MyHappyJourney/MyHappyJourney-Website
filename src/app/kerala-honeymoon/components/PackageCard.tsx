@@ -96,7 +96,52 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
         </div>
 
         {/* Bottom Section: Action CTA */}
-        <div className="pt-2">
+        <div className="pt-2 space-y-3">
+          {/* Price Box with Green Bold Digits & Smaller Grey Strikeout Price */}
+          {(() => {
+            const isSupported = ['pkg-4n5d', 'pkg-5n6d', 'pkg-6n7d', 'pkg-7n8d'].includes(pkg.id);
+            if (!isSupported) return null;
+
+            const couple = pkg.totalCouplePrice || (
+              pkg.id === 'pkg-4n5d' ? 35499 :
+              pkg.id === 'pkg-5n6d' ? 46499 :
+              pkg.id === 'pkg-6n7d' ? 50999 :
+              pkg.id === 'pkg-7n8d' ? 56499 : pkg.price
+            );
+            const strikeCouple = pkg.strikePriceCouple || (
+              pkg.id === 'pkg-4n5d' ? 41499 :
+              pkg.id === 'pkg-5n6d' ? 52999 :
+              pkg.id === 'pkg-6n7d' ? 57999 :
+              pkg.id === 'pkg-7n8d' ? 62999 : (pkg.originalPrice || couple + 6000)
+            );
+            const perPerson = pkg.pricePerPerson || Math.round(couple / 2);
+            const strikePerson = pkg.strikePricePerPerson || Math.round(strikeCouple / 2);
+
+            return (
+              <div className="bg-[#F8FAF8] border border-gray-200/90 rounded-xl p-3 sm:p-3.5 shadow-2xs flex flex-col items-center justify-center text-center">
+                <div className="text-base sm:text-lg font-black text-gray-900 leading-snug tracking-tight flex items-baseline justify-center gap-1.5 flex-wrap">
+                  <span className="font-semibold text-gray-700">Starting from</span>
+                  <span className="text-gray-400 line-through font-normal text-xs sm:text-sm">
+                    ₹{strikeCouple.toLocaleString('en-IN')}
+                  </span>
+                  <span className="text-[#16A34A] font-black">
+                    ₹{couple.toLocaleString('en-IN')}
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-gray-600 font-sans">/Couple</span>
+                </div>
+                <div className="text-xs sm:text-[13px] font-bold text-gray-600 mt-1 flex items-baseline justify-center gap-1.5 flex-wrap">
+                  <span>Price per person:</span>
+                  <span className="text-gray-400 line-through font-normal text-[11px] sm:text-xs">
+                    ₹{strikePerson.toLocaleString('en-IN')}
+                  </span>
+                  <span className="text-[#16A34A] font-black">
+                    ₹{perPerson.toLocaleString('en-IN')}
+                  </span>
+                </div>
+              </div>
+            );
+          })()}
+
           <button
             type="button"
             onClick={() => onGetQuote(pkg)}

@@ -27,10 +27,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Alleppey", nights: 1 }
     ],
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
-    price: 15500,
-    originalPrice: 19999,
-    pricePerPerson: 15500,
-    totalCouplePrice: 31000,
+    price: 35499,
+    originalPrice: 41499,
+    pricePerPerson: 17750,
+    totalCouplePrice: 35499,
+    strikePricePerPerson: 20750,
+    strikePriceCouple: 41499,
     priceNote: "This price is lower than the average price in November",
     image: "/images/4n5d%20honeymoon%20pic.jpg",
     highlights: [
@@ -65,8 +67,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 20999,
-    originalPrice: 26999,
+    price: 46499,
+    originalPrice: 52999,
+    pricePerPerson: 23250,
+    totalCouplePrice: 46499,
+    strikePricePerPerson: 26500,
+    strikePriceCouple: 52999,
     image: "/images/5n6d%20honeymoon%20card.jpg",
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
@@ -101,8 +107,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
-    price: 22999,
-    originalPrice: 28999,
+    price: 50999,
+    originalPrice: 57999,
+    pricePerPerson: 25500,
+    totalCouplePrice: 50999,
+    strikePricePerPerson: 29000,
+    strikePriceCouple: 57999,
     isPopular: true,
     image: "/images/6n7d%20honeymoon%20card.jpg",
     highlights: [
@@ -212,8 +222,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 24499,
-    originalPrice: 30999,
+    price: 56499,
+    originalPrice: 62999,
+    pricePerPerson: 28250,
+    totalCouplePrice: 56499,
+    strikePricePerPerson: 31500,
+    strikePriceCouple: 62999,
     image: "/images/7n8d%20honeymoon%20card.jpg",
     highlights: [
       "1 Night Cochin Heritage & Marine Drive",
