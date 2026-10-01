@@ -110,10 +110,10 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Varkala (1N)", "Kovalam (2N)"],
-    price: 23499,
+    price: 23999,
     originalPrice: 29999,
-    pricePerPerson: 23499,
-    totalCouplePrice: 46998,
+    pricePerPerson: 23999,
+    totalCouplePrice: 47998,
     strikePricePerPerson: 29999,
     strikePriceCouple: 59998,
     image: "/images/6n7d%20varkala%20family%20pic.jpg",

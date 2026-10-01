@@ -105,7 +105,8 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
             const perPerson = pkg.pricePerPerson || (
               pkg.id === 'pkg-4n5d' ? 15499 :
               pkg.id === 'pkg-5n6d' ? 20999 :
-              pkg.id === 'pkg-6n7d' || pkg.id === 'pkg-6n7d-varkala' ? 23499 :
+              pkg.id === 'pkg-6n7d' ? 23499 :
+              pkg.id === 'pkg-6n7d-varkala' ? 23999 :
               pkg.id === 'pkg-7n8d' ? 25499 : pkg.price
             );
             const strikePerson = pkg.strikePricePerPerson || (
