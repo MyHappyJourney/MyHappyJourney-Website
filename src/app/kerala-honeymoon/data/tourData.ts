@@ -170,10 +170,10 @@ export const PACKAGES: PackageItem[] = [
     durationBadge: "6 NIGHTS / 7 DAYS",
     nights: 6,
     days: 7,
-    tag: "FAMILY SPECIAL",
-    categoryBadge: "Family Special",
+    tag: "COUPLE'S SPECIAL",
+    categoryBadge: "Couple's Special",
     urgencyBadge: "Only 10 left!",
-    subtitle: "Fun for All Ages",
+    subtitle: "Crafted Exclusively for Two",
     rating: 4.9,
     reviewsCount: 1420,
     route: "2N Munnar • 1N Thekkady • 1N Alleppey • 2N Kovalam",
@@ -189,14 +189,14 @@ export const PACKAGES: PackageItem[] = [
     image: "/images/hhneymon%20clad.jpg",
     imagePosition: "center 12%",
     highlights: [
-      "Dedicated Private AC Innova Cab for Whole Family",
+      "Dedicated Private AC Cab for Couple",
       "Periyar Bamboo Rafting & Wildlife Boating",
-      "Full Family Houseboat Cruise with Authentic Meals",
+      "Deluxe Private Houseboat Cruise with Candlelight Dinner",
       "Munnar Tea Museum, Echo Point & Mattupetty Boating"
     ],
     inclusions: [
-      { icon: "Hotel", label: "Family Resorts" },
-      { icon: "Car", label: "Dedicated Innova" },
+      { icon: "Hotel", label: "Romantic Resorts" },
+      { icon: "Car", label: "Private AC Cab" },
       { icon: "Ship", label: "Private Houseboat" },
       { icon: "Utensils", label: "All Meals Included" }
     ]

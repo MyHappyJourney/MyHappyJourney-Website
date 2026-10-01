@@ -129,15 +129,6 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-gray-600 font-sans">/Couple</span>
                 </div>
-                <div className="text-xs sm:text-[13px] font-bold text-gray-600 mt-1 flex items-baseline justify-center gap-1.5 flex-wrap">
-                  <span>Price per person:</span>
-                  <span className="text-gray-400 line-through font-normal text-[11px] sm:text-xs">
-                    ₹{strikePerson.toLocaleString('en-IN')}
-                  </span>
-                  <span className="text-[#16A34A] font-black">
-                    ₹{perPerson.toLocaleString('en-IN')}
-                  </span>
-                </div>
               </div>
             );
           })()}
