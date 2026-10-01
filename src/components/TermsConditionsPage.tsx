@@ -236,7 +236,7 @@ export const TermsConditionsPage: React.FC<TermsConditionsPageProps> = ({ onBack
                 Flight Bookings
               </h2>
               <p>
-                Flights are subject to the airline's fare rules, terms and conditions. Flight schedules, timings, aircraft, routes and seat availability may change due to circumstances determined by the airline.
+                Flights are subject to the airline&apos;s fare rules, terms and conditions. Flight schedules, timings, aircraft, routes and seat availability may change due to circumstances determined by the airline.
               </p>
               <p>
                 Passengers are responsible for complying with airline requirements relating to: check-in, baggage, identification, passport validity, visa requirements, boarding times, and other airline rules. MyHappyJourney is not responsible for airline schedule changes, delays, cancellations, denied boarding or baggage issues caused by the airline, subject to applicable law.
@@ -414,7 +414,7 @@ export const TermsConditionsPage: React.FC<TermsConditionsPageProps> = ({ onBack
                 Customers are expected to behave responsibly and comply with applicable laws, hotel rules, airline regulations, local regulations and instructions from service providers.
               </p>
               <p className="text-slate-500 text-xs sm:text-sm italic">
-                MyHappyJourney reserves the right to discontinue assistance or services where a customer's behaviour creates a serious safety, security or legal concern. Any resulting costs or losses may be payable by the customer where permitted by law.
+                MyHappyJourney reserves the right to discontinue assistance or services where a customer&apos;s behaviour creates a serious safety, security or legal concern. Any resulting costs or losses may be payable by the customer where permitted by law.
               </p>
             </div>
 

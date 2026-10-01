@@ -28,8 +28,13 @@ export const PACKAGES: PackageItem[] = [
       { name: "Alleppey", nights: 1 }
     ],
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
-    price: 15999,
-    originalPrice: 19999,
+    price: 15499,
+    originalPrice: 20999,
+    pricePerPerson: 15499,
+    totalCouplePrice: 30998,
+    strikePricePerPerson: 20999,
+    strikePriceCouple: 41998,
+    priceNote: "This price is lower than the average price in November",
     image: "/images/thisiskerala.jpg",
     highlights: [
       "2 Nights in scenic Munnar Hill Station",
@@ -65,6 +70,10 @@ export const PACKAGES: PackageItem[] = [
     locations: ["Munnar (2N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
     price: 20999,
     originalPrice: 26999,
+    pricePerPerson: 20999,
+    totalCouplePrice: 41998,
+    strikePricePerPerson: 26999,
+    strikePriceCouple: 53998,
     image: "/images/package-5n6d-houseboat.jpg",
     highlights: [
       "2 Nights in lush Munnar Tea Gardens & Waterfalls",
@@ -99,8 +108,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)", "Kovalam (2N)"],
-    price: 22999,
-    originalPrice: 28999,
+    price: 23499,
+    originalPrice: 30499,
+    pricePerPerson: 23499,
+    totalCouplePrice: 46998,
+    strikePricePerPerson: 30499,
+    strikePriceCouple: 60998,
     isPopular: true,
     image: "/images/package-6n7d-backwaters-sunset.jpg",
     highlights: [
@@ -210,8 +223,12 @@ export const PACKAGES: PackageItem[] = [
       { name: "Kovalam", nights: 2 }
     ],
     locations: ["Cochin (1N)", "Munnar (2N)", "Thekkady (1N)", "Alleppey Houseboat (1N)", "Kovalam (2N)"],
-    price: 24499,
-    originalPrice: 30999,
+    price: 25499,
+    originalPrice: 31999,
+    pricePerPerson: 25499,
+    totalCouplePrice: 50998,
+    strikePricePerPerson: 31999,
+    strikePriceCouple: 63998,
     image: "/images/package-7n8d-fishing-nets.jpg",
     highlights: [
       "1 Night Cochin Heritage & Marine Drive",

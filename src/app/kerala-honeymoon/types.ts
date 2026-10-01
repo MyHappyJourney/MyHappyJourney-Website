@@ -9,6 +9,9 @@ export interface PackageItem {
   price: number;
   priceForTwo?: number;
   originalPrice?: number;
+  pricePerPerson?: number;
+  totalCouplePrice?: number;
+  priceNote?: string;
   isPopular?: boolean;
   tag?: string;
   categoryBadge: string;

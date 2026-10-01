@@ -8,6 +8,9 @@ export interface PackageItem {
   locations: string[];
   price: number;
   originalPrice?: number;
+  pricePerPerson?: number;
+  totalCouplePrice?: number;
+  priceNote?: string;
   isPopular?: boolean;
   tag?: string;
   categoryBadge: string;

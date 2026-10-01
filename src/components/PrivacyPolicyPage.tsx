@@ -243,7 +243,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHo
             <div className="space-y-3">
               <h2 className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
                 <span className="flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 text-slate-700 font-bold text-xs">13</span>
-                Children's Privacy
+                Children&apos;s Privacy
               </h2>
               <p>
                 We do not intentionally gather data from children without verifiable parental or legal guardian consent. If you believe a child has supplied details without approval, please contact our support desk.
@@ -257,7 +257,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onBackToHo
                 Changes to This Privacy Policy
               </h2>
               <p>
-                We may periodically update this policy in line with service upgrades, technical changes, or legal updates. Any edits will instantly reflect on this URL with an updated "Last Updated" timestamp.
+                We may periodically update this policy in line with service upgrades, technical changes, or legal updates. Any edits will instantly reflect on this URL with an updated &quot;Last Updated&quot; timestamp.
               </p>
             </div>
 

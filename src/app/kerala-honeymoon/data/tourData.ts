@@ -27,8 +27,11 @@ export const PACKAGES: PackageItem[] = [
       { name: "Alleppey", nights: 1 }
     ],
     locations: ["Munnar (2N)", "Thekkady (1N)", "Alleppey (1N)"],
-    price: 15999,
+    price: 15500,
     originalPrice: 19999,
+    pricePerPerson: 15500,
+    totalCouplePrice: 31000,
+    priceNote: "This price is lower than the average price in November",
     image: "/images/4n5d%20honeymoon%20pic.jpg",
     highlights: [
       "2 Nights in scenic Munnar Hill Station",

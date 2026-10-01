@@ -28,12 +28,12 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Sync destination if destinationTitle prop changes
-  useEffect(() => {
-    if (destinationTitle) {
-      setDestination(destinationTitle);
-    }
-  }, [destinationTitle]);
+  const [prevTitle, setPrevTitle] = useState(destinationTitle);
+
+  if (destinationTitle !== prevTitle) {
+    setPrevTitle(destinationTitle);
+    setDestination(destinationTitle);
+  }
 
   // Close modal on Escape key press
   useEffect(() => {
@@ -52,7 +52,6 @@ export const WhatsAppModal: React.FC<WhatsAppModalProps> = ({
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
-      setError('');
     }
     return () => {
       document.body.style.overflow = '';
