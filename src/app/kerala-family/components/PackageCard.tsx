@@ -121,22 +121,22 @@ export const PackageCard: React.FC<PackageCardProps> = ({ pkg, onViewDetails, on
 
             return (
               <div className="bg-[#F8FAF8] border border-gray-200/90 rounded-xl p-3 sm:p-3.5 shadow-2xs flex flex-col items-center justify-center text-center">
-                <div className="text-base sm:text-lg font-black text-gray-900 leading-snug tracking-tight flex items-baseline justify-center gap-1.5 flex-wrap">
-                  <span className="font-semibold text-gray-700">Starting from</span>
+                <div className="flex items-baseline justify-center gap-1.5 flex-wrap">
+                  <span className="font-semibold text-xs sm:text-sm text-gray-600">Starting from</span>
                   <span className="text-gray-400 line-through font-normal text-xs sm:text-sm">
                     ₹{strikePerson.toLocaleString('en-IN')}
                   </span>
-                  <span className="text-[#16A34A] font-black">
+                  <span className="text-[#16A34A] font-black text-xl sm:text-[26px] tracking-tight">
                     ₹{perPerson.toLocaleString('en-IN')}
                   </span>
                   <span className="text-xs sm:text-sm font-bold text-gray-600 font-sans">/Person</span>
                 </div>
-                <div className="text-xs sm:text-[13px] font-bold text-gray-600 mt-1 flex items-baseline justify-center gap-1.5 flex-wrap">
-                  <span>Price per couple:</span>
+                <div className="mt-1 flex items-baseline justify-center gap-1.5 flex-wrap">
+                  <span className="text-xs sm:text-sm font-semibold text-gray-600">Price per couple:</span>
                   <span className="text-gray-400 line-through font-normal text-[11px] sm:text-xs">
                     ₹{strikeCouple.toLocaleString('en-IN')}
                   </span>
-                  <span className="text-[#16A34A] font-black">
+                  <span className="text-[#16A34A] font-black text-sm sm:text-base">
                     ₹{couple.toLocaleString('en-IN')}
                   </span>
                 </div>
