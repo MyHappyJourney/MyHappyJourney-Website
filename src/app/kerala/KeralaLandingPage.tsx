@@ -96,14 +96,14 @@ export const KeralaLandingPage: React.FC<KeralaLandingPageProps> = ({ onBackToHo
         {/* 2. Trust Strip */}
         <TrustStrip />
 
-        {/* 2.5 Explore Kerala By Travel Style (Category Navigation Cards) */}
-        <KeralaTravelStyleSection />
-
         {/* 3. Choose Your Kerala Tour (Package Cards Grid) */}
         <PackageSection
           onViewDetails={(pkg) => setSelectedPackageForModal(pkg)}
           onGetQuote={(pkg) => openQuoteModal(pkg.id)}
         />
+
+        {/* 3.5 Explore Kerala By Travel Style (Category Navigation Cards) */}
+        <KeralaTravelStyleSection />
 
         {/* 5. 6N / 7D Tour Detailed Day-by-Day Itinerary */}
         <Itinerary />
