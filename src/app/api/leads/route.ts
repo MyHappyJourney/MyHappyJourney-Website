@@ -216,6 +216,7 @@ async function handleLeadSubmission(req: NextRequest) {
           const rawUtmContent = typeof body.utm_content === 'string' ? body.utm_content.trim() : '';
           const rawLandingPage = typeof body.landing_page === 'string' ? body.landing_page.trim() : '';
           const rawReferrer = typeof body.referrer === 'string' ? body.referrer.trim() : '';
+          const rawVisitorId = typeof body.visitor_id === 'string' ? body.visitor_id.trim() : '';
 
           const attributionItems: { label: string; value: string }[] = [];
 
@@ -250,6 +251,10 @@ async function handleLeadSubmission(req: NextRequest) {
 
           if (clientIp) {
             attributionItems.push({ label: 'IP Address', value: clientIp });
+          }
+
+          if (rawVisitorId) {
+            attributionItems.push({ label: 'Visitor ID', value: rawVisitorId });
           }
 
           const textAttributionSection =

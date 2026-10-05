@@ -18,6 +18,7 @@ export interface CRMLeadPayload {
   utm_content?: string;
   landing_page?: string;
   referrer?: string;
+  visitor_id?: string;
 }
 
 /**
