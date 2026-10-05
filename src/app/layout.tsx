@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { ReduxProvider } from '../store/ReduxProvider';
+import { AttributionTracker } from '../components/AttributionTracker';
 
 export const metadata: Metadata = {
   title: 'My Happy Journey Website - Handcrafted Kerala Tour Packages',
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <AttributionTracker />
         <noscript>
           <img
             height="1"
