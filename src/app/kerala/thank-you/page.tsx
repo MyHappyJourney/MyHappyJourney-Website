@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   User,
@@ -79,6 +79,8 @@ function formatTravelers(
   return null;
 }
 
+let leadEventFired = false;
+
 function KeralaThankYouContent() {
   const searchParams = useSearchParams();
   const packageParam = searchParams.get('package');
@@ -106,6 +108,22 @@ function KeralaThankYouContent() {
   const hasEnquiryDetails = Boolean(
     nameParam?.trim() || phoneParam?.trim() || emailParam?.trim()
   );
+
+  useEffect(() => {
+    try {
+      if (
+        !leadEventFired &&
+        hasEnquiryDetails &&
+        typeof window !== 'undefined' &&
+        typeof (window as any).fbq === 'function'
+      ) {
+        leadEventFired = true;
+        (window as any).fbq('track', 'Lead');
+      }
+    } catch {
+      // Fail silently - never let tracking crash the page
+    }
+  }, []);
 
   const formattedDate = formatTravelDate(fromDateParam);
   const formattedTravelers = formatTravelers(adultsParam, childrenParam);
