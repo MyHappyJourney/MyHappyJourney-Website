@@ -123,7 +123,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     } else if (!activeDurations.includes(duration)) {
       dispatch(setDuration({ instanceId, value: activeDurations[0] || '6 NIGHTS / 7 DAYS (6N / 7D)' }));
     }
-  }, [selectedDuration, activeDurations, duration, dispatch, instanceId]);
+  }, [selectedDuration, activeDurations, dispatch, instanceId]);
 
   // Adults stepper handlers (Min 2, Max 20)
   const handleDecrementAdults = (e: React.MouseEvent) => {
