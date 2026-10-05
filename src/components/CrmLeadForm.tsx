@@ -22,11 +22,13 @@ import {
 } from 'lucide-react';
 import { submitLeadToCRM } from '../services/leadService';
 import {
+  CRMLeadPayload,
   BUDGET_OPTIONS,
   TOP_DEPARTURE_CITIES,
   KERALA_DURATION_OPTIONS,
   DESTINATION_OPTIONS,
 } from '../constants/crm';
+import { getAttribution } from '../utils/attribution';
 import { WHATSAPP_NUMBER } from '../data/tourData';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { RootState } from '../store/store';
@@ -207,7 +209,8 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     }
 
     // Construct Exact CRM payload
-    const crmPayload = {
+    const attribution = getAttribution();
+    const crmPayload: CRMLeadPayload = {
       name: trimmedName,
       email: email.trim(),
       phone: cleanPhone,
@@ -218,6 +221,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       adults: Number(adults),
       children: Number(children),
       budget: budget.trim(),
+      ...attribution,
     };
 
     setLoading(true);
