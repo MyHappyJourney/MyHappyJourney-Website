@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import {
   User,
@@ -106,6 +106,20 @@ function KeralaThankYouContent() {
   const hasEnquiryDetails = Boolean(
     nameParam?.trim() || phoneParam?.trim() || emailParam?.trim()
   );
+
+  useEffect(() => {
+    try {
+      if (
+        hasEnquiryDetails &&
+        typeof window !== 'undefined' &&
+        typeof (window as any).fbq === 'function'
+      ) {
+        (window as any).fbq('track', 'Lead');
+      }
+    } catch {
+      // Fail silently - never let tracking crash the page
+    }
+  }, []);
 
   const formattedDate = formatTravelDate(fromDateParam);
   const formattedTravelers = formatTravelers(adultsParam, childrenParam);
