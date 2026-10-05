@@ -9,6 +9,15 @@ export interface CRMLeadPayload {
   adults: number;
   children: number;
   budget: string;
+  gclid?: string;
+  fbclid?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+  landing_page?: string;
+  referrer?: string;
 }
 
 /**
