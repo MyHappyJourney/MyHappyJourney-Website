@@ -15,6 +15,19 @@ const normalizeIndianPhone = (rawPhone: string): string => {
   return digits;
 };
 
+const getClientIp = (req: NextRequest): string => {
+  const forwardedFor = req.headers.get('x-forwarded-for');
+  if (forwardedFor) {
+    const firstIp = forwardedFor.split(',')[0]?.trim();
+    if (firstIp) return firstIp;
+  }
+  const realIp = req.headers.get('x-real-ip');
+  if (realIp && realIp.trim()) {
+    return realIp.trim();
+  }
+  return '';
+};
+
 async function handleLeadSubmission(req: NextRequest) {
   try {
     const body = await req.json().catch(() => ({}));
@@ -101,6 +114,8 @@ async function handleLeadSubmission(req: NextRequest) {
       );
     }
 
+    const clientIp = getClientIp(req);
+
     const crmPayload = {
       name: rawName,
       email: rawEmail,
@@ -112,6 +127,7 @@ async function handleLeadSubmission(req: NextRequest) {
       adults: adultsNum,
       children: childrenNum,
       budget: rawBudget,
+      lead_ip: clientIp,
     };
 
     const crmUrl =
@@ -230,6 +246,10 @@ async function handleLeadSubmission(req: NextRequest) {
 
           if (rawReferrer) {
             attributionItems.push({ label: 'Referrer', value: rawReferrer });
+          }
+
+          if (clientIp) {
+            attributionItems.push({ label: 'IP Address', value: clientIp });
           }
 
           const textAttributionSection =
