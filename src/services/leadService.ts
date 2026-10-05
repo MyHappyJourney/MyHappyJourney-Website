@@ -17,6 +17,15 @@ export interface LeadData {
   budget?: string;
   notes?: string;
   source?: string;
+  gclid?: string;
+  fbclid?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_term?: string;
+  utm_content?: string;
+  landing_page?: string;
+  referrer?: string;
 }
 
 export interface BasicCRMLeadPayload {
@@ -97,6 +106,15 @@ export function formatCRMLeadPayload(data: LeadData, defaultDestination: string 
     adults,
     children,
     budget,
+    gclid: data.gclid || undefined,
+    fbclid: data.fbclid || undefined,
+    utm_source: data.utm_source || undefined,
+    utm_medium: data.utm_medium || undefined,
+    utm_campaign: data.utm_campaign || undefined,
+    utm_term: data.utm_term || undefined,
+    utm_content: data.utm_content || undefined,
+    landing_page: data.landing_page || undefined,
+    referrer: data.referrer || undefined,
   };
 }
 
