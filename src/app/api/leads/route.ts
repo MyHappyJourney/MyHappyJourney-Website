@@ -191,6 +191,53 @@ async function handleLeadSubmission(req: NextRequest) {
           const subject = `New Lead: ${rawName} - ${rawDestination}`;
           const enquiryIdText = crmResult.enquiry_id ? String(crmResult.enquiry_id) : 'N/A';
 
+          const rawGclid = typeof body.gclid === 'string' ? body.gclid.trim() : '';
+          const rawFbclid = typeof body.fbclid === 'string' ? body.fbclid.trim() : '';
+          const rawUtmSource = typeof body.utm_source === 'string' ? body.utm_source.trim() : '';
+          const rawUtmMedium = typeof body.utm_medium === 'string' ? body.utm_medium.trim() : '';
+          const rawUtmCampaign = typeof body.utm_campaign === 'string' ? body.utm_campaign.trim() : '';
+          const rawUtmTerm = typeof body.utm_term === 'string' ? body.utm_term.trim() : '';
+          const rawUtmContent = typeof body.utm_content === 'string' ? body.utm_content.trim() : '';
+          const rawLandingPage = typeof body.landing_page === 'string' ? body.landing_page.trim() : '';
+          const rawReferrer = typeof body.referrer === 'string' ? body.referrer.trim() : '';
+
+          const attributionItems: { label: string; value: string }[] = [];
+
+          if (rawUtmSource || rawUtmMedium || rawUtmCampaign) {
+            const campaignParts = [rawUtmSource, rawUtmMedium, rawUtmCampaign].filter(Boolean);
+            attributionItems.push({ label: 'Campaign', value: campaignParts.join(' / ') });
+          }
+
+          if (rawGclid) {
+            attributionItems.push({ label: 'Google Ads Click', value: rawGclid });
+          }
+
+          if (rawFbclid) {
+            attributionItems.push({ label: 'Facebook Click (fbclid)', value: rawFbclid });
+          }
+
+          if (rawUtmTerm) {
+            attributionItems.push({ label: 'Search Term (utm_term)', value: rawUtmTerm });
+          }
+
+          if (rawUtmContent) {
+            attributionItems.push({ label: 'Ad Content (utm_content)', value: rawUtmContent });
+          }
+
+          if (rawLandingPage) {
+            attributionItems.push({ label: 'Landing Page', value: rawLandingPage });
+          }
+
+          if (rawReferrer) {
+            attributionItems.push({ label: 'Referrer', value: rawReferrer });
+          }
+
+          const textAttributionSection =
+            attributionItems.length > 0
+              ? `\n----------------------------------------\nLead Attribution:\n` +
+                attributionItems.map((item) => `${item.label}: ${item.value}`).join('\n')
+              : '';
+
           const textBody = `New Lead Submission Received:
 ----------------------------------------
 Name: ${rawName}
@@ -204,7 +251,28 @@ Adults: ${adultsNum}
 Children: ${childrenNum}
 Budget: ${rawBudget || 'Not specified'}
 CRM Enquiry ID: ${enquiryIdText}
-----------------------------------------`;
+----------------------------------------${textAttributionSection}`;
+
+          const htmlAttributionSection =
+            attributionItems.length > 0
+              ? `
+                <div style="margin-top: 20px; padding-top: 16px; border-top: 2px solid #e2e8f0;">
+                  <h3 style="margin: 0 0 12px 0; font-size: 15px; font-weight: 700; color: #0f172a;">Lead Attribution</h3>
+                  <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                    ${attributionItems
+                      .map(
+                        (item, idx) => `
+                      <tr style="${idx > 0 ? 'border-top: 1px solid #f1f5f9;' : ''}">
+                        <td style="padding: 6px 0; font-weight: 600; color: #64748b; width: 35%;">${item.label}:</td>
+                        <td style="padding: 6px 0; color: #0f172a; word-break: break-all;">${item.value}</td>
+                      </tr>
+                    `
+                      )
+                      .join('')}
+                  </table>
+                </div>
+              `
+              : '';
 
           const htmlBody = `
             <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
@@ -255,6 +323,7 @@ CRM Enquiry ID: ${enquiryIdText}
                     <td style="padding: 8px 0; color: #0f172a; font-weight: 700; color: #0284c7;">${enquiryIdText}</td>
                   </tr>
                 </table>
+                ${htmlAttributionSection}
               </div>
             </div>
           `;
