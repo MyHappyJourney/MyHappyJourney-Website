@@ -29,6 +29,7 @@ import {
   DESTINATION_OPTIONS,
 } from '../constants/crm';
 import { getAttribution } from '../utils/attribution';
+import { getVisitorId } from '../utils/visitorId';
 import { WHATSAPP_NUMBER } from '../data/tourData';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { RootState } from '../store/store';
@@ -221,6 +222,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       adults: Number(adults),
       children: Number(children),
       budget: budget.trim(),
+      visitor_id: getVisitorId(),
       ...attribution,
     };
 
