@@ -79,6 +79,8 @@ function formatTravelers(
   return null;
 }
 
+let leadEventFired = false;
+
 function KeralaThankYouContent() {
   const searchParams = useSearchParams();
   const packageParam = searchParams.get('package');
@@ -110,10 +112,12 @@ function KeralaThankYouContent() {
   useEffect(() => {
     try {
       if (
+        !leadEventFired &&
         hasEnquiryDetails &&
         typeof window !== 'undefined' &&
         typeof (window as any).fbq === 'function'
       ) {
+        leadEventFired = true;
         (window as any).fbq('track', 'Lead');
       }
     } catch {
