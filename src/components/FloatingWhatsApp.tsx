@@ -4,11 +4,20 @@ import React from 'react';
 import { WhatsAppIcon } from './WhatsAppIcon';
 import { triggerWhatsAppModal } from '../utils/whatsappModal';
 
-export const FloatingWhatsApp: React.FC = () => {
+interface FloatingWhatsAppProps {
+  destinationOverride?: string;
+  defaultMessageOverride?: string;
+}
+
+export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({
+  destinationOverride,
+  defaultMessageOverride,
+}) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     triggerWhatsAppModal({
-      destination: 'Holiday Tours',
+      destination: destinationOverride || 'Holiday Tours',
+      defaultMessage: defaultMessageOverride,
     });
   };
 

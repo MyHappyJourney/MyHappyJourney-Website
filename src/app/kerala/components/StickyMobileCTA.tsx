@@ -6,13 +6,20 @@ import { triggerWhatsAppModal } from '../../../utils/whatsappModal';
 
 interface StickyMobileCTAProps {
   onQuoteClick: () => void;
+  destinationOverride?: string;
+  defaultMessageOverride?: string;
 }
 
-export const StickyMobileCTA: React.FC<StickyMobileCTAProps> = ({ onQuoteClick }) => {
+export const StickyMobileCTA: React.FC<StickyMobileCTAProps> = ({
+  onQuoteClick,
+  destinationOverride,
+  defaultMessageOverride,
+}) => {
   const handleWhatsApp = (e: React.MouseEvent) => {
     e.preventDefault();
     triggerWhatsAppModal({
-      destination: 'Kerala Tours',
+      destination: destinationOverride || 'Kerala Tours',
+      defaultMessage: defaultMessageOverride,
     });
   };
 

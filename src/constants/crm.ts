@@ -19,6 +19,7 @@ export interface CRMLeadPayload {
   landing_page?: string;
   referrer?: string;
   visitor_id?: string;
+  pickup_point?: string;
 }
 
 /**
