@@ -62,7 +62,18 @@ export interface CrmLeadFormProps {
   badgeText?: string;
   onSuccess?: (enquiryId: string | number | null) => void;
   isModal?: boolean;
+  showPickupPointField?: boolean;
+  defaultPickupPoint?: string;
 }
+
+const PICKUP_POINT_OPTIONS = [
+  'Cochin Airport (COK)',
+  'Ernakulam Jn/Town',
+  'Aluva',
+  'Trivandrum Airport/Central',
+  'Calicut Airport/Station',
+  'Other',
+];
 
 export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   destination: initialDestinationProp,
@@ -77,6 +88,8 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   badgeText,
   onSuccess,
   isModal = false,
+  showPickupPointField = false,
+  defaultPickupPoint,
 }) => {
   const activeDurations =
     durationOptions && durationOptions.length > 0
@@ -109,6 +122,15 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   const [submitted, setSubmitted] = useState(false);
   const [enquiryId, setEnquiryId] = useState<string | number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [pickupPoint, setPickupPoint] = useState<string>(
+    defaultPickupPoint || PICKUP_POINT_OPTIONS[0]
+  );
+
+  useEffect(() => {
+    if (defaultPickupPoint) {
+      setPickupPoint(defaultPickupPoint);
+    }
+  }, [defaultPickupPoint]);
 
   // Sync props if changed
   useEffect(() => {
@@ -223,6 +245,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       children: Number(children),
       budget: budget.trim(),
       visitor_id: getVisitorId(),
+      ...(showPickupPointField && pickupPoint ? { pickup_point: pickupPoint } : {}),
       ...attribution,
     };
 
@@ -311,6 +334,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
     setSubmitted(false);
     setEnquiryId(null);
     setErrorMessage(null);
+    setPickupPoint(defaultPickupPoint || PICKUP_POINT_OPTIONS[0]);
     dispatch(resetForm({ instanceId, duration: initialDuration, destination: initialDestinationProp }));
   };
 
@@ -622,6 +646,31 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                 </div>
               </div>
             </div>
+
+            {/* Optional Pickup Point Field */}
+            {showPickupPointField && (
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Pickup Point <span className="text-red-500">*</span>
+                </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <MapPin className="w-3.5 h-3.5" />
+                  </div>
+                  <select
+                    value={pickupPoint}
+                    onChange={(e) => setPickupPoint(e.target.value)}
+                    className="w-full pl-8 pr-3 h-10.5 bg-gray-50 border border-gray-300 rounded-xl text-xs sm:text-sm text-gray-900 focus:bg-white focus:border-[#0B3996] focus:ring-2 focus:ring-[#0B3996]/20 transition-all outline-none font-medium cursor-pointer"
+                  >
+                    {PICKUP_POINT_OPTIONS.map((opt) => (
+                      <option key={opt} value={opt}>
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
 
             {/* Row 5: Adults Stepper [- 2 +] and Children Stepper [- 0 +] */}
             <div className="grid grid-cols-2 gap-3 sm:gap-3.5">

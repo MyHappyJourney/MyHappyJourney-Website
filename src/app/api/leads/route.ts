@@ -57,6 +57,7 @@ async function handleLeadSubmission(req: NextRequest) {
 
     const rawFromDate = typeof from_date === 'string' && from_date.trim() ? from_date.trim() : (typeof travelDate === 'string' ? travelDate.trim() : '');
     const rawDuration = typeof duration === 'string' && duration.trim() ? duration.trim() : (typeof packagePreference === 'string' ? packagePreference.trim() : '');
+    const rawPickupPoint = typeof body.pickup_point === 'string' ? body.pickup_point.trim() : '';
     
     const adultsNum = typeof adults === 'number' ? adults : Number(adults);
     const childrenNum = typeof children === 'number' ? children : (children !== undefined && children !== '' && children !== null ? Number(children) : 0);
@@ -128,6 +129,7 @@ async function handleLeadSubmission(req: NextRequest) {
       children: childrenNum,
       budget: rawBudget,
       lead_ip: clientIp,
+      ...(rawPickupPoint ? { pickup_point: rawPickupPoint } : {}),
     };
 
     const crmUrl =
@@ -255,6 +257,10 @@ async function handleLeadSubmission(req: NextRequest) {
 
           if (rawVisitorId) {
             attributionItems.push({ label: 'Visitor ID', value: rawVisitorId });
+          }
+
+          if (rawPickupPoint) {
+            attributionItems.push({ label: 'Pickup Point', value: rawPickupPoint });
           }
 
           const textAttributionSection =

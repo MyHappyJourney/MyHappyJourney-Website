@@ -6,6 +6,10 @@ export interface AttributionData {
   utm_campaign?: string;
   utm_term?: string;
   utm_content?: string;
+  utm_id?: string;
+  utm_matchtype?: string;
+  utm_device?: string;
+  utm_network?: string;
   referrer?: string;
   landing_page?: string;
   [key: string]: any;
@@ -55,6 +59,10 @@ export function captureAttribution(): void {
       'utm_campaign',
       'utm_term',
       'utm_content',
+      'utm_id',
+      'utm_matchtype',
+      'utm_device',
+      'utm_network',
     ] as const;
 
     for (const param of trackingParams) {
