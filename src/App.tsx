@@ -19,6 +19,7 @@ import { PackagesPage } from './components/PackagesPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { AboutUsPage } from './components/AboutUsPage';
 import { ContactUsPage } from './components/ContactUsPage';
+import { LicensesAndCertificatesPage } from './components/LicensesAndCertificatesPage';
 import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
 import { CookiePolicyPage } from './components/CookiePolicyPage';
 import { CancellationRefundPage } from './components/CancellationRefundPage';
@@ -96,6 +97,11 @@ const ROUTE_METADATA: Record<string, RouteMetadata> = {
     description:
       'Contact MyHappyJourney for customized tour packages, customized itineraries, and travel support. Visit our Bengaluru office or reach us via phone, WhatsApp, or email.',
   },
+  '/licenses-and-certificates': {
+    title: 'Licenses & Certifications | MyHappyJourney',
+    description:
+      'View official government licenses, GST registration, and MSME Udyam certificates for MyHappyJourney. 100% verified and government registered tour operator in India.',
+  },
 };
 
 export default function App() {
@@ -129,6 +135,9 @@ export default function App() {
     }
     if (path === '/contact-us' || path.startsWith('/contact-us')) {
       return '/contact-us';
+    }
+    if (path === '/licenses-and-certificates' || path.startsWith('/licenses-and-certificates')) {
+      return '/licenses-and-certificates';
     }
     if (path === '/about-us' || path.startsWith('/about-us')) {
       return '/about-us';
@@ -281,6 +290,12 @@ export default function App() {
         ) : currentPath === '/contact-us' ? (
           <main>
             <ContactUsPage
+              onBackToHome={() => navigateTo('/')}
+            />
+          </main>
+        ) : currentPath === '/licenses-and-certificates' ? (
+          <main>
+            <LicensesAndCertificatesPage
               onBackToHome={() => navigateTo('/')}
             />
           </main>
