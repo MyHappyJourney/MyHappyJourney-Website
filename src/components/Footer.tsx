@@ -172,6 +172,14 @@ export const Footer: React.FC<FooterProps> = ({ onSelectDestination, onNavigate 
                     Terms &amp; Booking Conditions
                   </button>
                 </li>
+                <li>
+                  <button
+                    onClick={() => onNavigate ? onNavigate('/licenses-and-certificates') : (window.location.href = '/licenses-and-certificates')}
+                    className="text-slate-400 hover:text-white transition-colors"
+                  >
+                    Licenses &amp; Certificates
+                  </button>
+                </li>
               </ul>
             </div>
 

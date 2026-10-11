@@ -116,6 +116,8 @@ export const Footer: React.FC<FooterProps> = ({ onQuoteClick }) => {
             <a href="/terms-conditions" className="hover:underline">Terms of Service</a>
             <span>•</span>
             <a href="/cancellation-refund" className="hover:underline">Cancellation Rules</a>
+            <span>•</span>
+            <a href="/licenses-and-certificates" className="hover:underline">Licenses &amp; Certificates</a>
           </div>
         </div>
 
