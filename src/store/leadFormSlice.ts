@@ -11,6 +11,8 @@ export interface LeadFormFields {
   adults: number;
   children: number;
   budget: string;
+  travel_mode: string;
+  ticket_booked: string;
   currentStep: number;
 }
 
@@ -31,6 +33,8 @@ export const defaultFields = (initialDuration = '6 NIGHTS / 7 DAYS (6N / 7D)', i
   adults: 2,
   children: 0,
   budget: '',
+  travel_mode: '',
+  ticket_booked: '',
   currentStep: 1,
 });
 
@@ -98,6 +102,16 @@ const leadFormSlice = createSlice({
       ensureInstance(state, instanceId);
       state.instances[instanceId].budget = value;
     },
+    setTravelMode: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].travel_mode = value;
+    },
+    setTicketBooked: (state, action: PayloadAction<{ instanceId: string; value: string }>) => {
+      const { instanceId, value } = action.payload;
+      ensureInstance(state, instanceId);
+      state.instances[instanceId].ticket_booked = value;
+    },
     setCurrentStep: (state, action: PayloadAction<{ instanceId: string; value: number }>) => {
       const { instanceId, value } = action.payload;
       ensureInstance(state, instanceId);
@@ -121,6 +135,8 @@ export const {
   setAdults,
   setChildren,
   setBudget,
+  setTravelMode,
+  setTicketBooked,
   setCurrentStep,
   resetForm,
 } = leadFormSlice.actions;

@@ -58,6 +58,8 @@ async function handleLeadSubmission(req: NextRequest) {
     const rawFromDate = typeof from_date === 'string' && from_date.trim() ? from_date.trim() : (typeof travelDate === 'string' ? travelDate.trim() : '');
     const rawDuration = typeof duration === 'string' && duration.trim() ? duration.trim() : (typeof packagePreference === 'string' ? packagePreference.trim() : '');
     const rawPickupPoint = typeof body.pickup_point === 'string' ? body.pickup_point.trim() : '';
+    const rawTravelMode = typeof body.travel_mode === 'string' ? body.travel_mode.trim() : '';
+    const rawTicketBooked = typeof body.ticket_booked === 'string' ? body.ticket_booked.trim() : '';
     
     const adultsNum = typeof adults === 'number' ? adults : Number(adults);
     const childrenNum = typeof children === 'number' ? children : (children !== undefined && children !== '' && children !== null ? Number(children) : 0);
@@ -128,6 +130,8 @@ async function handleLeadSubmission(req: NextRequest) {
       adults: adultsNum,
       children: childrenNum,
       budget: rawBudget,
+      travel_mode: rawTravelMode,
+      ticket_booked: rawTicketBooked,
       lead_ip: clientIp,
       ...(rawPickupPoint ? { pickup_point: rawPickupPoint } : {}),
     };
@@ -281,6 +285,8 @@ Duration: ${rawDuration}
 Adults: ${adultsNum}
 Children: ${childrenNum}
 Budget: ${rawBudget || 'Not specified'}
+Travel Mode: ${rawTravelMode || 'Not specified'}
+Ticket Booked: ${rawTicketBooked || 'Not specified'}
 CRM Enquiry ID: ${enquiryIdText}
 ----------------------------------------${textAttributionSection}`;
 
@@ -348,6 +354,14 @@ CRM Enquiry ID: ${enquiryIdText}
                   <tr style="border-top: 1px solid #f1f5f9;">
                     <td style="padding: 8px 0; font-weight: 600; color: #64748b;">Budget:</td>
                     <td style="padding: 8px 0; color: #0f172a;">${rawBudget || 'Not specified'}</td>
+                  </tr>
+                  <tr style="border-top: 1px solid #f1f5f9;">
+                    <td style="padding: 8px 0; font-weight: 600; color: #64748b;">Travel Mode:</td>
+                    <td style="padding: 8px 0; color: #0f172a; font-weight: 600;">${rawTravelMode || 'Not specified'}</td>
+                  </tr>
+                  <tr style="border-top: 1px solid #f1f5f9;">
+                    <td style="padding: 8px 0; font-weight: 600; color: #64748b;">Ticket Booked:</td>
+                    <td style="padding: 8px 0; color: #0f172a; font-weight: 600;">${rawTicketBooked || 'Not specified'}</td>
                   </tr>
                   <tr style="border-top: 1px solid #f1f5f9;">
                     <td style="padding: 8px 0; font-weight: 600; color: #64748b;">CRM Enquiry ID:</td>
