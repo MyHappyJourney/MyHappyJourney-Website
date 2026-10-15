@@ -37,30 +37,6 @@ export const KeralaTravelStyleSection: React.FC = () => {
       icon: <Crown className="w-5 h-5 text-white" />,
       image: '/images/chat.jpg',
     },
-    {
-      id: 'group',
-      title: 'Group Tour Package',
-      subtitle: 'Seamless private coaches, bonding activities & group discounts',
-      href: '/kerala/kerala-group-tour-packages',
-      icon: <Briefcase className="w-5 h-5 text-white" />,
-      image: '/images/chatt.jpg',
-    },
-    {
-      id: 'luxury',
-      title: 'Luxury Holiday Package',
-      subtitle: 'Where every journey becomes an extraordinary 5-star experience',
-      href: '/kerala/kerala-luxury-holiday-tour-packages',
-      icon: <Mountain className="w-5 h-5 text-white" />,
-      image: '/images/hehe.jpg',
-    },
-    {
-      id: 'educational',
-      title: 'School & College Tour',
-      subtitle: 'Where learning meets adventure with safety and expert guides',
-      href: '/kerala/kerala-school-college-tour-packages',
-      icon: <Compass className="w-5 h-5 text-white" />,
-      image: '/images/uuu.jpg',
-    },
   ];
 
   return (
