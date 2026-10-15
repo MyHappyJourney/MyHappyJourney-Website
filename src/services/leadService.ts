@@ -28,6 +28,7 @@ export interface LeadData {
   referrer?: string;
   visitor_id?: string;
   pickup_point?: string;
+  travel_mode?: string;
 }
 
 export interface BasicCRMLeadPayload {
@@ -119,6 +120,7 @@ export function formatCRMLeadPayload(data: LeadData, defaultDestination: string 
     referrer: data.referrer || undefined,
     visitor_id: data.visitor_id || undefined,
     pickup_point: data.pickup_point || undefined,
+    travel_mode: data.travel_mode || undefined,
   };
 }
 
