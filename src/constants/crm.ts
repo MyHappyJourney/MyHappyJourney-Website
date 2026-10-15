@@ -21,6 +21,7 @@ export interface CRMLeadPayload {
   visitor_id?: string;
   pickup_point?: string;
   travel_mode?: string;
+  ticket_booked?: string;
 }
 
 /**

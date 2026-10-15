@@ -45,6 +45,7 @@ import {
   setChildren,
   setBudget,
   setTravelMode,
+  setTicketBooked,
   setCurrentStep,
   resetForm,
   defaultFields,
@@ -118,6 +119,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
   const children = fields.children;
   const budget = fields.budget;
   const travel_mode = fields.travel_mode;
+  const ticket_booked = fields.ticket_booked;
   const currentStep = fields.currentStep;
 
   const [loading, setLoading] = useState(false);
@@ -238,6 +240,11 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       return;
     }
 
+    if (!ticket_booked) {
+      setErrorMessage('Please indicate whether your flight or train ticket is booked.');
+      return;
+    }
+
     // Construct Exact CRM payload
     const attribution = getAttribution();
     const crmPayload: CRMLeadPayload = {
@@ -252,6 +259,7 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
       children: Number(children),
       budget: budget.trim(),
       travel_mode: travel_mode.trim(),
+      ticket_booked: ticket_booked.trim(),
       visitor_id: getVisitorId(),
       ...(showPickupPointField && pickupPoint ? { pickup_point: pickupPoint } : {}),
       ...attribution,
@@ -681,6 +689,34 @@ export const CrmLeadForm: React.FC<CrmLeadFormProps> = ({
                 })}
               </div>
             </div>
+
+            {/* Cascading Ticket Booked Field: Flight / Train Ticket Booked? */}
+            {travel_mode && (
+              <div>
+                <label className="block text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Flight / Train Ticket Booked? <span className="text-red-500">*</span>
+                </label>
+                <div className="grid grid-cols-2 gap-3">
+                  {['Yes', 'No'].map((option) => {
+                    const isSelected = ticket_booked === option;
+                    return (
+                      <button
+                        key={option}
+                        type="button"
+                        onClick={() => dispatch(setTicketBooked({ instanceId, value: option }))}
+                        className={`h-10.5 rounded-xl border text-xs sm:text-sm font-extrabold transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs ${
+                          isSelected
+                            ? 'bg-[#0B3996] text-white border-[#0B3996] shadow-md ring-2 ring-[#0B3996]/20'
+                            : 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-gray-100'
+                        }`}
+                      >
+                        <span>{option}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* Optional Pickup Point Field */}
             {showPickupPointField && (
