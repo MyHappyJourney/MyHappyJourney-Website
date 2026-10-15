@@ -37,32 +37,11 @@ export const HolidayCategoriesSection: React.FC<HolidayCategoriesSectionProps> =
       image: '/images/kk.jpg',
     },
     {
-      id: 'group',
-      title: 'Group Tours',
-      subtitle: 'Seamless private coaches & group bonding',
-      icon: <Briefcase className="w-5 h-5 text-white" />,
-      image: '/images/chatt.jpg',
-    },
-    {
       id: 'senior',
       title: 'Senior Citizen Tours',
       subtitle: 'Comfortable paced itineraries & caring support',
       icon: <Crown className="w-5 h-5 text-white" />,
       image: '/images/chat.jpg',
-    },
-    {
-      id: 'adventure',
-      title: 'Luxury Holidays',
-      subtitle: 'Where Every Journey Becomes an Extraordinary Experience.',
-      icon: <Mountain className="w-5 h-5 text-white" />,
-      image: '/images/hehe.jpg',
-    },
-    {
-      id: 'educational',
-      title: 'School & College Tours',
-      subtitle: 'Where Learning Meets Adventure.',
-      icon: <Compass className="w-5 h-5 text-white" />,
-      image: '/images/uuu.jpg',
     },
   ];
 
