@@ -32,9 +32,8 @@ export const ThankYouTemplate: React.FC<ThankYouTemplateProps> = ({
   children,
 }) => {
   const [isWhatsAppModalOpen, setIsWhatsAppModalOpen] = useState(false);
-  const whatsAppDefaultMsg = encodeURIComponent(
-    `Hi MyHappyJourney, I just submitted an enquiry for ${destinationName} and would like to speed up my booking. Please connect me with a holiday expert.`
-  );
+  const whatsAppDefaultMsg =
+    `Hi MyHappyJourney, I just submitted an enquiry for ${destinationName} and would like to speed up my booking. Please connect me with a holiday expert.`;
 
   const handleWhatsAppClick = () => {
     setIsWhatsAppModalOpen(true);
