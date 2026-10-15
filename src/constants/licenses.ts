@@ -27,4 +27,13 @@ export const LICENSES: LicenseItem[] = [
     fileName: 'udyam-registration-certificate.pdf',
     iconName: 'FileCheck',
   },
+  {
+    id: 'nidhi-pledge',
+    title: 'NIDHI Pledge — Safe & Honourable Tourism',
+    issuingAuthority: 'Ministry of Tourism, Government of India',
+    registrationNumber: 'EKA000542',
+    description: 'Pledge for commitment towards Safe & Honourable Tourism and Sustainable Tourism, under the National Integrated Database of Hospitality Industry (NIDHI) initiative.',
+    fileName: 'nidhi-pledge.pdf',
+    iconName: 'ShieldCheck',
+  },
 ];
